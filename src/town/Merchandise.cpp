@@ -17,14 +17,16 @@ void Merchandise::setSaleList(const map<Item *, int> &saleList) {
 
 void Merchandise::printInfo() {
     map<Item *, int>::iterator it;
-    cout << "Name\t\t" <<"Description\t\t\t\t" <<"price\t"<< "quantity" <<endl;
+    cout << setw(25) << left   <<  "Name" ;
+    cout << setw(50) << left   << "Description" ;
+    cout << setw(15) << left   <<  "price" ;
+    cout << setw(15) << left   <<  "quantity"<<endl;
+
     for (it = saleList.begin(); it != saleList.end(); it++) {
-        cout << setw(12) << right << "14 months" << endl;
-        cout << it->first->getName() <<"\t\t"
-                <<it->first->getDescription()  <<"\t\t"
-             << it->first->getBuyPrice()<<"\t"
-                << it->second
-             << std::endl;
+        cout << setw(25) << left   <<  it->first->getName() ;
+        cout << setw(50) << left   <<  it->first->getDescription() ;
+        cout << setw(15) << left   <<  it->first->getBuyPrice() ;
+        cout << setw(15) << left   <<  it->second <<endl;
     }
 }
 
