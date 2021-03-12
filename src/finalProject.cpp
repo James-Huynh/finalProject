@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : finalProject.cpp
-// Author      : Samuel Lamontagne
+// Authors      : Samuel Lamontagne, James Huynh, Qin
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
