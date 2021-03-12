@@ -11,12 +11,14 @@
 class Ax : public Weapon {
 
 private:
-    int protectBonus;
+    double dmgOnProtection;
 public:
-    Ax(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue,
-          int protectBonus);
-    int getProtectBonus() const;
-    void setProtectBonus(int protectBonus);
+    Ax(const string &name, const string &description, int buyPrice, int dmgValue,
+       double dmgOnProtection);
+
+    double getDmgOnProtection() const;
+
+    void setDmgOnProtection(double dmgOnProtection);
 
     void printInfo() override;
 };

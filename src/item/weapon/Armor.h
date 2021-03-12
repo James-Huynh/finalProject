@@ -11,15 +11,12 @@
 class Armor : public Weapon {
 
 private:
-    int protectBonus;
     double weakenDmgProbability;
 public:
 
-    Armor(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue, int protectBonus,
+    Armor(const string &name, const string &description, int buyPrice, int protectValue,
           double weakenDmgProbability);
 
-    int getProtectBonus() const;
-    void setProtectBonus(int protectBonus);
 
     double getWeakenDmgProbability() const;
 

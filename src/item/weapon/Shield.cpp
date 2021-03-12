@@ -3,20 +3,23 @@
 //
 
 #include "Shield.h"
-int Shield::getProtectBonus() const {
-    return protectBonus;
-}
 
-void Shield::setProtectBonus(int protectBonus) {
-    Shield::protectBonus = protectBonus;
-}
+
 
 
 void Shield::printInfo() {
     cout << Item::description<<endl;
 }
 
-Shield::Shield(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue,
-               int protectBonus, double weakenDmgProbability) : Weapon(name, description, buyPrice, dmgValue,
-                                                                       protectValue), protectBonus(protectBonus),
-                                                                weakenDmgProbability(weakenDmgProbability) {}
+Shield::Shield(const string &name, const string &description, int buyPrice, int protectValue,
+               double weakenDmgProbability) : Weapon(name, description, buyPrice, 0, protectValue),
+                                              weakenDmgProbability(weakenDmgProbability) {}
+
+double Shield::getWeakenDmgProbability() const {
+    return weakenDmgProbability;
+}
+
+void Shield::setWeakenDmgProbability(double weakenDmgProbability) {
+    Shield::weakenDmgProbability = weakenDmgProbability;
+}
+

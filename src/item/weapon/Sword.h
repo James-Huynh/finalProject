@@ -10,15 +10,15 @@
 
 class Sword : public Weapon{
 private:
-    int dmgOnArmor;
+    double dmgOnProtection;
 public:
-    Sword(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue, int dmgOnArmor);
-
-    int getDmgOnArmor() const;
-
-    void setDmgOnArmor(int dmgOnArmor);
+    Sword(const string &name, const string &description, int buyPrice, int dmgValue, double dmgOnProtection);
 
     void printInfo() override;
+
+    double getDmgOnProtection() const;
+
+    void setDmgOnProtection(double dmgOnProtection);
 };
 
 

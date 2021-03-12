@@ -10,17 +10,16 @@
 
 class Shield : public Weapon {
 
-
 private:
-    int protectBonus;
+
     double weakenDmgProbability;
+
 public:
-    Shield(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue,
-           int protectBonus, double weakenDmgProbability);
+    Shield(const string &name, const string &description, int buyPrice, int protectValue, double weakenDmgProbability);
 
-    int getProtectBonus() const;
+    double getWeakenDmgProbability() const;
 
-    void setProtectBonus(int protectBonus);
+    void setWeakenDmgProbability(double weakenDmgProbability);
 
     void printInfo() override;
 };

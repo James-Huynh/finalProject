@@ -4,21 +4,23 @@
 
 #include "Sword.h"
 
-Sword::Sword(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue,
-             int dmgOnArmor) : Weapon(name, description, buyPrice, dmgValue, protectValue), dmgOnArmor(dmgOnArmor) {
+Sword::Sword(const string &name, const string &description, int buyPrice, int dmgValue,
+             double dmgOnProtection) : Weapon(name, description, buyPrice, dmgValue, 0), dmgOnProtection(dmgOnProtection) {
     this->isAttack= true;
 }
 
-int Sword::getDmgOnArmor() const {
-    return dmgOnArmor;
-}
 
-void Sword::setDmgOnArmor(int dmgOnArmor) {
-    Sword::dmgOnArmor = dmgOnArmor;
-}
 
 
 void Sword::printInfo() {
     cout << Item::description<<endl;
+}
+
+double Sword::getDmgOnProtection() const {
+    return dmgOnProtection;
+}
+
+void Sword::setDmgOnProtection(double dmgOnProtection) {
+    Sword::dmgOnProtection = dmgOnProtection;
 }
 
