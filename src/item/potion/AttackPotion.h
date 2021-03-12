@@ -1,0 +1,14 @@
+//
+// Created by hello on 2021-03-13.
+//
+
+#ifndef FINALPROJECTWEEK5_ATTACKPOTION_H
+#define FINALPROJECTWEEK5_ATTACKPOTION_H
+
+
+class AttackPotion {
+
+};
+
+
+#endif //FINALPROJECTWEEK5_ATTACKPOTION_H
