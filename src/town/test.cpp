@@ -7,6 +7,9 @@
 #include "../item/weapon/Sword.h"
 #include "../item/weapon/Ax.h"
 #include "../item/weapon/Armor.h"
+#include "../item/potion/HP_Potion.h"
+#include "../item/potion/Diamond.h"
+#include "../item/potion/MagicPotion.h"
 
 
 int main(){
@@ -33,10 +36,26 @@ int main(){
     Shield brassShield("brass ax","level 3 with 40% pierce through armor",300,200,0.1);
     Shield woodShield("wood ax","level 1 with 5% pierce through armor",100,50,0.05);
 
+    HP_Potion hpPotion1("small bottle hp potion","level 1 hp potion",100,1,100);
+    HP_Potion hpPotion2("normal bottle hp potion","level 2 hp potion",200,2,300);
+    HP_Potion hpPotion3("big bottle hp potion","level 3 hp potion",400,3,500);
+
+    Diamond Amethyst("Amethyst", "level 1, embed on defensive weapon will increase 100 points of defence", 300, 1, 100);
+    Diamond Emerald ("Emerald", "level 2, embed on defensive weapon will increase 100 points of defence", 500, 2, 300);
+    Diamond Ruby ("Ruby", "level 3,embed on defensive weapon will increase 100 points of defence", 1000, 3, 800);
+
+    MagicPotion  lesserMP("lesser MagicPotion", "level 1, increase 100 attack value ", 300, 1, 100);
+    MagicPotion normalMP ("normal MagicPotion", "level 2, increase 300 attack value", 500, 2, 300);
+    MagicPotion superMP ("Super MagicPotion", "level 3,increase 500 attack value", 1000, 3, 500);
+
     map<Item*,int >saleList ={{&bamen,1},{&leatherArmor,30},{&ironArmor,10},{&clothArmor,20},
                               {&leanSky,1},{&ironSword,10},{&brassSword,100},{&woodSword,12},
                               {&thorAx,1},{&ironAx,11},{&brassAx,111},{&woodAx,22},
-                              {&ironShield,10},{&brassShield,5},{&woodShield,4}
+                              {&ironShield,10},{&brassShield,5},{&woodShield,4},
+                              {&hpPotion1,10},{&hpPotion2,5},{&hpPotion3,4},
+                              {&Amethyst,10},{&Emerald,5},{&Ruby,4},
+                              {&lesserMP,10},{&normalMP,5},{&superMP,4},
+
     };
 
     Merchandise merchandise("Depanneur711","weapons and potions for sale");
