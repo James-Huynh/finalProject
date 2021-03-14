@@ -4,24 +4,28 @@
 
 #ifndef FINALPROJECTWEEK5_SWORD_H
 #define FINALPROJECTWEEK5_SWORD_H
-
+#pragma once
 
 #include "Weapon.h"
+#include "../potion/Diamond.h"
+
 
 class Sword : public Weapon{
 private:
-    double dmgOnProtection;
+    double hitProbability;
 public:
-
-
     Sword(const string &name, const string &description, int buyPrice, int level, int dmgValue,
-           double dmgOnProtection);
+           double hitProbability);
 
     void printInfo() override;
 
-    double getDmgOnProtection() const;
+    double getHitProbability() const;
 
-    void setDmgOnProtection(double dmgOnProtection);
+    void setHitProbability(double hitProbability);
+
+    int getDefenceValue() override;
+
+    int getAttackValue() override;
 };
 
 

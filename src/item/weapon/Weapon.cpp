@@ -46,4 +46,31 @@ Weapon::Weapon(const string &name, const string &description, int buyPrice, int 
     this->sellValue=buyPrice/2;
 }
 
+const vector<Diamond *> &Weapon::getDiamondPlace() const {
+    return diamondPlace;
+}
 
+void Weapon::setDiamondPlace(const vector<Diamond *> &diamondPlace) {
+    Weapon::diamondPlace = diamondPlace;
+}
+
+void Weapon::embedDiamond(Diamond* diamond) {
+    if(diamondPlace.size()<level ){      // weapon has enough place to embed diamond
+        if(diamond->getLevel() <= this->getLevel()){
+            diamondPlace.push_back(diamond);
+        }else{
+            cout <<"diamond level should be lower than the weapon level"<<endl;
+        }
+    }else{
+        cout <<"there is no place to hold the diamond"<<endl;
+    }
+}
+
+double Weapon::getProbability(){
+    srand (time(NULL));
+    double result=0;
+    for(int i=0;i<3 ;i++){
+        result+=rand()%100;
+    }
+    return result/300;
+}
