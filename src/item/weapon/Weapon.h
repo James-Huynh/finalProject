@@ -15,7 +15,10 @@ protected:
     int sellValue;
     bool isAttack = false;
 public:
-    Weapon(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue);
+
+
+    Weapon(const string &name, const string &description, int buyPrice, int level, int dmgValue, int protectValue,
+           bool isAttack);
 
     int getDmgValue() const;
 

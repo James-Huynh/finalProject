@@ -6,8 +6,6 @@
 
 #include <utility>
 
-Item::Item(string name, string description, int buyPrice) : name(std::move(name)), description(std::move(description)),
-                                                                          buyPrice(buyPrice) {}
 
 const string &Item::getName() const {
     return name;
@@ -31,4 +29,16 @@ int Item::getBuyPrice() const {
 
 void Item::setBuyPrice(int buyPrice) {
     Item::buyPrice = buyPrice;
+}
+
+Item::Item(const string &name, const string &description, int buyPrice, int level) : name(name),
+                                                                                     description(description),
+                                                                                     buyPrice(buyPrice), level(level) {}
+
+int Item::getLevel() const {
+    return level;
+}
+
+void Item::setLevel(int level) {
+    Item::level = level;
 }

@@ -4,15 +4,9 @@
 
 #include "Weapon.h"
 
-Weapon::Weapon(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue) : Item(name,
-                                                                                                                   description,
-                                                                                                                   buyPrice),
-                                                                                                              dmgValue(
-                                                                                                                      dmgValue),
-                                                                                                              protectValue(
-                                                                                                                      protectValue){
-    this->sellValue=buyPrice/2;
-}
+
+
+
 
 int Weapon::getDmgValue() const {
     return dmgValue;
@@ -45,3 +39,11 @@ bool Weapon::isAttack1() const {
 void Weapon::setIsAttack(bool isAttack) {
     Weapon::isAttack = isAttack;
 }
+
+Weapon::Weapon(const string &name, const string &description, int buyPrice, int level, int dmgValue, int protectValue,
+               bool isAttack) : Item(name, description, buyPrice, level), dmgValue(dmgValue),
+                                protectValue(protectValue), isAttack(isAttack) {
+    this->sellValue=buyPrice/2;
+}
+
+

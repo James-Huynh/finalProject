@@ -12,10 +12,13 @@ class Shield : public Weapon {
 
 private:
 
+
+
     double weakenDmgProbability;
 
 public:
-    Shield(const string &name, const string &description, int buyPrice, int protectValue, double weakenDmgProbability);
+    Shield(const string &name, const string &description, int buyPrice, int level, int protectValue,
+           double weakenDmgProbability);
 
     double getWeakenDmgProbability() const;
 

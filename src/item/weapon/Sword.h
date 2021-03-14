@@ -12,7 +12,10 @@ class Sword : public Weapon{
 private:
     double dmgOnProtection;
 public:
-    Sword(const string &name, const string &description, int buyPrice, int dmgValue, double dmgOnProtection);
+
+
+    Sword(const string &name, const string &description, int buyPrice, int level, int dmgValue,
+           double dmgOnProtection);
 
     void printInfo() override;
 

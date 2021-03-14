@@ -11,10 +11,12 @@
 class Ax : public Weapon {
 
 private:
+
+
     double dmgOnProtection;
 public:
-    Ax(const string &name, const string &description, int buyPrice, int dmgValue,
-       double dmgOnProtection);
+
+    Ax(const string &name, const string &description, int buyPrice, int level, int dmgValue, double dmgOnProtection);
 
     double getDmgOnProtection() const;
 

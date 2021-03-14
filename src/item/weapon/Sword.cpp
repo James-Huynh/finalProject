@@ -4,12 +4,13 @@
 
 #include "Sword.h"
 
-Sword::Sword(const string &name, const string &description, int buyPrice, int dmgValue,
-             double dmgOnProtection) : Weapon(name, description, buyPrice, dmgValue, 0), dmgOnProtection(dmgOnProtection) {
-    this->isAttack= true;
+
+
+Sword::Sword(const string &name, const string &description, int buyPrice, int level, int dmgValue,
+            double dmgOnProtection) : Weapon(name, description, buyPrice, level, dmgValue, 0,
+                                                             true), dmgOnProtection(dmgOnProtection) {
+
 }
-
-
 
 
 void Sword::printInfo() {

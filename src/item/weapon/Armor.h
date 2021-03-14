@@ -11,12 +11,13 @@
 class Armor : public Weapon {
 
 private:
+
+
     double weakenDmgProbability;
 public:
 
-    Armor(const string &name, const string &description, int buyPrice, int protectValue,
+    Armor(const string &name, const string &description, int buyPrice, int level, int protectValue,
           double weakenDmgProbability);
-
 
     double getWeakenDmgProbability() const;
 

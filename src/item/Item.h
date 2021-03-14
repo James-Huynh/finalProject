@@ -13,13 +13,20 @@ protected:
     string name;
     string description;
     int buyPrice;
+    int level;
+public:
+    int getLevel() const;
+
+    void setLevel(int level);
 
 public:
-    Item(string name, string description, int buyPrice);
+
 
     const string &getName() const;
 
     void setName(const string &name);
+
+    Item(const string &name, const string &description, int buyPrice, int level);
 
     const string &getDescription() const;
 

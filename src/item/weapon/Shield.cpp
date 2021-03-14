@@ -11,9 +11,6 @@ void Shield::printInfo() {
     cout << Item::description<<endl;
 }
 
-Shield::Shield(const string &name, const string &description, int buyPrice, int protectValue,
-               double weakenDmgProbability) : Weapon(name, description, buyPrice, 0, protectValue),
-                                              weakenDmgProbability(weakenDmgProbability) {}
 
 double Shield::getWeakenDmgProbability() const {
     return weakenDmgProbability;
@@ -22,4 +19,9 @@ double Shield::getWeakenDmgProbability() const {
 void Shield::setWeakenDmgProbability(double weakenDmgProbability) {
     Shield::weakenDmgProbability = weakenDmgProbability;
 }
+
+Shield::Shield(const string &name, const string &description, int buyPrice, int level, int protectValue,
+                double weakenDmgProbability) : Weapon(name, description, buyPrice, level, 0,
+                                                                    protectValue, false),
+                                                             weakenDmgProbability(weakenDmgProbability) {}
 
