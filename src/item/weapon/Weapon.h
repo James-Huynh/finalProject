@@ -50,7 +50,6 @@ public:
     virtual int getAttackValue()= 0;
     void embedDiamond(Diamond* diamond);
 
-
    static double getProbability();
 };
 

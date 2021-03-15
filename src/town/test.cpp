@@ -3,17 +3,19 @@
 //
 
 #include "Merchandise.h"
-#include "../item/weapon/Shield.h"
+#include "../item/weapon/Armor.h"
 #include "../item/weapon/Sword.h"
 #include "../item/weapon/Ax.h"
-#include "../item/weapon/Armor.h"
+#include "../item/weapon/Shield.h"
 #include "../item/potion/HP_Potion.h"
 #include "../item/potion/MagicPotion.h"
+#include "Box.h"
+#include "windows.h"
 
 
 
 int main(){
-
+    Merchandise merchandise("Depanneur711","weapons and potions for sale");
 
     Armor bamen("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
     Armor  leatherArmor("Leather armor ","level 1 with 5% against the damage",100,1,100,0.05);
@@ -48,19 +50,26 @@ int main(){
     MagicPotion  lesserMP("lesser MagicPotion", "level 1, increase 100 attack value ", 300, 1, 100);
     MagicPotion normalMP ("normal MagicPotion", "level 2, increase 300 attack value", 500, 2, 300);
     MagicPotion superMP ("Super MagicPotion", "level 3,increase 500 attack value", 1000, 3, 500);
-
-
-    map<Item*,int >saleList ={{&bamen,Merchandise::getRandomNumByLevel(&bamen)},{&leatherArmor,Merchandise::getRandomNumByLevel(&leatherArmor)},{&ironArmor,Merchandise::getRandomNumByLevel(&leatherArmor)},{&clothArmor,Merchandise::getRandomNumByLevel(&leatherArmor)},
-                              {&leanSky,Merchandise::getRandomNumByLevel(&leanSky)},{&ironSword,Merchandise::getRandomNumByLevel(&ironSword)},{&brassSword,Merchandise::getRandomNumByLevel(&brassSword)},{&woodSword,Merchandise::getRandomNumByLevel(&woodSword)},
-                              {&thorAx,Merchandise::getRandomNumByLevel(&thorAx)},{&ironAx,Merchandise::getRandomNumByLevel(&ironAx)},{&brassAx,Merchandise::getRandomNumByLevel(&brassAx)},{&woodAx,Merchandise::getRandomNumByLevel(&woodAx)},
-                              {&ironShield,Merchandise::getRandomNumByLevel(&ironShield)},{&brassShield,Merchandise::getRandomNumByLevel(&brassShield)},{&woodShield,Merchandise::getRandomNumByLevel(&woodShield)},
-                              {&hpPotion1,Merchandise::getRandomNumByLevel(&hpPotion1)},{&hpPotion2,Merchandise::getRandomNumByLevel(&hpPotion2)},{&hpPotion3,Merchandise::getRandomNumByLevel(&hpPotion3)},
-                              {&Amethyst,Merchandise::getRandomNumByLevel(&Amethyst)},{&Emerald,Merchandise::getRandomNumByLevel(&Emerald)},{&Ruby,Merchandise::getRandomNumByLevel(&Ruby)},
-                              {&lesserMP,Merchandise::getRandomNumByLevel(&lesserMP)},{&normalMP,Merchandise::getRandomNumByLevel(&normalMP)},{&superMP,Merchandise::getRandomNumByLevel(&superMP)},
+//    vector<Item*>itemListTotal=getItemListTotal() ;
+    vector<Item*>itemListTotal= {&bamen,&leatherArmor,&ironArmor,&clothArmor,
+                                 &leanSky,&ironSword,&brassSword,&woodSword,
+                                 &thorAx,&ironAx,&brassAx,&woodAx,
+                                 &ironShield,&brassShield,&woodShield,
+                                 &hpPotion1,&hpPotion2,&hpPotion3,
+                                 &Amethyst,&Emerald,&Ruby,
+                                 &lesserMP,&normalMP,&superMP,
 
     };
+    map<Item*,int >saleList;
 
-    Merchandise merchandise("Depanneur711","weapons and potions for sale");
+    for (Item* item: itemListTotal){
+            saleList.emplace(item,Merchandise::getRandomNumByLevel(item));
+    }
+
+
+
+
+
     cout <<"before add diamond"<<endl;
     brassSword.getAttackValue();
     brassSword.embedDiamond(&Emerald);
@@ -99,5 +108,23 @@ int main(){
 
     merchandise.setSaleList(saleList);
     merchandise.printInfo();
+
+    Box box1("Bonus box1","Bonus box",itemListTotal);
+    Sleep(10);
+    Box box2("Bonus box2","Bonus box",itemListTotal);
+    Sleep(10);
+    Box box3("Bonus box3","Bonus box",itemListTotal);
+    Sleep(10);
+    Box box4("Bonus box4","Bonus box",itemListTotal);
+
+    box1.openBox();
+    box2.openBox();
+    box3.openBox();
+    box4.openBox();
+
+
+
+
+
     return 0;
 }
