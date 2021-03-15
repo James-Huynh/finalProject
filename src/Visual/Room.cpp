@@ -15,15 +15,15 @@ Room::~Room() {
 	// TODO Auto-generated destructor stub
 }
 
-Room Room::nextRoom(char userInput){
-	if(userInput == 'F')
-		return *northRoom;
-	else if(userInput == 'B')
-		return *southRoom;
-	else if(userInput == 'L')
-		return *westRoom;
-	else if(userInput == 'R')
-		return *eastRoom;
+Room* Room::nextRoom(char userInput){
+	if(userInput == 'F' || userInput == 'f')
+		return northRoom;
+	else if(userInput == 'B' || userInput == 'b')
+		return southRoom;
+	else if(userInput == 'L' || userInput == 'l')
+		return westRoom;
+	else if(userInput == 'R' || userInput == 'r')
+		return eastRoom;
 }
 
 void Room::setNorthRoom(Room newRoom){

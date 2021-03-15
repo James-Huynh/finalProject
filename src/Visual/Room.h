@@ -18,7 +18,7 @@ public:
 
 	//Return the next room taking input from user
 	//User input should always be F, B, L or R
-	Room nextRoom(char userInput);
+	Room* nextRoom(char userInput);
 
 	//Setters & getters
 	void setNorthRoom(Room newRoom);
