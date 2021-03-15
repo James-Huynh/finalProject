@@ -17,6 +17,9 @@ using namespace std;
 
 int main() {
 
+
+	//Sam' part
+
 	Levels level1;
 	createLevelOne(level1);
 
@@ -76,16 +79,21 @@ int main() {
 	//When boss is defeated, we should go to the town.
 	//When the player is done buying things, we should go to the next level.
 
+	//END of Sam's part
 
 
-	/*
-	char output;
 
-	one.PrintDisplay();
-	cout << "do you want to continue ? y/n" << endl;
-	cin >> output;
-	town1.PrintDisplay();
-	*/
+	//James' part
+
+	//entityMain();
+
+	//END of James' part
+
+
+
+	//Qin' part
+
+	//END of Qin's part
 
 	return 0;
 }
