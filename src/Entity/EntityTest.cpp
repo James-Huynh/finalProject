@@ -26,6 +26,8 @@ void testEquipment() {
     kingSam.equipMainWeapon(mySword);
     kingSam.printEquipment();
 
+    // Hi Mom
+
 
 }
 

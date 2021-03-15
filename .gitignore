@@ -1,5 +1,6 @@
 Debug/
 
+.settings/
 
 # +++ Visual Studio Code +++
 .vscode/*
