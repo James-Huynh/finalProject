@@ -15,18 +15,18 @@ void testEquipment() {
     Role::initializeRoles();
     Character kingSam("Sam", '1');
 
-    Sword woodSword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
-    // Sword mySword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
-    // Armor myArmor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
-    // Shield myShield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
+//    Sword mySword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
+//    Armor myArmor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
+//    Shield myShield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
 
-    // Weapon* mySword = new Sword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
-    // Weapon* myArmor = new Armor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
-    // Weapon* myShield = new Shield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
+	Weapon* mySword = new Sword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
+	Weapon* myArmor = new Armor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
+	Weapon* myShield = new Shield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
+
+    kingSam.equipMainWeapon(mySword);
+    kingSam.printEquipment();
 
 
-
-    // kingSam;
 }
 
 void testCharacter() {

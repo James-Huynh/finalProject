@@ -12,7 +12,7 @@
 
 
 
-int main(){
+int testMain(){
 
 
     Armor bamen("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);

@@ -12,7 +12,7 @@
 
 using namespace std;
 
-int main() {
+int graphicMain() {
 
 	vector<Graphics> lvl1[3];
 	Graphics one = straightLine();
@@ -22,10 +22,10 @@ int main() {
 
 	char output;
 
-	lvl1[two].push_back(one);
-	lvl1[one].push_back(two);
-	lvl1[two].push_back(three);
-	lvl1[three].push_back(two);
+//	lvl1[two].push_back(one);
+//	lvl1[one].push_back(two);
+//	lvl1[two].push_back(three);
+//	lvl1[three].push_back(two);
 
 	one.PrintDisplay();
 	cout << "do you want to continue ? y/n" << endl;

@@ -18,4 +18,5 @@ class Equipment {
         void setMainWeapon(Weapon* mainW);
         void setSecWeapon(Weapon* secW);
         void setArmor(Weapon* armor);
+        void printEquipment();
 };
