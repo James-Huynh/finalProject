@@ -1,5 +1,5 @@
 #pragma once
-#include "../Inventory.h"
+#include "Inventory.h"
 #include "Equipment.h"
 #include "Role.h"
 // #include "Item.h"
@@ -14,8 +14,9 @@ class Character : public Role {
         Equipment myEquipment;
 
     public:
-        Character(char roleIndex, string name = "TestName");
+        Character(string name = "TestName", char roleId = '1');
         void basicAttack(Character* opponent);
+        void printCharacter();
         // bool pickUpItem(Item* theItem);
         
 
