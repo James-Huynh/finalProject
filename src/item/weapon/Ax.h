@@ -7,20 +7,31 @@
 
 
 #include "Weapon.h"
+#include "../potion/Diamond.h"
+//#include "../../common/tool.cpp"
 
 class Ax : public Weapon {
 
 private:
-    double dmgOnProtection;
+
+    double hitProbability;
 public:
-    Ax(const string &name, const string &description, int buyPrice, int dmgValue,
-       double dmgOnProtection);
 
-    double getDmgOnProtection() const;
+    Ax(const string &name, const string &description, int buyPrice, int level, int dmgValue, double hitProbability);
 
-    void setDmgOnProtection(double dmgOnProtection);
 
     void printInfo() override;
+
+    int getDefenceValue();
+
+
+    double getHitProbability() const;
+
+    void setHitProbability(double hitProbability);
+
+    int getAttackValue();
+
+
 };
 
 

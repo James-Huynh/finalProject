@@ -7,22 +7,32 @@
 
 
 #include "Weapon.h"
+#include "../potion/Diamond.h"
+
+
 
 class Armor : public Weapon {
 
 private:
-    double weakenDmgProbability;
+
+    double dodgeProbability;
 public:
 
-    Armor(const string &name, const string &description, int buyPrice, int protectValue,
+    Armor(const string &name, const string &description, int buyPrice, int level, int protectValue,
           double weakenDmgProbability);
 
 
-    double getWeakenDmgProbability() const;
-
-    void setWeakenDmgProbability(double weakenDmgProbility);
 
     void printInfo() override;
+
+
+    int getDefenceValue();
+
+    double getDodgeProbability() const;
+
+    void setDodgeProbability(double dodgeProbability);
+
+    int getAttackValue() override;
 };
 
 

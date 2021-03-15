@@ -17,16 +17,18 @@ void Merchandise::setSaleList(const map<Item *, int> &saleList) {
 
 void Merchandise::printInfo() {
     map<Item *, int>::iterator it;
-    cout << setw(25) << left   <<  "Name" ;
-    cout << setw(50) << left   << "Description" ;
-    cout << setw(15) << left   <<  "price" ;
-    cout << setw(15) << left   <<  "quantity"<<endl;
+    cout << setw(22) << left   <<  "Name" ;
+    cout << setw(73) << left   << "Description" ;
+    cout << setw(13) << left   <<  "price" ;
+    cout << setw(8) << left   <<  "quantity"<<endl;
 
     for (it = saleList.begin(); it != saleList.end(); it++) {
-        cout << setw(25) << left   <<  it->first->getName() ;
-        cout << setw(50) << left   <<  it->first->getDescription() ;
-        cout << setw(15) << left   <<  it->first->getBuyPrice() ;
-        cout << setw(15) << left   <<  it->second <<endl;
+        if(it->second>0){
+            cout << setw(22) << left   <<  it->first->getName() ;
+            cout << setw(73) << left   <<  it->first->getDescription() ;
+            cout << setw(13) << left   <<  it->first->getBuyPrice() ;
+            cout << setw(8) << left   <<  it->second <<endl;
+        }
     }
 }
 
@@ -39,4 +41,23 @@ void Merchandise::addItem(Item *item, int quantity) {
         it->second = quantity;
     }
 
+}
+
+int Merchandise::getRandomNumByLevel(Item *item) {
+    {
+        srand (time(NULL));
+        int result=rand() % 100;
+        switch (item->getLevel()) {
+            case 1:
+                return  result>25?result%8+1:result%9+1;
+            case 2:
+                return result>50?result%5+1:result%6+1;
+            case 3:
+                return  result>75?result%3+1:result%4+1;
+            case 4:
+                return  result>95?1:0;
+            default:
+                return 0;
+        }
+    }
 }

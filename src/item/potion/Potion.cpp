@@ -6,18 +6,11 @@
 
 Potion::Potion(const string &name, const string &description, int buyPrice, int level, int basePoint) : Item(name,
                                                                                                              description,
-                                                                                                             buyPrice),
-                                                                                                        level(level),
+                                                                                                             buyPrice,
+                                                                                                             level),
                                                                                                         basePoint(
                                                                                                                 basePoint) {}
 
-int Potion::getLevel() const {
-    return level;
-}
-
-void Potion::setLevel(int level) {
-    Potion::level = level;
-}
 
 int Potion::getBasePoint() const {
     return basePoint;
@@ -25,4 +18,8 @@ int Potion::getBasePoint() const {
 
 void Potion::setBasePoint(int basePoint) {
     Potion::basePoint = basePoint;
+}
+
+void Potion::printInfo() {
+    cout <<Item::name<<": " <<Item::description<<endl;
 }

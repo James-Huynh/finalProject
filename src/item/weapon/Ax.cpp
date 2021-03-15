@@ -6,17 +6,39 @@
 
 
 void Ax::printInfo() {
-    cout << Item::description<<endl;
+    Weapon::printInfo();
 }
 
-Ax::Ax(const string &name, const string &description, int buyPrice, int dmgValue,
-       double dmgOnProtection) : Weapon(name, description, buyPrice, dmgValue, 0),
-                                 dmgOnProtection(dmgOnProtection) {}
+Ax::Ax(const string &name, const string &description, int buyPrice, int level, int dmgValue,
+        double hitProbability) : Weapon(name, description, buyPrice, level, dmgValue, 0,
+                                                       true), hitProbability(hitProbability) {}
 
-double Ax::getDmgOnProtection() const {
-    return dmgOnProtection;
+
+
+double Ax::getHitProbability() const {
+    return hitProbability;
 }
 
-void Ax::setDmgOnProtection(double dmgOnProtection) {
-    Ax::dmgOnProtection = dmgOnProtection;
+void Ax::setHitProbability(double hitProbability) {
+    Ax::hitProbability = hitProbability;
+}
+
+
+int Ax::getAttackValue(){
+
+    int result=dmgValue;
+    if(getProbability()<hitProbability){    // if the random number is small, then the attack not hit the target;
+        cout<<"fail to hit on the target."<<endl;
+        return 0;
+    }
+    for (Diamond* d : diamondPlace) {
+        result+=d->getBasePoint();
+    }
+    return result;
+}
+
+
+
+int Ax::getDefenceValue(){
+    return 0;
 }

@@ -8,18 +8,35 @@
 
 
 void Shield::printInfo() {
-    cout << Item::description<<endl;
+    Weapon::printInfo();
 }
 
-Shield::Shield(const string &name, const string &description, int buyPrice, int protectValue,
-               double weakenDmgProbability) : Weapon(name, description, buyPrice, 0, protectValue),
-                                              weakenDmgProbability(weakenDmgProbability) {}
 
 double Shield::getWeakenDmgProbability() const {
-    return weakenDmgProbability;
+    return dodgeProbability;
 }
 
 void Shield::setWeakenDmgProbability(double weakenDmgProbability) {
-    Shield::weakenDmgProbability = weakenDmgProbability;
+    Shield::dodgeProbability = weakenDmgProbability;
 }
 
+Shield::Shield(const string &name, const string &description, int buyPrice, int level, int protectValue,
+                double dodgeProbability) : Weapon(name, description, buyPrice, level, 0,
+                                                                    protectValue, false),
+                                               dodgeProbability(dodgeProbability) {}
+
+int Shield::getDefenceValue() {
+
+    int result=protectValue;
+
+    for (Diamond* d : diamondPlace) {
+        result+=d->getBasePoint();
+    }
+    result=(int)(result/(1-dodgeProbability));
+    cout<<name<<" success protect" << result<< " points against hit."<<endl;
+    return result;
+}
+
+int Shield::getAttackValue() {
+    return 0;
+}

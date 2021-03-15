@@ -4,15 +4,9 @@
 
 #include "Weapon.h"
 
-Weapon::Weapon(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue) : Item(name,
-                                                                                                                   description,
-                                                                                                                   buyPrice),
-                                                                                                              dmgValue(
-                                                                                                                      dmgValue),
-                                                                                                              protectValue(
-                                                                                                                      protectValue){
-    this->sellValue=buyPrice/2;
-}
+
+
+
 
 int Weapon::getDmgValue() const {
     return dmgValue;
@@ -44,4 +38,43 @@ bool Weapon::isAttack1() const {
 
 void Weapon::setIsAttack(bool isAttack) {
     Weapon::isAttack = isAttack;
+}
+
+Weapon::Weapon(const string &name, const string &description, int buyPrice, int level, int dmgValue, int protectValue,
+               bool isAttack) : Item(name, description, buyPrice, level), dmgValue(dmgValue),
+                                protectValue(protectValue), isAttack(isAttack) {
+    this->sellValue=buyPrice/2;
+}
+
+const vector<Diamond *> &Weapon::getDiamondPlace() const {
+    return diamondPlace;
+}
+
+void Weapon::setDiamondPlace(const vector<Diamond *> &diamondPlace) {
+    Weapon::diamondPlace = diamondPlace;
+}
+
+void Weapon::embedDiamond(Diamond* diamond) {
+    if(diamondPlace.size()<level ){      // weapon has enough place to embed diamond
+        if(diamond->getLevel() <= this->getLevel()){
+            diamondPlace.push_back(diamond);
+        }else{
+            cout <<"diamond level should be lower than the weapon level"<<endl;
+        }
+    }else{
+        cout <<"there is no place to hold the diamond"<<endl;
+    }
+}
+
+double Weapon::getProbability(){
+    srand (time(NULL));
+    double result=0;
+    for(int i=0;i<3 ;i++){
+        result+=rand()%100;
+    }
+    return result/300;
+}
+
+void Weapon::printInfo() {
+    cout <<Item::name<<": " <<Item::description<<endl;
 }
