@@ -3,7 +3,6 @@
 Graphics straightLine(){
 	Graphics curr("verticalLine", false);
 	string display = "\n\n\n";
-	string possibleDirections = "FB";
 
 	display = display +
 			  "-----------------------------------\n" +
@@ -20,7 +19,6 @@ Graphics straightLine(){
 			  "|            |       |            |\n" +
 			  "-----------------------------------\n";
 
-	curr.SetDirections(possibleDirections);
 	curr.SetDisplay(display);
 	return curr;
 }
@@ -28,7 +26,6 @@ Graphics straightLine(){
 Graphics endRoom(){
 	Graphics curr("endRoom", true);
 	string display = "\n\n\n";
-	string possibleDirections = "";
 
 	display = display +
 			  "-----------------------------------\n" +
@@ -45,7 +42,6 @@ Graphics endRoom(){
 			  "|            |       |            |\n" +
 			  "-----------------------------------\n";
 
-	curr.SetDirections(possibleDirections);
 	curr.SetDisplay(display);
 	return curr;
 }
@@ -53,7 +49,6 @@ Graphics endRoom(){
 Graphics town(){
 	Graphics curr("town", false);
 	string display = "\n\n\n";
-	string possibleDirections = "F";
 
 	display = display +
 			  "-----------------------------------\n" +
@@ -67,10 +62,55 @@ Graphics town(){
 			  "|  |  | + |  |   *   |   +  |  |  |\n" +
 			  "|  \\   ---   |       |------   /  |\n" +
 			  "|   \\--------|       |--------/   |\n" +
+			  "|            |--------|            |\n" +
+			  "-----------------------------------\n";
+
+	curr.SetDisplay(display);
+	return curr;
+}
+
+Graphics twoWayY(){
+	Graphics curr("Y", false);
+	string display = "\n\n\n";
+
+	display = display +
+			  "-----------------------------------\n" +
+			  "|     |       |     |       |     |\n" +
+			  "|      \\      |     |      /      |\n" +
+			  "|       \\      \\   /      /       |\n" +
+			  "|        \\      \\ /      /        |\n" +
+			  "|         \\             /         |\n" +
+			  "|          \\           /          |\n" +
+			  "|           \\         /           |\n" +
+			  "|            |       |            |\n" +
+			  "|            |       |            |\n" +
+			  "|            |   *   |            |\n" +
 			  "|            |       |            |\n" +
 			  "-----------------------------------\n";
 
-	curr.SetDirections(possibleDirections);
+	curr.SetDisplay(display);
+	return curr;
+}
+
+Graphics emptyRoom(){
+	Graphics curr("emptyRoom", true);
+	string display = "\n\n\n";
+
+	display = display +
+			  "-----------------------------------\n" +
+			  "|   ---------------------------   |\n" +
+			  "|  |                           |  |\n" +
+			  "|  |                           |  |\n" +
+			  "|  |                           |  |\n" +
+			  "|  |                           |  |\n" +
+			  "|  |                           |  |\n" +
+			  "|  |                           |  |\n" +
+			  "|  |             *             |  |\n" +
+			  "|  |                           |  |\n" +
+			  "|  ----------         ---------|  |\n" +
+			  "|            |       |            |\n" +
+			  "-----------------------------------\n";
+
 	curr.SetDisplay(display);
 	return curr;
 }

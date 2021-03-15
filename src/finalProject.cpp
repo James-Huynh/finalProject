@@ -8,24 +8,43 @@
 
 #include <iostream>
 #include <vector>
-#include "initGraph.h"
+#include "Visual/initGraph.h"
+#include "Visual/Room.h"
+#include "Visual/Levels.h"
 
 using namespace std;
 
 int main() {
 
-	vector<Graphics> lvl1[3];
+	vector<Room> lvl1;
 	Graphics one = straightLine();
 	Graphics two = straightLine();
 	Graphics three = endRoom();
 	Graphics town1 = town();
 
-	char output;
+	Room roomOne(one, 1);
+	Room roomTwo(two, 2);
+	Room roomThree(three, 3);
 
-	lvl1[two].push_back(one);
-	lvl1[one].push_back(two);
-	lvl1[two].push_back(three);
-	lvl1[three].push_back(two);
+	roomOne.setNorthRoom(roomTwo);
+	roomTwo.setSouthRoom(roomOne);
+	roomTwo.setNorthRoom(roomThree);
+	roomThree.setSouthRoom(roomTwo);
+
+	lvl1.push_back(roomOne);
+	lvl1.push_back(roomTwo);
+	lvl1.push_back(roomThree);
+
+	Levels level1(lvl1);
+
+	do{
+
+
+
+	}while(!level1.getBossStatus());
+
+
+	char output;
 
 	one.PrintDisplay();
 	cout << "do you want to continue ? y/n" << endl;

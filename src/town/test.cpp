@@ -9,7 +9,7 @@
 #include "../item/weapon/Armor.h"
 
 
-int main(){
+int testMainTown(){
 //    Armor(const string &name, const string &description, int buyPrice, int dmgValue, int protectValue, int protectBonus,
 //    double weakenDmgProbability);
     Armor bamen("Bamen","level 10 with 80% against the damage",10000,5000,0.8);
