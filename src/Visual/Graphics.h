@@ -16,19 +16,16 @@ class Graphics {
 public:
 	//Basic constructors
 	Graphics(string inType, bool monst);
+	Graphics();
 
 	//Setters
 	void SetDisplay(string newDisp);
-	void SetDirections(string newDir);
 
 	//Getters
 	bool GetMonsters();
 
 	//PrintFunction
 	void PrintDisplay();
-
-	//Validate if the userDirection is valid
-	bool ValidateDirection(char userInput);
 
 	//Destructor
 	virtual ~Graphics();
@@ -40,8 +37,6 @@ private:
 	string display;
 	//If there is a monster or not on the map
 	bool monster;
-	//In what direction can you go from this panel (F, L, R, B)
-	string possibleDirections;
 
 };
 

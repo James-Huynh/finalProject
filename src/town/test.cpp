@@ -8,14 +8,13 @@
 #include "../item/weapon/Ax.h"
 #include "../item/weapon/Shield.h"
 #include "../item/potion/HP_Potion.h"
-
 #include "Box.h"
 
 
 
 
 
-int main(){  // townMain
+int main(){
     Merchandise merchandise("Depanneur711","weapons and potions for sale");
 
     Armor bamen("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
@@ -99,49 +98,7 @@ int main(){  // townMain
 //    cout <<"after add diamond"<<endl;
 //    ironShield.getDefenceValue();
 //    cout <<"--------------------------------------"<<endl;
-//    map<Item*,int >saleList;
-//
-//    for (Item* item: itemListTotal){
-//            saleList.emplace(item,Merchandise::getRandomNumByLevel(item));
-//    }
-//
-//
-//
-//
-//
-//    cout <<"before add diamond"<<endl;
-//    brassSword.getAttackValue();
-//    brassSword.embedDiamond(&Emerald);
-//    cout <<"after add diamond"<<endl;
-//    brassSword.getAttackValue();
-//    cout <<"--------------------------------------"<<endl;
-//
-//    cout <<"after add more diamonds"<<endl;
-//    brassSword.embedDiamond(&Emerald);
-//    brassSword.getAttackValue();
-//    brassSword.embedDiamond(&Emerald);
-//    brassSword.getAttackValue();
-//    brassSword.embedDiamond(&Emerald);
-//    brassSword.getAttackValue();
-//    brassSword.embedDiamond(&Emerald);
-//    brassSword.getAttackValue();
-//    cout <<"--------------------------------------"<<endl;
-//
-//
-//    cout <<"before add diamond"<<endl;
-//    woodSword.getAttackValue();
-//    woodSword.embedDiamond(&Ruby);
-//    cout <<"after failed to add diamond"<<endl;
-//    woodSword.getAttackValue();
-//    cout <<"--------------------------------------"<<endl;
-//
-//
-//    cout <<"before add diamond"<<endl;
-//    ironShield.getDefenceValue();
-//    ironShield.embedDiamond(&Emerald);
-//    cout <<"after add diamond"<<endl;
-//    ironShield.getDefenceValue();
-//    cout <<"--------------------------------------"<<endl;
+
 
 
 //    merchandise.setSaleList(saleList);
