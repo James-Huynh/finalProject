@@ -8,7 +8,6 @@
 #include "../item/weapon/Ax.h"
 #include "../item/weapon/Armor.h"
 #include "../item/potion/HP_Potion.h"
-#include "../item/potion/MagicPotion.h"
 
 
 void testEquipment() {
