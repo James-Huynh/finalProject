@@ -74,3 +74,7 @@ double Weapon::getProbability(){
     }
     return result/300;
 }
+
+void Weapon::printInfo() {
+    cout <<Item::name<<": " <<Item::description<<endl;
+}

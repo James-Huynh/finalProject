@@ -8,7 +8,7 @@
 
 
 void Shield::printInfo() {
-    cout << Item::description<<endl;
+    Weapon::printInfo();
 }
 
 

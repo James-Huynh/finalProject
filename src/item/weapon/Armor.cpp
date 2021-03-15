@@ -7,7 +7,7 @@
 
 
 void Armor::printInfo() {
-    cout << Item::description<<endl;
+    Weapon::printInfo();
 }
 
 double Armor::getDodgeProbability() const {

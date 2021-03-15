@@ -8,5 +8,5 @@ HP_Potion::HP_Potion(const string &name, const string &description, int buyPrice
         name, description, buyPrice, level, basePoint) {}
 
 void HP_Potion::printInfo() {
-    cout << Item::description<<endl;
+    Potion::printInfo();
 }

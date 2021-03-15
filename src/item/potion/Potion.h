@@ -15,7 +15,8 @@ protected:
 
     int basePoint=100;
 
-
+public:
+    void printInfo() override;
 
 public:
     Potion(const string &name, const string &description, int buyPrice, int level, int basePoint);

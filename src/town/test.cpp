@@ -10,7 +10,8 @@
 #include "../item/potion/HP_Potion.h"
 #include "../item/potion/MagicPotion.h"
 #include "Box.h"
-#include "windows.h"
+
+
 
 
 
@@ -47,80 +48,66 @@ int main(){
     Diamond Emerald ("Emerald", "level 2, embed on defensive weapon will increase 100 points of defence", 500, 2, 300,0.10);
     Diamond Ruby ("Ruby", "level 3,embed on defensive weapon will increase 100 points of defence", 1000, 3, 800,0.15);
 
-    MagicPotion  lesserMP("lesser MagicPotion", "level 1, increase 100 attack value ", 300, 1, 100);
-    MagicPotion normalMP ("normal MagicPotion", "level 2, increase 300 attack value", 500, 2, 300);
-    MagicPotion superMP ("Super MagicPotion", "level 3,increase 500 attack value", 1000, 3, 500);
-//    vector<Item*>itemListTotal=getItemListTotal() ;
     vector<Item*>itemListTotal= {&bamen,&leatherArmor,&ironArmor,&clothArmor,
                                  &leanSky,&ironSword,&brassSword,&woodSword,
                                  &thorAx,&ironAx,&brassAx,&woodAx,
                                  &ironShield,&brassShield,&woodShield,
                                  &hpPotion1,&hpPotion2,&hpPotion3,
                                  &Amethyst,&Emerald,&Ruby,
-                                 &lesserMP,&normalMP,&superMP,
 
     };
-    map<Item*,int >saleList;
+//    map<Item*,int >saleList;
+//
+//    for (Item* item: itemListTotal){
+//            saleList.emplace(item,Merchandise::getRandomNumByLevel(item));
+//    }
+//
+//
+//
+//
+//
+//    cout <<"before add diamond"<<endl;
+//    brassSword.getAttackValue();
+//    brassSword.embedDiamond(&Emerald);
+//    cout <<"after add diamond"<<endl;
+//    brassSword.getAttackValue();
+//    cout <<"--------------------------------------"<<endl;
+//
+//    cout <<"after add more diamonds"<<endl;
+//    brassSword.embedDiamond(&Emerald);
+//    brassSword.getAttackValue();
+//    brassSword.embedDiamond(&Emerald);
+//    brassSword.getAttackValue();
+//    brassSword.embedDiamond(&Emerald);
+//    brassSword.getAttackValue();
+//    brassSword.embedDiamond(&Emerald);
+//    brassSword.getAttackValue();
+//    cout <<"--------------------------------------"<<endl;
+//
+//
+//    cout <<"before add diamond"<<endl;
+//    woodSword.getAttackValue();
+//    woodSword.embedDiamond(&Ruby);
+//    cout <<"after failed to add diamond"<<endl;
+//    woodSword.getAttackValue();
+//    cout <<"--------------------------------------"<<endl;
+//
+//
+//    cout <<"before add diamond"<<endl;
+//    ironShield.getDefenceValue();
+//    ironShield.embedDiamond(&Emerald);
+//    cout <<"after add diamond"<<endl;
+//    ironShield.getDefenceValue();
+//    cout <<"--------------------------------------"<<endl;
 
-    for (Item* item: itemListTotal){
-            saleList.emplace(item,Merchandise::getRandomNumByLevel(item));
-    }
 
 
+//    merchandise.setSaleList(saleList);
+//    merchandise.printInfo();
 
+    Box boxBonus("random bonus box ","random donner a weapon or potion. Good Luck.");
+    boxBonus.openBox(itemListTotal);
 
-
-    cout <<"before add diamond"<<endl;
-    brassSword.getAttackValue();
-    brassSword.embedDiamond(&Emerald);
-    cout <<"after add diamond"<<endl;
-    brassSword.getAttackValue();
-    cout <<"--------------------------------------"<<endl;
-
-    cout <<"after add more diamonds"<<endl;
-    brassSword.embedDiamond(&Emerald);
-    brassSword.getAttackValue();
-    brassSword.embedDiamond(&Emerald);
-    brassSword.getAttackValue();
-    brassSword.embedDiamond(&Emerald);
-    brassSword.getAttackValue();
-    brassSword.embedDiamond(&Emerald);
-    brassSword.getAttackValue();
-    cout <<"--------------------------------------"<<endl;
-
-
-    cout <<"before add diamond"<<endl;
-    woodSword.getAttackValue();
-    woodSword.embedDiamond(&Ruby);
-    cout <<"after failed to add diamond"<<endl;
-    woodSword.getAttackValue();
-    cout <<"--------------------------------------"<<endl;
-
-
-    cout <<"before add diamond"<<endl;
-    ironShield.getDefenceValue();
-    ironShield.embedDiamond(&Emerald);
-    cout <<"after add diamond"<<endl;
-    ironShield.getDefenceValue();
-    cout <<"--------------------------------------"<<endl;
-
-
-
-    merchandise.setSaleList(saleList);
-    merchandise.printInfo();
-
-    Box box1("Bonus box1","Bonus box",itemListTotal);
-    Sleep(10);
-    Box box2("Bonus box2","Bonus box",itemListTotal);
-    Sleep(10);
-    Box box3("Bonus box3","Bonus box",itemListTotal);
-    Sleep(10);
-    Box box4("Bonus box4","Bonus box",itemListTotal);
-
-    box1.openBox();
-    box2.openBox();
-    box3.openBox();
-    box4.openBox();
 
 
 

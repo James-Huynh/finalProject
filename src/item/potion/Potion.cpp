@@ -19,3 +19,7 @@ int Potion::getBasePoint() const {
 void Potion::setBasePoint(int basePoint) {
     Potion::basePoint = basePoint;
 }
+
+void Potion::printInfo() {
+    cout <<Item::name<<": " <<Item::description<<endl;
+}

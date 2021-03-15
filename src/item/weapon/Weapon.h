@@ -44,6 +44,8 @@ public:
 
     bool isAttack1() const;
 
+    void printInfo() override;
+
     void setIsAttack(bool isAttack);
 
     virtual int getDefenceValue()= 0;
