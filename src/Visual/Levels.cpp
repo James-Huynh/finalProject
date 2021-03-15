@@ -7,6 +7,8 @@
 
 #include "Levels.h"
 
+Levels::Levels(): isBossAlive(false){}
+
 Levels::Levels(vector<Room> theLevel, bool isBossAliveIn): level(theLevel), isBossAlive(isBossAliveIn) {
 	currRoom = level.at(0);
 }
@@ -39,9 +41,24 @@ void Levels::nextRoom(char userInput){
 	while(tempRoom == nullptr){
 		cout << "There is no room this way! Choose another option." << endl;
 		cin >> userInput;
+		while(userInput != 'F' && userInput != 'R' && userInput != 'L' && userInput != 'B' &&
+				userInput != 'f' && userInput != 'r' && userInput != 'l' && userInput != 'b'){
+			//If not, ask a good output
+			cout << "Invalid output, please choose (F, R, L or B)" << endl;
+			cin >> userInput;
+		}
 		tempRoom = level.at(index).nextRoom(userInput);
 	}
 
 	currRoom = *tempRoom;
+
+}
+
+void Levels::addRoom(Room newRoom){
+	level.push_back(newRoom);
+
+	if(level.size() == 1){
+		currRoom = level.at(0);
+	}
 
 }

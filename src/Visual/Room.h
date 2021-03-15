@@ -21,10 +21,10 @@ public:
 	Room* nextRoom(char userInput);
 
 	//Setters & getters
-	void setNorthRoom(Room newRoom);
-	void setSouthRoom(Room newRoom);
-	void setEastRoom(Room newRoom);
-	void setWestRoom(Room newRoom);
+	void setNorthRoom(Room& newRoom);
+	void setSouthRoom(Room& newRoom);
+	void setEastRoom(Room& newRoom);
+	void setWestRoom(Room& newRoom);
 
 	int getRoomNumber();
 

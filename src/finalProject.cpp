@@ -9,6 +9,7 @@
 #include <iostream>
 #include <vector>
 #include "Visual/initGraph.h"
+#include "Visual/initLevels.h"
 #include "Visual/Room.h"
 #include "Visual/Levels.h"
 
@@ -16,36 +17,22 @@ using namespace std;
 
 int main() {
 
-	vector<Room> lvl1;
-	Graphics one = straightLine();
-	Graphics two = straightLine();
-	Graphics three = endRoom();
-	Graphics town1 = town();
+	Levels level1;
+	createLevelOne(level1);
 
-	Room roomOne(one, 1);
-	Room roomTwo(two, 2);
-	Room roomThree(three, 3);
-
-	roomOne.setNorthRoom(roomTwo);
-	roomTwo.setSouthRoom(roomOne);
-	roomTwo.setNorthRoom(roomThree);
-	roomThree.setSouthRoom(roomTwo);
-
-	lvl1.push_back(roomOne);
-	lvl1.push_back(roomTwo);
-	lvl1.push_back(roomThree);
-
-	Levels level1(lvl1);
-
+	Levels level2;
+	createLevelTwo(level2);
 
 
 	Room currRoom = level1.getCurrRoom();
 	Graphics currDisplay = currRoom.getDesign();
 	char directionUser;
+	system("clear");
 
 
 	do{
 
+		cout << endl << endl << "\t\t\t\tYou are in Room #" << currRoom.getRoomNumber() << endl;
 		//Print the first screen
 		currDisplay.PrintDisplay();
 
@@ -57,7 +44,7 @@ int main() {
 		}
 		//else,(and after fight) continue
 		//ask the user which direction he wants to go
-		cout << "Which direction would you like to go ? ('F' (Forward), 'R' (Right), 'L' (Left), 'B' (backward))" << endl;
+		cout << "\tWhich direction would you like to go ? ('F' (Forward), 'R' (Right), 'L' (Left), 'B' (backward))" << endl;
 
 		cin >> directionUser;
 		//Verify that the input is ok
@@ -71,6 +58,16 @@ int main() {
 		//Done in the nextRoom of Levels
 		//If he can, switch room
 		level1.nextRoom(directionUser);
+
+		//Reassign the current Room and Display to work with them
+		currRoom = level1.getCurrRoom();
+		currDisplay = currRoom.getDesign();
+
+		//Clear the real terminal screen
+		//For linux
+		system("clear");
+		//For windows
+		//system("CLS");
 
 
 	}while(!level1.getBossStatus());
@@ -86,11 +83,6 @@ int main() {
 	one.PrintDisplay();
 	cout << "do you want to continue ? y/n" << endl;
 	cin >> output;
-	//Clear the real terminal screen
-	//For linux
-	system("clear");
-	//For windows
-	//system("CLS");
 	town1.PrintDisplay();
 	*/
 

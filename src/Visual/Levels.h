@@ -15,6 +15,7 @@ using namespace std;
 
 class Levels {
 public:
+	Levels();
 	Levels(vector<Room> theLevel, bool isBossAliveIn = false);
 	virtual ~Levels();
 
@@ -25,6 +26,9 @@ public:
 	//Change Room based on userInput
 	//userInput should always be F, L, R or B
 	void nextRoom(char userInput);
+
+	//add a new room to the vector of rooms
+	void addRoom(Room newRoom);
 
 private:
 	//vector of every room and how they are connected
