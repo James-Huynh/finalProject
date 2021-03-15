@@ -2,23 +2,27 @@
 #include "Character.h"
 #include "Role.h"
 #include "Equipment.h"
-#include "../item/weapon/Weapon.h"
+#include "../town/Merchandise.h"
 #include "../item/weapon/Shield.h"
 #include "../item/weapon/Sword.h"
 #include "../item/weapon/Ax.h"
 #include "../item/weapon/Armor.h"
+#include "../item/potion/HP_Potion.h"
+#include "../item/potion/MagicPotion.h"
+
 
 void testEquipment() {
     Role::initializeRoles();
     Character kingSam("Sam", '1');
 
-    Sword mySword("iron sword","level 2 with 20% pierce through armor",500,500,0.2);
-    Armor myArmor("Leather armor ","level 1 with 5% against the damage",100,100,0.05);
-    Shield myShield("iron ax","level 2 with 20% pierce through armor",500,500,0.2);
+    Sword woodSword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
+    // Sword mySword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
+    // Armor myArmor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
+    // Shield myShield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
 
-    // Weapon* ironSwordPtr = new Sword("iron sword","level 2 with 20% pierce through armor",500,500,0.2);
-    // Weapon* leatherArmorPtr = new Armor("Leather armor ","level 1 with 5% against the damage",100,100,0.05);
-    // Weapon* ironShieldPtr = new Shield("iron ax","level 2 with 20% pierce through armor",500,500,0.2);
+    // Weapon* mySword = new Sword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
+    // Weapon* myArmor = new Armor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
+    // Weapon* myShield = new Shield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
 
 
 
