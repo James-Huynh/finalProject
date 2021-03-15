@@ -15,7 +15,7 @@
 
 using namespace std;
 
-int graphicMain() {
+int main() {
 
 	Levels level1;
 	createLevelOne(level1);
