@@ -1,20 +1,40 @@
 #include "Role.h"
+map<string, vector<int>> Role::listRoles;
+
+Role::Role(): Role(1) {
+    
+}
 
 Role::Role(char roleIndex) {
     switch(roleIndex) {
         case '1': {
             roleName = "Warrior";
-            baseAtt = 100;
-            baseDef = 100;
+            baseAtt = listRoles["Warrior"].at(0);
+            baseDef = listRoles["Warrior"].at(1);
         } break;
 
         case '2': {
             roleName = "Assassin";
-            baseAtt = 150;
-            baseDef = 50;
+            // baseAtt = listRoles["Assassin"].at(0);
+            // baseDef = listRoles["Assassin"].at(1);
         } break;
 
         default:
+            throw "Not a valid choice of Role";
             break;
+    }
+}
+
+void Role::initializeRoles() {
+    Role::listRoles.emplace(pair<string, vector<int>>("Warrior", {100, 100}));
+    // Role::listRoles.emplace(pair<string, vector<int>>("Assassin", {150, 50}));
+}
+
+void Role::printRoles() {
+    for(auto it = listRoles.cbegin(); it != listRoles.cend(); ++it) {
+        cout << "Role name: " << it->first << endl;
+        cout << "Base attack: " << it->second.at(0) << endl; 
+        cout << "Base defense: " << it->second.at(1) << endl;
+        cout << endl;
     }
 }

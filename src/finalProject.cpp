@@ -15,7 +15,7 @@
 
 using namespace std;
 
-int main() {
+int graphicMain() {
 
 	Levels level1;
 	createLevelOne(level1);
@@ -58,6 +58,7 @@ int main() {
 		//Done in the nextRoom of Levels
 		//If he can, switch room
 		level1.nextRoom(directionUser);
+
 
 		//Reassign the current Room and Display to work with them
 		currRoom = level1.getCurrRoom();
