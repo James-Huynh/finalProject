@@ -2,25 +2,46 @@
 // Created by hello on 2021-03-13.
 //
 
+#include <limits.h>
 #include "Armor.h"
-
-
-
-
 
 
 void Armor::printInfo() {
     cout << Item::description<<endl;
 }
 
-double Armor::getWeakenDmgProbability() const {
-    return weakenDmgProbability;
+double Armor::getDodgeProbability() const {
+    return dodgeProbability;
 }
 
-void Armor::setWeakenDmgProbability(double weakenDmgProbability) {
-    Armor::weakenDmgProbability = weakenDmgProbability;
+void Armor::setDodgeProbability(double dodgeProbability) {
+    dodgeProbability = dodgeProbability;
 }
 
-Armor::Armor(const string &name, const string &description, int buyPrice, int protectValue,
-             double weakenDmgProbability) : Weapon(name, description, buyPrice, 0, protectValue),
-                                            weakenDmgProbability(weakenDmgProbability) {}
+
+Armor::Armor(const string &name, const string &description, int buyPrice, int level, int protectValue,
+              double dodgeProbability) : Weapon(name, description, buyPrice, level, 0,
+                                                                  protectValue, false),
+                                         dodgeProbability(dodgeProbability) {
+}
+
+
+
+int Armor::getDefenceValue(){
+    int result=protectValue;
+    if(getProbability()<dodgeProbability){    // if the random number is small, then the attack not hit the target;
+        cout<<name<< " success to avoid the hit."<<endl;
+        return 0;
+    }
+    for (Diamond* d : diamondPlace) {
+        result+=d->getBasePoint();
+    }
+    cout<<name<< " support "<< result<<" points protection against hit."<<endl;
+    return result;
+}
+
+
+
+int Armor::getAttackValue() {
+    return 0;
+}

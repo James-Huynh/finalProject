@@ -10,6 +10,7 @@
 #include "../item/Item.h"
 #include <iostream>
 
+
 using namespace std;
 
 class Merchandise : public Town {
@@ -26,6 +27,9 @@ public:
     void addItem(Item* item, int quantity);
 
     void printInfo();
+
+    static int getRandomNumByLevel(Item* item);
+
 };
 
 

@@ -6,8 +6,12 @@
 #define FINALPROJECTWEEK5_HP_POTION_H
 
 
-class HP_Potion {
+#include "Potion.h"
 
+class HP_Potion : public Potion {
+public:
+    HP_Potion(const string &name, const string &description, int buyPrice, int level, int basePoint);
+    void printInfo();
 };
 
 
