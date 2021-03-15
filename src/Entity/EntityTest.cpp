@@ -44,7 +44,7 @@ void testRoles() {
 
 
 
-int main() {
+int entityMain() {
     testRoles();
     cout << endl;
     testCharacter();
