@@ -13,7 +13,7 @@
 
 
 
-int main(){
+int townMain(){
     Merchandise merchandise("Depanneur711","weapons and potions for sale");
 
     Armor bamen("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
