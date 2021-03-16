@@ -37,6 +37,8 @@ public:
     void setBuyPrice(int buyPrice);
 
     virtual void printInfo()=0;
+
+    virtual ~Item();
 };
 
 

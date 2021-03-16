@@ -42,3 +42,7 @@ int Item::getLevel() const {
 void Item::setLevel(int level) {
     Item::level = level;
 }
+
+Item::~Item() {
+
+}
