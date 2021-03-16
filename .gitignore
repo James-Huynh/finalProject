@@ -4,7 +4,8 @@ Debug/
 .classpath
 .settings
 *.project
-*.classpath *.settings
+*.classpath
+*.settings
 /.project
 /.classpath
 /.settings
