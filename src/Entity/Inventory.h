@@ -16,7 +16,7 @@ private:
     string name;
     map<Item *, int> myItemMap;
 public:
-    Inventory(const string &name);
+    Inventory(const string &name = "None");
 
     void upgradeInventory();
 

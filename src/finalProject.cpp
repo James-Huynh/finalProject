@@ -13,7 +13,7 @@
 #include "Visual/Room.h"
 #include "Visual/Levels.h"
 #include "item/Item.h"
-#include "town/Box.h"
+#include "town/Chest.h"
 #include "common/itemListTotal.h"
 #include "item/Money/Gold.h"
 #include "town/Merchandise.h"
@@ -57,7 +57,7 @@ int main() {
 	//When the player encounters a chest
 	vector<Item*> itemListTotal = getTotalListItem();
 	Item* randomItemChest;
-	Box chestInRoom{"Random Chest", "A random chest in a room"};
+	Chest chestInRoom{"Random Chest", "A random chest in a room"};
 	int randomGoldValue;
 	Gold randomGold{"Random Gold in chest", "A random amount of gold found in a chest", 0};
 
