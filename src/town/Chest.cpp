@@ -1,9 +1,9 @@
-#include "Box.h"
+#include "Chest.h"
 
 
 
 
-int Box::getRandomIndex(const vector<Item*>& itemList) {
+int Chest::getRandomIndex(const vector<Item*>& itemList) {
     srand(time(nullptr));
     return rand() % itemList.size();
 }
@@ -11,7 +11,7 @@ int Box::getRandomIndex(const vector<Item*>& itemList) {
 
 
 
-Item *Box::openBox(const vector<Item*>& itemList) {
+Item *Chest::openBox(const vector<Item*>& itemList) {
     if (!itemList.empty()) {
         Item *item = itemList.at(getRandomIndex(itemList));
         item->printInfo();
@@ -25,14 +25,14 @@ Item *Box::openBox(const vector<Item*>& itemList) {
 
 
 
-void Box::printInfo() {
+void Chest::printInfo() {
 
     cout << "Good luck after opening the box." << endl;
 }
 
 
 
-Box::Box(const string &name, const string &description) : Town(name, description)
+Chest::Chest(const string &name, const string &description) : Town(name, description)
 {
 
 }

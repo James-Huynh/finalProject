@@ -21,5 +21,10 @@ void Potion::setBasePoint(int basePoint) {
 }
 
 void Potion::printInfo() {
-    cout <<Item::name<<": " <<Item::description<<endl;
+    cout <<Item::name<<": " <<Item::description;
 }
+
+const string &Potion::getType() const {
+    return type;
+}
+

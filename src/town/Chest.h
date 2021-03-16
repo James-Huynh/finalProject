@@ -2,8 +2,8 @@
 // Created by hello on 2021-03-15.
 //
 
-#ifndef FINALPROJECTWEEK5_BOX_H
-#define FINALPROJECTWEEK5_BOX_H
+#ifndef FINALPROJECTWEEK5_CHEST_H
+#define FINALPROJECTWEEK5_CHEST_H
 
 
 
@@ -14,7 +14,7 @@
 #include <ctime>
 
 
-class Box: public Town {
+class Chest: public Town {
 
 
 private:
@@ -22,7 +22,7 @@ private:
 
 public:
 
-    Box(const string &name, const string &description);
+    Chest(const string &name, const string &description);
 
     Item *openBox(const vector<Item *>& itemList);
 
@@ -32,4 +32,4 @@ public:
 };
 
 
-#endif //FINALPROJECTWEEK5_BOX_H
+#endif //FINALPROJECTWEEK5_CHEST_H

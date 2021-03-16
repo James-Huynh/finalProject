@@ -12,15 +12,18 @@ class Item {
 protected:
     string name;
     string description;
+    string type;
     int buyPrice;
+//    int spaceNeed=0;
     int level;
 public:
     int getLevel() const;
 
     void setLevel(int level);
 
-public:
-
+//    int getSpaceNeed() const;
+//
+//    void setSpaceNeed(int spaceNeed);
 
     const string &getName() const;
 
@@ -39,6 +42,11 @@ public:
     virtual void printInfo()=0;
 
     virtual ~Item();
+
+    virtual const string &getType() const=0;
+
+
+
 };
 
 
