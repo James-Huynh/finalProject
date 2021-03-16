@@ -67,7 +67,7 @@ void Weapon::embedDiamond(Diamond* diamond) {
 }
 
 double Weapon::getProbability(){
-    srand (time(NULL));
+//    srand (time(NULL));
     double result=0;
     for(int i=0;i<3 ;i++){
         result+=rand()%100;

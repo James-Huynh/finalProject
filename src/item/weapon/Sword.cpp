@@ -38,7 +38,7 @@ int Sword::getAttackValue() {
     for (Diamond* d : diamondPlace) {
         result+=d->getBasePoint();
     }
-    cout<<name <<" gave " << result<<" points hit on the target."<<endl;
+//    cout<<name <<" gave " << result<<" points hit on the target."<<endl;
     return result;
 }
 
