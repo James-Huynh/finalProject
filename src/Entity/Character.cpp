@@ -30,3 +30,11 @@ void Character::equipSecWeapon(Weapon *secWeap) {
 void Character::equipArmor(Weapon *armor) {
 	myEquipment.setArmor(armor);
 }
+
+void Character::buyItems() {
+
+}
+
+void Character::sellItems() {
+
+}

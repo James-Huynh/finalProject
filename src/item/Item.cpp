@@ -46,3 +46,11 @@ void Item::setLevel(int level) {
 Item::~Item() {
 
 }
+
+//int Item::getSpaceNeed() const {
+//    return spaceNeed;
+//}
+//
+//void Item::setSpaceNeed(int spaceNeed) {
+//    Item::spaceNeed = spaceNeed;
+//}

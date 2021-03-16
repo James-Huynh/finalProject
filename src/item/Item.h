@@ -13,14 +13,16 @@ protected:
     string name;
     string description;
     int buyPrice;
+//    int spaceNeed=0;
     int level;
 public:
     int getLevel() const;
 
     void setLevel(int level);
 
-public:
-
+//    int getSpaceNeed() const;
+//
+//    void setSpaceNeed(int spaceNeed);
 
     const string &getName() const;
 

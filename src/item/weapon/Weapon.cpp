@@ -59,10 +59,10 @@ void Weapon::embedDiamond(Diamond* diamond) {
         if(diamond->getLevel() <= this->getLevel()){
             diamondPlace.push_back(diamond);
         }else{
-            cout <<"diamond level should be lower than the weapon level"<<endl;
+//            cout <<"diamond level should be lower than the weapon level"<<endl;
         }
     }else{
-        cout <<"there is no place to hold the diamond"<<endl;
+//        cout <<"there is no place to hold the diamond"<<endl;
     }
 }
 
@@ -76,5 +76,5 @@ double Weapon::getProbability(){
 }
 
 void Weapon::printInfo() {
-    cout <<Item::name<<": " <<Item::description<<endl;
+    cout <<Item::name<<": " <<Item::description;
 }

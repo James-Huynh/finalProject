@@ -7,6 +7,7 @@
 
 void Ax::printInfo() {
     Weapon::printInfo();
+    cout <<endl;
 }
 
 Ax::Ax(const string &name, const string &description, int buyPrice, int level, int dmgValue,
@@ -28,7 +29,7 @@ int Ax::getAttackValue(){
 
     int result=dmgValue;
     if(getProbability()<hitProbability){    // if the random number is small, then the attack not hit the target;
-        cout<<"fail to hit on the target."<<endl;
+//        cout<<"fail to hit on the target."<<endl;
         return 0;
     }
     for (Diamond* d : diamondPlace) {

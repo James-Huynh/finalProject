@@ -13,14 +13,20 @@ class Character : public Role {
         Inventory myInventory;
         Equipment myEquipment;
 
+
     public:
         Character(string name = "TestName", char roleId = '1');
-        void basicAttack(Character* opponent);
+//        void basicAttack(Character* opponent);
         void printCharacter();
         void printEquipment();
         void equipMainWeapon(Weapon* mainWeap);
         void equipSecWeapon(Weapon* secWeap);
         void equipArmor(Weapon* armor);
+
+        /*  character can buy/sell in merchandise*/
+        void buyItems();
+        void sellItems();
+
         // bool pickUpItem(Item* theItem);
         
 

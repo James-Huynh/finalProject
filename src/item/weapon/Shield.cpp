@@ -9,6 +9,7 @@
 
 void Shield::printInfo() {
     Weapon::printInfo();
+    cout <<endl;
 }
 
 
@@ -33,7 +34,7 @@ int Shield::getDefenceValue() {
         result+=d->getBasePoint();
     }
     result=(int)(result/(1-dodgeProbability));
-    cout<<name<<" success protect" << result<< " points against hit."<<endl;
+//    cout<<name<<" success protect" << result<< " points against hit."<<endl;
     return result;
 }
 
