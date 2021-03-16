@@ -96,6 +96,26 @@ void entityMain() {
 //END of James' part
 
 
+/*------------------------ qin--------------------------*/
+void qinMain(){
+    Merchandise merchandise("Depanneur711", "weapons and potions for sale");
+    map<Item *, int> saleList;
+
+    vector<Item *> itemListTotal = getTotalListItem();
+
+
+    Inventory inventory("default Bag");
+    for(int i =0 ; i <20 ; i+=3)
+        inventory.addItem(itemListTotal.at(i),1);
+
+    inventory.addItem(itemListTotal.at(18),3);
+
+
+    inventory.showPotions();
+    inventory.showMyMoney();
+    inventory.showWeapons();
+}
+/*------------------------finish--------------------------*/
 
 
 int main() {
