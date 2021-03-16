@@ -97,6 +97,7 @@ void Character::equipArmor(Weapon *armor) {
 	myEquipment.setArmor(armor);
 }
 
+
 Equipment& Character::getMyEquipment() {
 	return myEquipment;
 }

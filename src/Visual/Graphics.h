@@ -15,15 +15,17 @@ class Graphics {
 
 public:
 	//Basic constructors
-	Graphics(string inType, bool monst, bool box = false);
+	Graphics(string inType, bool monst, bool isBoss = false, bool box = false);
 	Graphics();
 
 	//Setters
 	void SetDisplay(string newDisp);
+	void SetChest(bool chestState);
 
 	//Getters
 	bool GetMonsters();
 	bool GetChest();
+	bool GetBoss();
 
 	//PrintFunction
 	void PrintDisplay();
@@ -40,6 +42,8 @@ private:
 	bool monster;
 	//If there is a chest or not in the map
 	bool chest;
+	//Is the monster a boss ?
+	bool boss;
 
 };
 

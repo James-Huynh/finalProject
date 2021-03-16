@@ -1,6 +1,7 @@
 #ifndef VISUAL_INITGRAPH_H_
 #define VISUAL_INITGRAPH_H_
 #include "Graphics.h"
+#include "../Entity/Character.h"
 
 Graphics straightLine(){
 	Graphics curr("verticalLine", false);
@@ -26,7 +27,7 @@ Graphics straightLine(){
 }
 
 Graphics endRoom(){
-	Graphics curr("endRoom", true);
+	Graphics curr("endRoom", true, true);
 	string display = "\n\n\n";
 
 	display = display +
@@ -38,9 +39,9 @@ Graphics endRoom(){
 			  "\t\t\t\t|  |             |             |  |\n" +
 			  "\t\t\t\t|  |                           |  |\n" +
 			  "\t\t\t\t|  |                           |  |\n" +
-			  "\t\t\t\t|  |             *             |  |\n" +
 			  "\t\t\t\t|  |                           |  |\n" +
-			  "\t\t\t\t|  ----------         ---------|  |\n" +
+			  "\t\t\t\t|  |             *             |  |\n" +
+			  "\t\t\t\t|  ----------         ----------  |\n" +
 			  "\t\t\t\t|            |       |            |\n" +
 			  "\t\t\t\t-----------------------------------\n";
 
@@ -64,7 +65,7 @@ Graphics town(){
 			  "\t\t\t\t|  |  | + |  |   *   |   +  |  |  |\n" +
 			  "\t\t\t\t|  \\   ---   |       |------   /  |\n" +
 			  "\t\t\t\t|   \\--------|       |--------/   |\n" +
-			  "\t\t\t\t|            |--------|            |\n" +
+			  "\t\t\t\t|            |-------|            |\n" +
 			  "\t\t\t\t-----------------------------------\n";
 
 	curr.SetDisplay(display);
@@ -95,7 +96,7 @@ Graphics twoWayY(){
 }
 
 Graphics emptyRoom(){
-	Graphics curr("emptyRoom", true);
+	Graphics curr("emptyRoom", false);
 	string display = "\n\n\n";
 
 	display = display +
@@ -109,7 +110,30 @@ Graphics emptyRoom(){
 			  "\t\t\t\t|  |                           |  |\n" +
 			  "\t\t\t\t|  |             *             |  |\n" +
 			  "\t\t\t\t|  |                           |  |\n" +
-			  "\t\t\t\t|  ----------         ---------|  |\n" +
+			  "\t\t\t\t|  ----------         ----------  |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t-----------------------------------\n";
+
+	curr.SetDisplay(display);
+	return curr;
+}
+
+Graphics chestRoom(){
+	Graphics curr("chestRoom", false, false, true);
+	string display = "\n\n\n";
+
+	display = display +
+			  "\t\t\t\t-----------------------------------\n" +
+			  "\t\t\t\t|   ---------------------------   |\n" +
+			  "\t\t\t\t|  |          -------          |  |\n" +
+			  "\t\t\t\t|  |         | | o | |         |  |\n" +
+			  "\t\t\t\t|  |          -------          |  |\n" +
+			  "\t\t\t\t|  |                           |  |\n" +
+			  "\t\t\t\t|  |                           |  |\n" +
+			  "\t\t\t\t|  |                           |  |\n" +
+			  "\t\t\t\t|  |             *             |  |\n" +
+			  "\t\t\t\t|  |                           |  |\n" +
+			  "\t\t\t\t|  ----------         ----------  |\n" +
 			  "\t\t\t\t|            |       |            |\n" +
 			  "\t\t\t\t-----------------------------------\n";
 

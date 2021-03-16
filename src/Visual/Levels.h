@@ -22,6 +22,8 @@ public:
 	//Getters and setters
 	Room getCurrRoom();
 	bool getBossStatus();
+	void setBossStatus(bool bossStatus);
+	void setChestState(bool chestState);
 
 	//Change Room based on userInput
 	//userInput should always be F, L, R or B

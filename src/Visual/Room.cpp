@@ -7,6 +7,14 @@
 
 #include "Room.h"
 
+Room::Room(Graphics inDesign, int inRoomNb, Character enemyIn): design(inDesign), roomNb(inRoomNb){
+	northRoom = nullptr;
+	southRoom = nullptr;
+	eastRoom  = nullptr;
+	westRoom  = nullptr;
+	enemy = enemyIn;
+}
+
 Room::Room(Graphics inDesign, int inRoomNb): design(inDesign), roomNb(inRoomNb){
 	northRoom = nullptr;
 	southRoom = nullptr;
@@ -14,7 +22,10 @@ Room::Room(Graphics inDesign, int inRoomNb): design(inDesign), roomNb(inRoomNb){
 	westRoom  = nullptr;
 }
 
-Room::Room(): northRoom(nullptr), southRoom(nullptr), eastRoom(nullptr), westRoom(nullptr), roomNb(0) {}
+Room::Room(): northRoom(nullptr), southRoom(nullptr), eastRoom(nullptr), westRoom(nullptr), roomNb(0) {
+	Character enemyIn("None", '1');
+	enemy = enemyIn;
+}
 
 Room::~Room() {
 	// TODO Auto-generated destructor stub
@@ -43,8 +54,15 @@ void Room::setEastRoom(Room& newRoom){
 void Room::setWestRoom(Room& newRoom){
 	westRoom = &newRoom;
 }
+void Room::setChestState(bool chestState){
+	design.SetChest(chestState);
+}
 int Room::getRoomNumber(){
 	return roomNb;
+}
+
+Character Room::getEnemy(){
+	return enemy;
 }
 
 Graphics Room::getDesign(){

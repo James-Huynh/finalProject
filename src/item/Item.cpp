@@ -46,3 +46,17 @@ void Item::setLevel(int level) {
 Item::~Item() {
 
 }
+
+const string &Item::getType() const {
+    return type;
+}
+
+
+
+//int Item::getSpaceNeed() const {
+//    return spaceNeed;
+//}
+//
+//void Item::setSpaceNeed(int spaceNeed) {
+//    Item::spaceNeed = spaceNeed;
+//}

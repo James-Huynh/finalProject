@@ -20,6 +20,7 @@ protected:
     int protectValue;
     int sellValue;
     bool isAttack = false;
+    string type="weapon";
     vector<Diamond*>diamondPlace;
 public:
 
@@ -52,7 +53,11 @@ public:
     virtual int getAttackValue()= 0;
     void embedDiamond(Diamond* diamond);
 
-   static double getProbability();
+    const string &getType() const;
+
+
+
+    static double getProbability();
 };
 
 

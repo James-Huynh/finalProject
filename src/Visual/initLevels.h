@@ -16,9 +16,11 @@ void createLevelOne(Levels& currLevel){
 	Graphics two = straightLine();
 	Graphics three = endRoom();
 
+	Character boss("Ragnar", '1');
+
 	Room* roomOne = new Room{one, 1};
 	Room* roomTwo = new Room{two, 2};
-	Room* roomThree = new Room{three, 3};
+	Room* roomThree = new Room{three, 3, boss};
 
 	roomOne->setNorthRoom(*roomTwo);
 
@@ -40,12 +42,18 @@ void createLevelTwo(Levels& currLevel){
 	Graphics leftY = straightLine();
 	Graphics leftYY  = endRoom();
 	Graphics rightY = straightLine();
-	Graphics rightYY = emptyRoom();
+	Graphics rightYY = chestRoom();
+
+	Character boss("Ragnar", '1');
+
+	Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
+	// testing values
+	boss.equipMainWeapon(mySword);
 
 	Room* roomOne = new Room{firstScreen, 1};
 	Room* roomTwo = new Room{secondScreen, 2};
 	Room* roomThree = new Room{leftY, 3};
-	Room* roomFour = new Room{leftYY, 4};
+	Room* roomFour = new Room{leftYY, 4, boss};
 	Room* roomFive = new Room{rightY, 5};
 	Room* roomSix = new Room{rightYY, 6};
 
@@ -73,6 +81,14 @@ void createLevelTwo(Levels& currLevel){
 	currLevel.addRoom(*roomSix);
 
 }
+
+//Level 3
+/*Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
+	Weapon* myArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,180,0.1);
+	// testing values
+	kingJames.equipMainWeapon(mySword);
+	queenSam.equipArmor(myArmor);
+	*/
 
 
 

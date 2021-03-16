@@ -8,6 +8,7 @@
 
 void Armor::printInfo() {
     Weapon::printInfo();
+    cout <<endl;
 }
 
 double Armor::getDodgeProbability() const {
@@ -30,7 +31,7 @@ Armor::Armor(const string &name, const string &description, int buyPrice, int le
 int Armor::getDefenceValue(){
     int result=protectValue;
     if(getProbability()<dodgeProbability){    // if the random number is small, then the attack not hit the target;
-        cout<<name<< " success to avoid the hit."<<endl;
+//        cout<<name<< " success to avoid the hit."<<endl;
         return INT_MAX;
     }
     for (Diamond* d : diamondPlace) {

@@ -3,7 +3,8 @@
 //
 
 #include "itemListTotal.h"
-#include "../item/Money/Gold.h"
+
+
 
 vector<Item*> getTotalListItem(){
     auto*  bamen = new Armor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
@@ -42,6 +43,8 @@ vector<Item*> getTotalListItem(){
     auto* smallGold= new Gold ("Small Gold", "Big Gold",100);
 
 
+
+
     return {
             bamen,leatherArmor,ironArmor,clothArmor,
             leanSky,ironSword,brassSword,woodSword,
@@ -49,6 +52,7 @@ vector<Item*> getTotalListItem(){
             ironShield,brassShield,woodShield,
             hpPotion1,hpPotion2,hpPotion3,
             amethyst,emerald,ruby,
-            bigGold,avgGold,smallGold
+            bigGold,avgGold,smallGold,
+
     };
 }

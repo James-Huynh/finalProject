@@ -1,3 +1,5 @@
+.cproject
+
 Debug/
 
 .cproject
@@ -6,7 +8,8 @@ Debug/
 .classpath
 .settings
 *.project
-*.classpath *.settings
+*.classpath
+*.settings
 /.project
 /.classpath
 /.settings
@@ -18,7 +21,10 @@ Debug/
 *.settings/ 
 
 
-.cproject/
+
+.cproject
+/.cproject
+*.cproject/
 
 # +++ Visual Studio Code +++
 .vscode/*
@@ -30,6 +36,12 @@ Debug/
 
 # Local History for Visual Studio Code
 .history/
+
+
+# qinbranch exclude files:
+src/town/test2.cpp
+src/town/test1.
+CMakeLists.txt
 
 
 # qinbranch exclude files:

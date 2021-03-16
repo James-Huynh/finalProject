@@ -15,6 +15,7 @@ Sword::Sword(const string &name, const string &description, int buyPrice, int le
 
 void Sword::printInfo() {
     Weapon::printInfo();
+    cout <<endl;
 }
 
 double Sword::getHitProbability() const {
@@ -32,7 +33,7 @@ int Sword::getDefenceValue() {
 int Sword::getAttackValue() {
     int result=dmgValue;
     if(getProbability()>hitProbability){    // if the random number is small, then the attack not hit the target;
-        cout<<name <<" fail to hit on the target."<<endl;
+//        cout<<name <<" fail to hit on the target."<<endl;
         return 0;
     }
     for (Diamond* d : diamondPlace) {

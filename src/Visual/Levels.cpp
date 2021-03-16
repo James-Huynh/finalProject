@@ -7,7 +7,9 @@
 
 #include "Levels.h"
 
-Levels::Levels(): isBossAlive(false){}
+Levels::Levels(): isBossAlive(false){
+
+}
 
 Levels::Levels(vector<Room> theLevel, bool isBossAliveIn): level(theLevel), isBossAlive(isBossAliveIn) {
 	currRoom = level.at(0);
@@ -23,6 +25,21 @@ Room Levels::getCurrRoom(){
 }
 bool Levels::getBossStatus(){
 	return isBossAlive;
+}
+
+void Levels::setBossStatus(bool bossStatus){
+	isBossAlive = bossStatus;
+}
+
+void Levels::setChestState(bool chestState){
+	int currNb = currRoom.getRoomNumber();
+
+	for(size_t i = 0; i < level.size(); i++){
+			if(level.at(i).getRoomNumber() == currNb){
+				level.at(i).setChestState(chestState);
+				break;
+			}
+		}
 }
 
 void Levels::nextRoom(char userInput){

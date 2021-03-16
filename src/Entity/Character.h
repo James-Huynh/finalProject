@@ -20,8 +20,10 @@ class Character : public Role {
         double computeDamageDealt(Weapon* currWeapon);		// helper function that computes the total gross damage depending on what is used
         double computeDamageReceived(double dmgIn);
 
+
     public:
         Character(string name = "TestName", char roleId = '1');
+
 
         double basicAttack(Character* opponent);		// Basic attack uses the main weapon, returns the final damage done
         double takeDamage(double attackerDamage);		// Reduces the life of the character according the attacker and its defense, returns the final damage taken
@@ -32,6 +34,11 @@ class Character : public Role {
         void equipMainWeapon(Weapon* mainWeap);
         void equipSecWeapon(Weapon* secWeap);
         void equipArmor(Weapon* armor);
+
+        /*  character can buy/sell in merchandise*/
+        void buyItems();
+        void sellItems();
+
         // bool pickUpItem(Item* theItem);
         
         // Accessors and mutators
