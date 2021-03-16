@@ -12,6 +12,7 @@ class Item {
 protected:
     string name;
     string description;
+    string type;
     int buyPrice;
 //    int spaceNeed=0;
     int level;
@@ -41,6 +42,11 @@ public:
     virtual void printInfo()=0;
 
     virtual ~Item();
+
+    virtual const string &getType() const=0;
+
+
+
 };
 
 

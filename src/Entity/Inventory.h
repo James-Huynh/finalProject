@@ -18,7 +18,7 @@ private:
 public:
     Inventory(const string &name);
 
-    int upgradeInventory();
+    void upgradeInventory();
 
     int getMaxPlace() const;
 
@@ -35,4 +35,6 @@ public:
     void showMyMoney();
 
     void addItem(Item *item, int quantity);
+
+    int getTotalItemQuantity();
 };

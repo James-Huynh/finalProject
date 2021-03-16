@@ -10,7 +10,7 @@
 
 class Gold : public Item {
     private:
-
+    string type="money";
 
     int value;
 public:
@@ -21,6 +21,11 @@ public:
     Gold(const string &name, const string &description, int value);
 
     void setValue(int value);
+
+    const string &getType() const;
+
+    void setType(const string &type);
+
 };
 
 

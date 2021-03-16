@@ -47,6 +47,12 @@ Item::~Item() {
 
 }
 
+const string &Item::getType() const {
+    return type;
+}
+
+
+
 //int Item::getSpaceNeed() const {
 //    return spaceNeed;
 //}

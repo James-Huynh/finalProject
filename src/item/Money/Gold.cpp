@@ -19,4 +19,12 @@ void Gold::printInfo() {
     cout<<"you have got "<<description<<" which worth $"<< value<<"."<<endl;
 }
 
+const string &Gold::getType() const {
+    return type;
+}
+
+void Gold::setType(const string &type) {
+    Gold::type = type;
+}
+
 

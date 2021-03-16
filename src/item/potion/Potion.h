@@ -12,16 +12,18 @@ class Potion : public Item{
 
 
 protected:
-
+    string type="potion";
     int basePoint=100;
 
 public:
     void printInfo() override;
 
-public:
+
     Potion(const string &name, const string &description, int buyPrice, int level, int basePoint);
 
+    const string &getType() const;
 
+    void setType(const string &type);
 
 
     int getBasePoint() const;
