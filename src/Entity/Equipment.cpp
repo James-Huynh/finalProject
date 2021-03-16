@@ -42,3 +42,15 @@ void Equipment::printEquipment() {
 	}
 
 }
+
+Weapon* Equipment::getArmor() {
+	return armor;
+}
+
+Weapon* Equipment::getMainWeapon() {
+	return mainWeapon;
+}
+
+Weapon* Equipment::getSecWeapon() {
+	return secWeapon;
+}

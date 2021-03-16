@@ -1,5 +1,5 @@
 #include "Role.h"
-map<string, vector<int>> Role::listRoles;
+map<string, vector<int>> Role::listRoles;		// very important to allow for static data members
 
 Role::Role(): Role(1) {
     

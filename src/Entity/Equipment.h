@@ -15,8 +15,15 @@ class Equipment {
         Weapon* armor;
     public:
         Equipment();
+        void printEquipment();
+
+        // Setters
         void setMainWeapon(Weapon* mainW);
         void setSecWeapon(Weapon* secW);
         void setArmor(Weapon* armor);
-        void printEquipment();
+
+        // Getters
+		Weapon* getArmor();
+		Weapon* getMainWeapon();
+		Weapon* getSecWeapon();
 };

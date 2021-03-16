@@ -7,6 +7,7 @@
 #include "../item/weapon/Ax.h"
 #include "../item/weapon/Shield.h"
 #include "../item/potion/HP_Potion.h"
+#include "../item/Money/Gold.h"
 #include <vector>
 
 vector<Item*> getTotalListItem();

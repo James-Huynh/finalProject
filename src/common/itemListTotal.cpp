@@ -3,7 +3,7 @@
 //
 
 #include "itemListTotal.h"
-#include "../item/Money/Gold.h"
+
 
 
 vector<Item*> getTotalListItem(){

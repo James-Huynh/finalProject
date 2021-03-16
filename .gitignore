@@ -17,6 +17,9 @@ Debug/
 
 
 .cproject/
+.cproject
+/.cproject
+*.cproject/
 
 # +++ Visual Studio Code +++
 .vscode/*
