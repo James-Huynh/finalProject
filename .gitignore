@@ -34,3 +34,9 @@ Debug/
 src/town/test2.cpp
 src/town/test1.
 CMakeLists.txt
+
+
+# qinbranch exclude files:
+src/town/test2.cpp
+src/town/test1.
+CMakeLists.txt
