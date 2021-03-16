@@ -15,7 +15,7 @@ class Graphics {
 
 public:
 	//Basic constructors
-	Graphics(string inType, bool monst);
+	Graphics(string inType, bool monst, bool box = false);
 	Graphics();
 
 	//Setters
@@ -23,6 +23,7 @@ public:
 
 	//Getters
 	bool GetMonsters();
+	bool GetChest();
 
 	//PrintFunction
 	void PrintDisplay();
@@ -37,6 +38,8 @@ private:
 	string display;
 	//If there is a monster or not on the map
 	bool monster;
+	//If there is a chest or not in the map
+	bool chest;
 
 };
 

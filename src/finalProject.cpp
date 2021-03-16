@@ -45,6 +45,7 @@ int main() {
 
 			//IMPLEMENT FIGHT MECHANICS
 		}
+		//Check if there is a chest
 		//else,(and after fight) continue
 		//ask the user which direction he wants to go
 		cout << "\tWhich direction would you like to go ? ('F' (Forward), 'R' (Right), 'L' (Left), 'B' (backward))" << endl;
