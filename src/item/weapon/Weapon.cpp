@@ -83,6 +83,4 @@ const string &Weapon::getType() const {
     return type;
 }
 
-void Weapon::setType(const string &type) {
-    Weapon::type = type;
-}
+

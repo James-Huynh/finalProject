@@ -28,6 +28,3 @@ const string &Potion::getType() const {
     return type;
 }
 
-void Potion::setType(const string &type) {
-    Potion::type = type;
-}

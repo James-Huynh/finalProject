@@ -23,7 +23,7 @@ public:
 
     const string &getType() const;
 
-    void setType(const string &type);
+
 
 
     int getBasePoint() const;

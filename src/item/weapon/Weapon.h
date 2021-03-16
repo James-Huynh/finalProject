@@ -55,7 +55,7 @@ public:
 
     const string &getType() const;
 
-    void setType(const string &type);
+
 
     static double getProbability();
 };
