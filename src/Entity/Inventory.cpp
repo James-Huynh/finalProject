@@ -51,11 +51,10 @@ void Inventory::addItem(Item *item, int quantity) {  // add item(+)
         it = myItemMap.find(item);          // find item
         if(it==myItemMap.end()){   // not exist in map
             myItemMap.emplace(item, i);
-        }else{ // exist in map
-            it->second=it->second+1;
         }
         realAddNum++;
     }
+    it->second=realAddNum;
     cout << "You have put item" << realAddNum << " " << item->getName() << "" << " in the bag." << endl;
 }
 

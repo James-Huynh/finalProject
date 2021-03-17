@@ -18,6 +18,7 @@ private:
 public:
     Inventory(const string &name = "None");
 
+
     void upgradeInventory();
 
     int getMaxPlace() const;
