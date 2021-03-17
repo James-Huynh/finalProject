@@ -4,16 +4,25 @@
 
 #include "Merchandise.h"
 #include <iomanip>
+#include <vector>
 
-Merchandise::Merchandise(const string &name, const string &description) : Town(name, description) {}
+Merchandise::Merchandise(const string &name, const string &description,const vector<Item*>&itemTotalMap ) : Town(name, description) {
+
+    for(Item* item: itemTotalMap){
+        int quantity=getRandomNumByLevel(item);
+        if(quantity>0){
+            saleList.emplace(item,quantity);
+        }
+    }
+}
+
+
 
 const map<Item *, int> &Merchandise::getSaleList() const {
     return saleList;
 }
 
-void Merchandise::setSaleList(const map<Item *, int> &saleList) {
-    Merchandise::saleList = saleList;
-}
+
 
 void Merchandise::printInfo() {
     map<Item *, int>::iterator it;
@@ -34,16 +43,16 @@ void Merchandise::printInfo() {
     }
 }
 
-void Merchandise::addItem(Item *item, int quantity) {
-    std::map<Item *, int>::iterator it;
-    it = saleList.find(item);
-    if (it == saleList.end())
-        saleList.emplace(item, quantity);
-    else {
-        it->second = quantity;
-    }
-
-}
+//void Merchandise::addItem(Item *item, int quantity) {
+//    std::map<Item *, int>::iterator it;
+//    it = saleList.find(item);
+//    if (it == saleList.end())
+//        saleList.emplace(item, quantity);
+//    else {
+//        it->second = quantity;
+//    }
+//
+//}
 
 int Merchandise::getRandomNumByLevel(Item *item) {
     {
@@ -62,3 +71,4 @@ int Merchandise::getRandomNumByLevel(Item *item) {
         }
     }
 }
+

@@ -9,22 +9,24 @@
 #include "Town.h"
 #include "../item/Item.h"
 #include <iostream>
+#include <vector>
 
 
 using namespace std;
 
 class Merchandise : public Town {
 private:
-
     map<Item*,int >saleList;
 public:
-    Merchandise(const string &name, const string &description);
+    Merchandise(const string &name, const string &description,const vector<Item*>&itemTotalMap);
+
+
 
     const map<Item *, int> &getSaleList() const;
 
-    void setSaleList(const map<Item *, int> &saleList);
 
-    void addItem(Item* item, int quantity);
+
+//    void addItem(Item* item, int quantity);
 
     void printInfo();
 
