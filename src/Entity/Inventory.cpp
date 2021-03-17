@@ -2,31 +2,60 @@
 #include "Inventory.h"
 #include <cmath>
 
-void Inventory::showPotions() {
+int Inventory::showPotions() {
+	int i = 0;
     for (auto pair : myItemMap) {
-
+    	i++;
         if (pair.first->getType() == "potion") {
-            pair.first->printInfo();
-            cout << " quantity:" << pair.second << std::endl;
+            cout << "\t" << i << ": ";
+        	pair.first->printInfo();
+            cout << ", quantity:" << pair.second + 1 << std::endl;
         }
     }
+    return i;
+}
+
+double Inventory::drinkPotion(int potionNb){
+	int i = 0;
+	Potion* tempPotion;
+	double basePtsPotions;
+
+	for (auto &pair : myItemMap) {
+		if (pair.first->getType() == "potion"){
+			i++;
+	        if (i == potionNb) {
+	        	tempPotion = dynamic_cast<Potion*> (pair.first);
+	        	basePtsPotions = tempPotion->getBasePoint();
+	        	pair.second--;
+	        	if(pair.second < 0)
+	        		myItemMap.erase(pair.first);
+	        	return basePtsPotions;
+	        }
+		}
+	}
 }
 
 
 void Inventory::showWeapons() {
+	int i = 0;
     for (auto pair : myItemMap) {
+    	i++;
         if (pair.first->getType() == "weapon") {
+        	cout << "\t" << i << ": ";
             pair.first->printInfo();
-            cout << " quantity:" << pair.second << std::endl;
+            cout << ", quantity:" << pair.second + 1 << std::endl;
         }
     }
 }
 
 void Inventory::showMyMoney() {
+	int i = 0;
     for (auto pair : myItemMap) {
+    	i++;
         if (pair.first->getType() == "money") {
+        	cout << "\t" << i << ": ";
             pair.first->printInfo();
-            cout << " quantity:" << pair.second << std::endl;
+            cout << ", quantity:" << pair.second + 1 << std::endl;
         }
     }
 }
@@ -56,7 +85,7 @@ void Inventory::addItem(Item *item, int quantity) {  // add item(+)
         }
         realAddNum++;
     }
-    cout << "You have put item" << realAddNum << " " << item->getName() << "" << " in the bag." << endl;
+    cout << "\tYou have put " << realAddNum << " " << item->getName() << "" << " in your bag." << endl;
 }
 
 

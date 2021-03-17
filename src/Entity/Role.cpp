@@ -20,7 +20,7 @@ Role::Role(char roleIndex) {
         } break;
 
         default:
-            throw "Not a valid choice of Role";
+            throw "\tNot a valid choice of Role";
             break;
     }
 }
@@ -32,9 +32,9 @@ void Role::initializeRoles() {
 
 void Role::printRoles() {
     for(auto it = listRoles.cbegin(); it != listRoles.cend(); ++it) {
-        cout << "Role name: " << it->first << endl;
-        cout << "Base attack: " << it->second.at(0) << endl; 
-        cout << "Base defense: " << it->second.at(1) << endl;
+        cout << "\tRole name: " << it->first << endl;
+        cout << "\tBase attack: " << it->second.at(0) << endl;
+        cout << "\tBase defense: " << it->second.at(1) << endl;
         cout << endl;
     }
 }

@@ -141,5 +141,28 @@ Graphics chestRoom(){
 	return curr;
 }
 
+Graphics chestRoomWithExit(){
+	Graphics curr("chestRoomWithExit", false, false, true);
+	string display = "\n\n\n";
+
+	display = display +
+			  "\t\t\t\t-----------------------------------\n" +
+			  "\t\t\t\t|   ---------|       |----------   |\n" +
+			  "\t\t\t\t|  |                           |  |\n" +
+			  "\t\t\t\t|  |                           |  |\n" +
+			  "\t\t\t\t|  |                      |---||  |\n" +
+			  "\t\t\t\t|  |                      | o ||  |\n" +
+			  "\t\t\t\t|  |                      | o ||  |\n" +
+			  "\t\t\t\t|  |                      |---||  |\n" +
+			  "\t\t\t\t|  |             *             |  |\n" +
+			  "\t\t\t\t|  |                           |  |\n" +
+			  "\t\t\t\t|  ----------         ----------  |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t-----------------------------------\n";
+
+	curr.SetDisplay(display);
+	return curr;
+}
+
 
 #endif

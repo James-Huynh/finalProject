@@ -19,6 +19,7 @@ class Character : public Role {
         Equipment myEquipment;
         double computeDamageDealt(Weapon* currWeapon);		// helper function that computes the total gross damage depending on what is used
         double computeDamageReceived(double dmgIn);
+        int money;
 
 
     public:
@@ -39,7 +40,9 @@ class Character : public Role {
         void buyItems();
         void sellItems();
 
-        // bool pickUpItem(Item* theItem);
+        bool pickUpItem(Item* theItem);
+        void addHealth(double plusHealth);
+        void drinkPotion();
         
         // Accessors and mutators
 		string& getCharName();
@@ -50,4 +53,8 @@ class Character : public Role {
 		Equipment& getMyEquipment();
 		Inventory getMyInventory();
 		double getXp();
+		int getMoney();
+		void addMoney(int addedMoney);
+		void removeMoney(int minusMoney);
+
 };

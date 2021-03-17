@@ -16,7 +16,7 @@ Gold::Gold(const string &name, const string &description, int value) : Item(name
                                                                                                 value(value) {}
 
 void Gold::printInfo() {
-    cout<<"you have got a "<<description<<" which is worth $"<< value<<"."<<endl;
+    cout<<"This is a "<<description<<" which is worth $"<< value;
 }
 
 const string &Gold::getType() const {

@@ -9,7 +9,6 @@
 
 void Shield::printInfo() {
     Weapon::printInfo();
-    cout <<endl;
 }
 
 

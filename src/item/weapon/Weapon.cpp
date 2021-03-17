@@ -76,7 +76,7 @@ double Weapon::getProbability(){
 }
 
 void Weapon::printInfo() {
-    cout <<Item::name<<": " <<Item::description;
+    cout << Item::name<<": " <<Item::description;
 }
 
 const string &Weapon::getType() const {

@@ -9,5 +9,4 @@ HP_Potion::HP_Potion(const string &name, const string &description, int buyPrice
 
 void HP_Potion::printInfo() {
     Potion::printInfo();
-    cout <<endl;
 }

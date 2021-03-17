@@ -13,10 +13,15 @@
 void createLevelOne(Levels& currLevel){
 
 	Graphics one = straightLine();
-	Graphics two = straightLine();
+	Graphics two = chestRoomWithExit();
 	Graphics three = endRoom();
 
 	Character boss("Ragnar", '1');
+	Weapon* myArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,180,0.1);
+	boss.equipArmor(myArmor);
+	Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
+
+	boss.equipMainWeapon(mySword);
 
 	Room* roomOne = new Room{one, 1};
 	Room* roomTwo = new Room{two, 2};
@@ -47,7 +52,7 @@ void createLevelTwo(Levels& currLevel){
 	Character boss("Ragnar", '1');
 
 	Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
-	// testing values
+
 	boss.equipMainWeapon(mySword);
 
 	Room* roomOne = new Room{firstScreen, 1};

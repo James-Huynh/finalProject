@@ -7,7 +7,6 @@
 
 void Ax::printInfo() {
     Weapon::printInfo();
-    cout <<endl;
 }
 
 Ax::Ax(const string &name, const string &description, int buyPrice, int level, int dmgValue,

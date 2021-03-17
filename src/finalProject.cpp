@@ -107,7 +107,7 @@ int main() {
 
 	//Sam's part
 
-	//mainGameplay();
+	mainGameplay();
 
 	//END of Sam's part
 

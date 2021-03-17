@@ -17,7 +17,9 @@ void Merchandise::setSaleList(const map<Item *, int> &saleList) {
 
 void Merchandise::printInfo() {
     map<Item *, int>::iterator it;
+    int i = 0;
     cout << "\t";
+    cout << setw(7) << left << "Index";
     cout << setw(22) << left   <<  "Name" ;
     cout << setw(73) << left   << "Description" ;
     cout << setw(13) << left   <<  "price" ;
@@ -25,7 +27,9 @@ void Merchandise::printInfo() {
 
     for (it = saleList.begin(); it != saleList.end(); it++) {
         if(it->second>0){
+        	i++;
         	cout << "\t";
+        	cout << setw(7) << left << i;
             cout << setw(22) << left   <<  it->first->getName() ;
             cout << setw(73) << left   <<  it->first->getDescription() ;
             cout << setw(13) << left   <<  it->first->getBuyPrice() ;
