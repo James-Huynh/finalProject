@@ -17,6 +17,13 @@ public:
 
     Town();
 
+    const string &getName() const;
+
+    void setName(const string &name);
+
+    const string &getDescription() const;
+
+    void setDescription(const string &description);
 
     virtual void printInfo()=0;
 
