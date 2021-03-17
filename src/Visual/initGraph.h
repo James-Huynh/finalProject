@@ -50,7 +50,7 @@ Graphics endRoom(){
 }
 
 Graphics town(){
-	Graphics curr("town", false);
+	Graphics curr("Town", false);
 	string display = "\n\n\n";
 
 	display = display +

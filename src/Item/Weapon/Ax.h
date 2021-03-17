@@ -7,8 +7,8 @@
 
 
 #include "Weapon.h"
-#include "../potion/Diamond.h"
-//#include "../../common/tool.cpp"
+#include "../Potion/Diamond.h"
+//#include "../../Common/tool.cpp"
 
 class Ax : public Weapon {
 

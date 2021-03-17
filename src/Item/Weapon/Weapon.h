@@ -7,7 +7,7 @@
 
 
 #include "../Item.h"
-#include "../potion/Diamond.h"
+#include "../Potion/Diamond.h"
 #include <vector>
 #include <cstdlib>
 #include <iostream>
@@ -20,7 +20,7 @@ protected:
     int protectValue;
     int sellValue;
     bool isAttack = false;
-    string type="weapon";
+    string type="Weapon";
     vector<Diamond*>diamondPlace;
 public:
 
@@ -56,6 +56,9 @@ public:
     const string &getType() const;
 
 
+    bool isAttack2() const;
+
+    void setType1(const string &type);
 
     static double getProbability();
 };

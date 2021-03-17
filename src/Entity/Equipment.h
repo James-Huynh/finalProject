@@ -1,10 +1,10 @@
 #pragma once
-#include "../town/Merchandise.h"
-#include "../item/weapon/Weapon.h"
-#include "../item/weapon/Shield.h"
-#include "../item/weapon/Sword.h"
-#include "../item/weapon/Ax.h"
-#include "../item/weapon/Armor.h"
+#include "../Town/Merchandise.h"
+#include "../Item/Weapon/Weapon.h"
+#include "../Item/Weapon/Shield.h"
+#include "../Item/Weapon/Sword.h"
+#include "../Item/Weapon/Ax.h"
+#include "../Item/Weapon/Armor.h"
 
 
 // The wearable equipment on a character's body

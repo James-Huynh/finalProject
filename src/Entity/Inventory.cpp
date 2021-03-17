@@ -6,7 +6,7 @@ int Inventory::showPotions() {
 	int i = 0;
     for (auto pair : myItemMap) {
     	i++;
-        if (pair.first->getType() == "potion") {
+        if (pair.first->getType() == "Potion") {
             cout << "\t" << i << ": ";
         	pair.first->printInfo();
             cout << ", quantity:" << pair.second + 1 << std::endl;
@@ -21,7 +21,7 @@ double Inventory::drinkPotion(int potionNb){
 	double basePtsPotions;
 
 	for (auto &pair : myItemMap) {
-		if (pair.first->getType() == "potion"){
+		if (pair.first->getType() == "Potion"){
 			i++;
 	        if (i == potionNb) {
 	        	tempPotion = dynamic_cast<Potion*> (pair.first);
@@ -40,7 +40,7 @@ void Inventory::showWeapons() {
 	int i = 0;
     for (auto pair : myItemMap) {
     	i++;
-        if (pair.first->getType() == "weapon") {
+        if (pair.first->getType() == "Weapon") {
         	cout << "\t" << i << ": ";
             pair.first->printInfo();
             cout << ", quantity:" << pair.second + 1 << std::endl;
@@ -52,7 +52,7 @@ void Inventory::showMyMoney() {
 	int i = 0;
     for (auto pair : myItemMap) {
     	i++;
-        if (pair.first->getType() == "money") {
+        if (pair.first->getType() == "Money") {
         	cout << "\t" << i << ": ";
             pair.first->printInfo();
             cout << ", quantity:" << pair.second + 1 << std::endl;
@@ -67,7 +67,6 @@ int Inventory::getTotalItemQuantity(){
     }
     return  total;
 }
-
 
 void Inventory::addItem(Item *item, int quantity) {  // add item(+)
     int realAddNum=0;
@@ -85,9 +84,8 @@ void Inventory::addItem(Item *item, int quantity) {  // add item(+)
         }
         realAddNum++;
     }
-    cout << "\tYou have put " << realAddNum << " " << item->getName() << "" << " in your bag." << endl;
+    cout << "\tYou have put " << realAddNum << " " << item->getName() << " in the bag." << endl;
 }
-
 
 Inventory::Inventory(const string &name) : name(name) {}
 
@@ -111,6 +109,14 @@ void Inventory::setMaxPlace(int maxPlace) {
 
 void Inventory::upgradeInventory() {   // player increase the inventory max space by 5 per time by consume xp
     maxPlace+=5;
+}
+
+const map<Item *, int> &Inventory::getMyItemMap() const {
+    return myItemMap;
+}
+
+void Inventory::setMyItemMap(const map<Item *, int> &myItemMap) {
+    Inventory::myItemMap = myItemMap;
 }
 
 

@@ -37,12 +37,12 @@ Debug/
 
 
 # qinbranch exclude files:
-src/town/test2.cpp
-src/town/test1.
+src/Town/test2.cpp
+src/Town/test1.
 CMakeLists.txt
 
 
 # qinbranch exclude files:
-src/town/test2.cpp
-src/town/test1.
+src/Town/test2.cpp
+src/Town/test1.
 CMakeLists.txt

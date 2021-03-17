@@ -6,7 +6,7 @@
 #define FINALPROJECTWEEK5_GOLD_H
 
 
-#include "../potion/Potion.h"
+#include "../Potion/Potion.h"
 
 class Gold : public Item {
     private:

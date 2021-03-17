@@ -55,11 +55,11 @@ void Weapon::setDiamondPlace(const vector<Diamond *> &diamondPlace) {
 }
 
 void Weapon::embedDiamond(Diamond* diamond) {
-    if(diamondPlace.size()<level ){      // weapon has enough place to embed diamond
+    if(diamondPlace.size()<level ){      // Weapon has enough place to embed diamond
         if(diamond->getLevel() <= this->getLevel()){
             diamondPlace.push_back(diamond);
         }else{
-//            cout <<"diamond level should be lower than the weapon level"<<endl;
+//            cout <<"diamond level should be lower than the Weapon level"<<endl;
         }
     }else{
 //        cout <<"there is no place to hold the diamond"<<endl;
@@ -81,6 +81,14 @@ void Weapon::printInfo() {
 
 const string &Weapon::getType() const {
     return type;
+}
+
+bool Weapon::isAttack2() const {
+    return isAttack;
+}
+
+void Weapon::setType1(const string &type) {
+    Weapon::type = type;
 }
 
 

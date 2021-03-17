@@ -12,7 +12,7 @@ class Potion : public Item{
 
 
 protected:
-    string type="potion";
+    string type="Potion";
     int basePoint=100;
 
 public:

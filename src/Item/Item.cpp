@@ -51,6 +51,10 @@ const string &Item::getType() const {
     return type;
 }
 
+void Item::setType(const string &type) {
+    Item::type = type;
+}
+
 
 
 //int Item::getSpaceNeed() const {

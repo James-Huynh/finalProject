@@ -14,7 +14,7 @@
 #include "Visual/initLevels.h"
 #include "Visual/Room.h"
 #include "Visual/Levels.h"
-#include "item/Item.h"
+#include "Item/Item.h"
 
 
 char inTown(Merchandise& townMerchandise, Character& mainPlayer){
@@ -50,7 +50,7 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 			break;
 
 	case('b'):
-		cout << "\tHere is what is in store for this town !" << endl << endl;
+		cout << "\tHere is what is in store for this Town !" << endl << endl;
 		townMerchandise.printInfo();
 		cout << endl;
 		cout << "\tWould you like to buy something ? (y/n)" << endl;
@@ -253,7 +253,7 @@ void mainGameplay(){
 	bool isPlayerAlive = true;
 	bool first = true;
 
-	//Everything to do with the town
+	//Everything to do with the Town
 	Graphics townDisplay = town();
 	Merchandise townMerchandise("Town", "Town in between the levels");
 	map<Item *, int> townSaleList;
@@ -370,8 +370,9 @@ void mainGameplay(){
 
 							cout << "\tYour sword and cloth armor are now equipped !" << endl;
 
-							mainPlayer.equipArmor(myFirstArmor);
 							mainPlayer.equipMainWeapon(myFirstSword);
+							mainPlayer.equipArmor(myFirstArmor);
+
 							mainPlayer.pickUpItem(hpPotionStart);
 							mainPlayer.pickUpItem(hpPotionStart);
 							cout << endl;
@@ -446,9 +447,9 @@ void mainGameplay(){
 			system("clear");
 			townDisplay.PrintDisplay();
 
-			cout << "\tYou reached a town. You must be exhausted !" << endl;
+			cout << "\tYou reached a Town. You must be exhausted !" << endl;
 
-			//Clear old sale list of the town
+			//Clear old sale list of the Town
 			townSaleList.clear();
 
 			//Generate the inventory of the Town

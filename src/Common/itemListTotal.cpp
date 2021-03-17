@@ -29,13 +29,13 @@ vector<Item*> getTotalListItem(){
     auto* woodShield= new Shield("wood shield","level 1 with 5% pierce through armor",100,1,50,0.05);
 
 
-    auto* hpPotion1= new HP_Potion("small hp","level 1 hp potion",100,1,100);
-    auto* hpPotion2= new HP_Potion("normal hp","level 2 hp potion",200,2,300);
-    auto* hpPotion3= new HP_Potion("big hp","level 3 hp potion",400,3,500);
+    auto* hpPotion1= new HP_Potion("small hp","level 1 hp Potion",100,1,100);
+    auto* hpPotion2= new HP_Potion("normal hp","level 2 hp Potion",200,2,300);
+    auto* hpPotion3= new HP_Potion("big hp","level 3 hp Potion",400,3,500);
 
-    auto* amethyst= new Diamond("Amethyst", "level 1, embed on defensive weapon will increase 100 points of defence", 300, 1, 100,0.05);
-    auto* emerald= new Diamond ("Emerald", "level 2, embed on defensive weapon will increase 100 points of defence", 500, 2, 300,0.10);
-    auto* ruby= new Diamond ("Ruby", "level 3,embed on defensive weapon will increase 100 points of defence", 1000, 3, 800,0.15);
+    auto* amethyst= new Diamond("Amethyst", "level 1, embed on defensive Weapon will increase 100 points of defence", 300, 1, 100,0.05);
+    auto* emerald= new Diamond ("Emerald", "level 2, embed on defensive Weapon will increase 100 points of defence", 500, 2, 300,0.10);
+    auto* ruby= new Diamond ("Ruby", "level 3,embed on defensive Weapon will increase 100 points of defence", 1000, 3, 800,0.15);
 
 
     auto* bigGold= new Gold ("Big Gold", "Big Gold",1000);

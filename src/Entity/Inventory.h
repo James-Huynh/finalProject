@@ -1,9 +1,9 @@
 // #include "Item.h"
 
-#include "../item/Item.h"
-#include "../item/potion/Potion.h"
-#include "../item/weapon/Weapon.h"
-#include "../item/Money/Gold.h"
+#include "../Item/Item.h"
+#include "../Item/Potion/Potion.h"
+#include "../Item/Weapon/Weapon.h"
+#include "../Item/Money/Gold.h"
 #include <typeinfo>
 #include <map>
 #include <iostream>
@@ -22,6 +22,10 @@ public:
     void upgradeInventory();
 
     int getMaxPlace() const;
+
+    const map<Item *, int> &getMyItemMap() const;
+
+    void setMyItemMap(const map<Item *, int> &myItemMap);
 
     void setMaxPlace(int maxPlace);
 

@@ -12,13 +12,7 @@ void Shield::printInfo() {
 }
 
 
-double Shield::getWeakenDmgProbability() const {
-    return dodgeProbability;
-}
 
-void Shield::setWeakenDmgProbability(double weakenDmgProbability) {
-    Shield::dodgeProbability = weakenDmgProbability;
-}
 
 Shield::Shield(const string &name, const string &description, int buyPrice, int level, int protectValue,
                 double dodgeProbability) : Weapon(name, description, buyPrice, level, 0,
@@ -39,4 +33,12 @@ int Shield::getDefenceValue() {
 
 int Shield::getAttackValue() {
     return 0;
+}
+
+double Shield::getDodgeProbability() const {
+    return dodgeProbability;
+}
+
+void Shield::setDodgeProbability(double dodgeProbability) {
+    Shield::dodgeProbability = dodgeProbability;
 }
