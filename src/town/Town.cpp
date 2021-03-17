@@ -6,3 +6,7 @@
 
 Town::Town(const string &name, const string &description) : name(name), description(description) {}
 
+Town::Town() {}
+
+
+

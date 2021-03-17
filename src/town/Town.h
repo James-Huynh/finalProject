@@ -14,6 +14,10 @@ protected:
     string description;
 public:
     Town(const string &name, const string &description);
+
+    Town();
+
+
     virtual void printInfo()=0;
 
 };

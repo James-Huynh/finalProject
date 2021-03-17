@@ -26,7 +26,7 @@ const map<Item *, int> &Merchandise::getSaleList() const {
 
 void Merchandise::printInfo() {
     map<Item *, int>::iterator it;
-    cout << "\t";
+
     cout << setw(22) << left   <<  "Name" ;
     cout << setw(73) << left   << "Description" ;
     cout << setw(13) << left   <<  "price" ;
@@ -34,7 +34,7 @@ void Merchandise::printInfo() {
 
     for (it = saleList.begin(); it != saleList.end(); it++) {
         if(it->second>0){
-        	cout << "\t";
+
             cout << setw(22) << left   <<  it->first->getName() ;
             cout << setw(73) << left   <<  it->first->getDescription() ;
             cout << setw(13) << left   <<  it->first->getBuyPrice() ;
@@ -71,4 +71,18 @@ int Merchandise::getRandomNumByLevel(Item *item) {
         }
     }
 }
+
+Merchandise::Merchandise(const string &name, const string &description) : Town(name, description) {}
+
+void Merchandise::setSaleList(const map<Item *, int> &saleList) {
+    Merchandise::saleList = saleList;
+}
+
+
+
+Merchandise::Merchandise() {
+
+}
+
+
 
