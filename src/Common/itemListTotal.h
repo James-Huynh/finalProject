@@ -2,13 +2,13 @@
 // Created by hello on 2021-03-16.
 //
 
-#include "../item/weapon/Armor.h"
-#include "../item/weapon/Sword.h"
-#include "../item/weapon/Ax.h"
-#include "../item/weapon/Shield.h"
-#include "../item/potion/HP_Potion.h"
-#include "../item/Money/Gold.h"
-#include "../item/potion/Diamond.h"
+#include "../Item/Weapon/Armor.h"
+#include "../Item/Weapon/Sword.h"
+#include "../Item/Weapon/Ax.h"
+#include "../Item/Weapon/Shield.h"
+#include "../Item/Potion/HP_Potion.h"
+#include "../Item/Money/Gold.h"
+#include "../Item/Potion/Diamond.h"
 #include <vector>
 
 vector<Item*> getTotalListItem();

@@ -1,9 +1,9 @@
 // #include "Item.h"
 
-#include "../item/Item.h"
-#include "../item/potion/Potion.h"
-#include "../item/weapon/Weapon.h"
-#include "../item/Money/Gold.h"
+#include "../Item/Item.h"
+#include "../Item/Potion/Potion.h"
+#include "../Item/Weapon/Weapon.h"
+#include "../Item/Money/Gold.h"
 #include <typeinfo>
 #include <map>
 #include <iostream>

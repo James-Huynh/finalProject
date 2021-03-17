@@ -10,6 +10,7 @@ void Inventory::showPotions() {
             cout << " quantity:" << pair.second << std::endl;
         }
     }
+
 }
 
 
