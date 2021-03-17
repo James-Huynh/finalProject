@@ -5,7 +5,7 @@
 void Inventory::showPotions() {
     for (auto pair : myItemMap) {
 
-        if (pair.first->getType() == "potion") {
+        if (pair.first->getType() == "Potion") {
             pair.first->printInfo();
             cout << " quantity:" << pair.second << std::endl;
         }
@@ -15,7 +15,7 @@ void Inventory::showPotions() {
 
 void Inventory::showWeapons() {
     for (auto pair : myItemMap) {
-        if (pair.first->getType() == "weapon") {
+        if (pair.first->getType() == "Weapon") {
             pair.first->printInfo();
             cout << " quantity:" << pair.second << std::endl;
         }
@@ -40,22 +40,22 @@ int Inventory::getTotalItemQuantity(){
 }
 
 
-void Inventory::addItem(Item *item, int quantity) {  // add item(+)
+void Inventory::addItem(Item *item, int quantity) {  // add Item(+)
     int realAddNum=0;
     map<Item *, int>::iterator it;
     for (int i = 0; i < quantity; ++i) {
-        if (maxPlace <= getTotalItemQuantity()) {       // check have enough space for new item
+        if (maxPlace <= getTotalItemQuantity()) {       // check have enough space for new Item
             cout << "There is no space in the bag." << endl;
             return;
         }
-        it = myItemMap.find(item);          // find item
+        it = myItemMap.find(item);          // find Item
         if(it==myItemMap.end()){   // not exist in map
             myItemMap.emplace(item, i);
         }
         realAddNum++;
     }
     it->second=realAddNum;
-    cout << "You have put item" << realAddNum << " " << item->getName() << "" << " in the bag." << endl;
+//    cout << "You have put Item" << realAddNum << " " << Item->getName() << "" << " in the bag." << endl;
 }
 
 
@@ -81,6 +81,14 @@ void Inventory::setMaxPlace(int maxPlace) {
 
 void Inventory::upgradeInventory() {   // player increase the inventory max space by 5 per time by consume xp
     maxPlace+=5;
+}
+
+const map<Item *, int> &Inventory::getMyItemMap() const {
+    return myItemMap;
+}
+
+void Inventory::setMyItemMap(const map<Item *, int> &myItemMap) {
+    Inventory::myItemMap = myItemMap;
 }
 
 

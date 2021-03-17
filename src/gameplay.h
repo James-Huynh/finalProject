@@ -36,7 +36,7 @@ char inTown(Merchandise townMerchandise){
 			break;
 
 	case('b'):
-		cout << "\tHere is what is in store for this town !" << endl << endl;
+		cout << "\tHere is what is in store for this Town !" << endl << endl;
 		townMerchandise.printInfo();
 		cout << endl;
 		cout << "\tWould you like to buy something ? (y/n)" << endl;
@@ -49,7 +49,7 @@ char inTown(Merchandise townMerchandise){
 
 		if(buyOption == 'y'){
 			//IMPLEMENT MECHANICS TO BUY AN ITEM WHICH SHOULD BE :
-			//Ask for the number of the item
+			//Ask for the number of the Item
 			//Check that number is valid
 			//Ask for the quantity
 			//Check that the quantity is valid
@@ -106,7 +106,7 @@ void mainGameplay(){
 	bool isFightingBoss;
 	char townOutput;
 
-	//Everything to do with the town
+	//Everything to do with the Town
 	Graphics townDisplay = town();
 	Merchandise townMerchandise("Town", "Town in between the levels");
 	map<Item *, int> townSaleList;
@@ -163,7 +163,7 @@ void mainGameplay(){
 					//we won and it was the boss, say boss is dead in the level
 					if(isFightingBoss /*&& we won or are still alive*/){
 						currLevel.setBossStatus(false);
-						cout << "\tCongratulation ! The boss is dead ! Let's go to a town to celebrate ! (Press any key then enter to go to the town)" << endl;
+						cout << "\tCongratulation ! The boss is dead ! Let's go to a Town to celebrate ! (Press any key then enter to go to the Town)" << endl;
 						cin >> useless;
 						break;
 					}
@@ -177,7 +177,7 @@ void mainGameplay(){
 
 					if(optionChest == 'y' ||optionChest == 'Y'){
 
-						//Generate the random item
+						//Generate the random Item
 						cout << "\tIn the box, you found: " << endl;
 						cout << "\t";
 						randomItemChest = chestInRoom.openBox(itemListTotal);
@@ -229,13 +229,13 @@ void mainGameplay(){
 			}while(1);
 			//while(!currLevel.getBossStatus());
 
-			//When boss is defeated, we should go to the town.
+			//When boss is defeated, we should go to the Town.
 			system("clear");
 			townDisplay.PrintDisplay();
 
-			cout << "\tYou reached a town. You must be exhausted !" << endl;
+			cout << "\tYou reached a Town. You must be exhausted !" << endl;
 
-			//Clear old sale list of the town
+			//Clear old sale list of the Town
 			townSaleList.clear();
 
 			//Generate the inventory of the Town

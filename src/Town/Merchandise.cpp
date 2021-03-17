@@ -25,29 +25,28 @@ const map<Item *, int> &Merchandise::getSaleList() const {
 
 
 void Merchandise::printInfo() {
-    map<Item *, int>::iterator it;
+
 
     cout << setw(22) << left   <<  "Name" ;
     cout << setw(73) << left   << "Description" ;
     cout << setw(13) << left   <<  "price" ;
     cout << setw(8) << left   <<  "quantity"<<endl;
 
-    for (it = saleList.begin(); it != saleList.end(); it++) {
-        if(it->second>0){
+    for (const auto &it: saleList) {
 
-            cout << setw(22) << left   <<  it->first->getName() ;
-            cout << setw(73) << left   <<  it->first->getDescription() ;
-            cout << setw(13) << left   <<  it->first->getBuyPrice() ;
-            cout << setw(8) << left   <<  it->second <<endl;
-        }
+            cout << setw(22) << left   <<  it.first->getName() ;
+            cout << setw(73) << left   <<  it.first->getDescription() ;
+            cout << setw(13) << left   <<  it.first->getBuyPrice() ;
+            cout << setw(8) << left   <<  it.second <<endl;
+
     }
 }
 
-//void Merchandise::addItem(Item *item, int quantity) {
+//void Merchandise::addItem(Item *Item, int quantity) {
 //    std::map<Item *, int>::iterator it;
-//    it = saleList.find(item);
+//    it = saleList.find(Item);
 //    if (it == saleList.end())
-//        saleList.emplace(item, quantity);
+//        saleList.emplace(Item, quantity);
 //    else {
 //        it->second = quantity;
 //    }

@@ -35,7 +35,7 @@ public:
 private:
 	//vector of every room and how they are connected
 	vector<Room> level;
-	//if the boss is dead, we should get to the town
+	//if the boss is dead, we should get to the Town
 	bool isBossAlive;
 	//current room we are in right now
 	Room currRoom;

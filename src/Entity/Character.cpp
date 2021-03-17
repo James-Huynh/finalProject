@@ -109,3 +109,35 @@ Inventory Character::getMyInventory() {
 double Character::getXp() {
 	return xp;
 }
+
+void Character::setMyInventory(const Inventory &myInventory) {
+    Character::myInventory = myInventory;
+}
+
+void Character::setHp(double hp) {
+    Character::hp = hp;
+}
+
+void Character::setMaxHp(double maxHp) {
+    Character::maxHp = maxHp;
+}
+
+void Character::setXp(double xp) {
+    Character::xp = xp;
+}
+
+void Character::setAlive(bool alive) {
+    Character::alive = alive;
+}
+
+const string &Character::getCharName() const {
+    return charName;
+}
+
+void Character::setCharName(const string &charName) {
+    Character::charName = charName;
+}
+
+void Character::setMyEquipment(const Equipment &myEquipment) {
+    Character::myEquipment = myEquipment;
+}

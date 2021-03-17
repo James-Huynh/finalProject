@@ -19,6 +19,8 @@ protected:
 public:
     int getLevel() const;
 
+    void setType(const string &type);
+
     void setLevel(int level);
 
 //    int getSpaceNeed() const;

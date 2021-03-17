@@ -28,7 +28,7 @@ public:
 
     void setSaleList(const map<Item *, int> &saleList);
 
-//    void addItem(Item* item, int quantity);
+//    void addItem(Item* Item, int quantity);
 
     void printInfo();
 

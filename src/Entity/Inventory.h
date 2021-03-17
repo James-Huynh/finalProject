@@ -18,10 +18,13 @@ private:
 public:
     Inventory(const string &name = "None");
 
-
     void upgradeInventory();
 
     int getMaxPlace() const;
+
+    const map<Item *, int> &getMyItemMap() const;
+
+    void setMyItemMap(const map<Item *, int> &myItemMap);
 
     void setMaxPlace(int maxPlace);
 
