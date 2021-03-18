@@ -27,7 +27,7 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 	Item* itemToBuyObject;
 	int qteObject;
 	map<Item *, int>::iterator it;
-	int i = 0;
+	size_t i = 0;
 	map<Item*, int> townSalesList = townMerchandise.getSaleList();
 	Inventory playerInventory = mainPlayer.getMyInventory();
 	int qteRemaining;
@@ -89,7 +89,7 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 
 			//Check that the quantity is valid
 			while(quantityToBuy > qteObject){
-				cout << "\tNot a valid option, choose a number smaller than" << townMerchandise.getSaleList().size() << endl;
+				cout << "\tNot a valid option, choose a number smaller than " << qteObject << endl;
 				cin >> quantityToBuy;
 			}
 
@@ -112,7 +112,7 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 						if(qteRemaining == 0)
 							townSalesList.erase(itemToBuyObject);
 						else
-							it->second = qteRemaining;
+							it->second = it->second - quantityToBuy;
 					}
 				}
 				townMerchandise.setSaleList(townSalesList);
@@ -222,10 +222,10 @@ void mainGameplay(){
 	Levels currLevel;
 	Character currMonster;
 
-	createLevelOne(level1);
+	//createLevelOne(level1);
 	createLevelTwo(level2);
 
-	wholeGame.push_back(level1);
+	//wholeGame.push_back(level1);
 	wholeGame.push_back(level2);
 
 
@@ -236,7 +236,7 @@ void mainGameplay(){
 	//First chest encountered
 	HP_Potion* hpPotionStart = new HP_Potion("small hp","level 1 hp potion",100,1,25);
 	Weapon* myFirstSword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
-	Weapon* myFirstArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,180,0.1);
+	Weapon* myFirstArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,80,0.1);
 
 	//When the player encounters a chest
 	vector<Item*> itemListTotal = getTotalListItem();
@@ -260,7 +260,7 @@ void mainGameplay(){
 
 	//Initializing the character
 	string playersName;
-	char charRole;
+	char charRole = '1';
 
 
 	system("clear");
@@ -271,7 +271,7 @@ void mainGameplay(){
 	//Print the roles
 	//cin >> charRole;
 	//Create character with role
-	Character mainPlayer(playersName, '1');
+	Character mainPlayer(playersName, charRole);
 
 
 	cout << "Greetings ! ";
@@ -375,6 +375,7 @@ void mainGameplay(){
 
 							mainPlayer.pickUpItem(hpPotionStart);
 							mainPlayer.pickUpItem(hpPotionStart);
+
 							cout << endl;
 
 

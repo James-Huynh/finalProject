@@ -2,6 +2,8 @@
 
 Debug/
 
+.cproject
+
 .project
 .classpath
 .settings

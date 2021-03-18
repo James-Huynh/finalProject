@@ -84,6 +84,7 @@ void Inventory::addItem(Item *item, int quantity) {  // add item(+)
         }
         realAddNum++;
     }
+    //it->second = realAddNum;
     cout << "\tYou have put " << realAddNum << " " << item->getName() << " in the bag." << endl;
 }
 

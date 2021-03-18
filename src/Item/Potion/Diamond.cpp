@@ -9,7 +9,6 @@
 
 void Diamond::printInfo() {
    Potion::printInfo();
-    cout <<endl;
 }
 
 Diamond::Diamond(const string &name, const string &description, int buyPrice, int level, int basePoint,
