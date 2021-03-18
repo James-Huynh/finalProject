@@ -13,6 +13,9 @@ public:
    static void saveGame(const Character &character, int level_i);
    static void loadGame(const string& filePath , Character&c, int &i);
 
+    static void saveGame(const Character &character, int level_i,const Merchandise &merchandise);
+    static void loadGame(const string& filePath ,const Character &character, Merchandise& Merchandise, int &level_i);
+
 };
 
 

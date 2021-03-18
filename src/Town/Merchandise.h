@@ -7,7 +7,7 @@
 
 #include <map>
 #include "Town.h"
-#include "../item/Item.h"
+#include "../Item/Item.h"
 #include <iostream>
 #include <vector>
 
@@ -30,7 +30,7 @@ public:
 
 //    void addItem(Item* Item, int quantity);
 
-    void printInfo();
+    void printInfo() override;
 
     static int getRandomNumByLevel(Item* item);
 
