@@ -32,13 +32,11 @@ int Sword::getDefenceValue() {
 int Sword::getAttackValue() {
     int result=dmgValue;
     if(getProbability()>hitProbability){    // if the random number is small, then the attack not hit the target;
-//        cout<<name <<" fail to hit on the target."<<endl;
         return 0;
     }
     for (Diamond* d : diamondPlace) {
         result+=d->getBasePoint();
     }
-//    cout<<name <<" gave " << result<<" points hit on the target."<<endl;
     return result;
 }
 

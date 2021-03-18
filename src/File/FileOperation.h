@@ -11,11 +11,15 @@
 class FileOperation {
 public:
    static void saveGame(const Character &character, int level_i);
-   static void loadGame(const string& filePath , Character&c, int &i);
+   static void loadGame(Character&c, int &i);
 
-    static void saveGame(const Character &character, int level_i,const Merchandise &merchandise);
-    static void loadGame(const string& filePath ,const Character &character, Merchandise& Merchandise, int &level_i);
+    static void saveGame(const Merchandise &merchandise, int level_i);
 
+    static void loadGame(Merchandise &merchandise, int &i);
+
+    static void saveGame(const Merchandise &merchandise);
+
+    static void loadGame(Merchandise &merchandise);
 };
 
 

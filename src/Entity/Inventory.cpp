@@ -2,11 +2,13 @@
 #include "Inventory.h"
 #include <cmath>
 
+
+// show the potions Play have
 int Inventory::showPotions() {
 	int i = 0;
     for (auto pair : myItemMap) {
     	i++;
-        if (pair.first->getType() == "Potion") {
+        if (pair.first->getType() == "Potion") {   // check is potion  then print out
             cout << "\t" << i << ": ";
         	pair.first->printInfo();
             cout << ", quantity:" << pair.second + 1 << std::endl;
@@ -15,19 +17,20 @@ int Inventory::showPotions() {
     return i;
 }
 
+// consume the potion Play have  and return value
 double Inventory::drinkPotion(int potionNb){
 	int i = 0;
 	Potion* tempPotion;
 	double basePtsPotions;
 
 	for (auto &pair : myItemMap) {
-		if (pair.first->getType() == "Potion"){
+		if (pair.first->getType() == "Potion"){  // check is potion  then could drink
 			i++;
 	        if (i == potionNb) {
 	        	tempPotion = dynamic_cast<Potion*> (pair.first);
 	        	basePtsPotions = tempPotion->getBasePoint();
 	        	pair.second--;
-	        	if(pair.second < 0)
+	        	if(pair.second < 0)                  // if not have any more, the erase out from map
 	        		myItemMap.erase(pair.first);
 	        	return basePtsPotions;
 	        }
@@ -35,12 +38,12 @@ double Inventory::drinkPotion(int potionNb){
 	}
 }
 
-
+// show the potions Play have
 void Inventory::showWeapons() {
 	int i = 0;
     for (auto pair : myItemMap) {
     	i++;
-        if (pair.first->getType() == "Weapon") {
+        if (pair.first->getType() == "Weapon") { // check if it is Weapon
         	cout << "\t" << i << ": ";
             pair.first->printInfo();
             cout << ", quantity:" << pair.second + 1 << std::endl;
@@ -60,7 +63,7 @@ void Inventory::showMyMoney() {
     }
 }
 
-int Inventory::getTotalItemQuantity(){
+int Inventory::getTotalItemQuantity(){    //get total quantity of all items, the total could not larger than the max size of the inventory.
     int total=0;
     for (auto pair : myItemMap) {
         total=total+pair.second;
@@ -68,7 +71,7 @@ int Inventory::getTotalItemQuantity(){
     return  total;
 }
 
-void Inventory::addItem(Item *item, int quantity) {  // add item(+)
+void Inventory::addItem(Item *item, int quantity) {     // add item(+)
     int realAddNum=0;
     map<Item *, int>::iterator it;
     for (int i = 0; i < quantity; ++i) {
@@ -76,20 +79,24 @@ void Inventory::addItem(Item *item, int quantity) {  // add item(+)
             cout << "There is no space in the bag." << endl;
             return;
         }
-        it = myItemMap.find(item);          // find item
-        if(it==myItemMap.end()){   // not exist in map
+        it = myItemMap.find(item);                       // find item
+        if(it==myItemMap.end()){                        // not exist in map
             myItemMap.emplace(item, i);
-        }else{ // exist in map
+        }else{                                          // exist in map
             it->second=it->second+1;
         }
         realAddNum++;
     }
-    //it->second = realAddNum;
     cout << "\tYou have put " << realAddNum << " " << item->getName() << " in the bag." << endl;
 }
 
 
 Inventory::Inventory(const string &name) : name(name) {}
+
+
+/*
+ * getter and setter below
+ */
 
 const string &Inventory::getName() const {
     return name;
@@ -110,7 +117,7 @@ void Inventory::setMaxPlace(int maxPlace) {
 
 
 void Inventory::upgradeInventory() {   // player increase the inventory max space by 5 per time by consume xp
-    maxPlace+=5;
+    maxPlace += 5;
 }
 
 const map<Item *, int> &Inventory::getMyItemMap() const {

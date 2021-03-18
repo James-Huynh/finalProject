@@ -20,14 +20,11 @@ Shield::Shield(const string &name, const string &description, int buyPrice, int 
                                                dodgeProbability(dodgeProbability) {}
 
 int Shield::getDefenceValue() {
-
     int result=protectValue;
-
     for (Diamond* d : diamondPlace) {
         result+=d->getBasePoint();
     }
-    result=(int)(result/(1-dodgeProbability));
-//    cout<<name<<" success protect" << result<< " points against hit."<<endl;
+    result=(int)(result/(1-dodgeProbability));   //calculate the defence value
     return result;
 }
 

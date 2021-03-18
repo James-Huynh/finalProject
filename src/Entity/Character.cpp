@@ -161,10 +161,6 @@ Equipment& Character::getMyEquipment() {
 	return myEquipment;
 }
 
-Inventory Character::getMyInventory() {
-	return myInventory;
-}
-
 double Character::getXp() {
 	return xp;
 }
@@ -217,10 +213,6 @@ void Character::removeMoney(int minusMoney){
 	money -= minusMoney;
 }
 
-void Character::setMyInventory(const Inventory &myInventory) {
-    Character::myInventory = myInventory;
-}
-
 void Character::setHp(double hp) {
     Character::hp = hp;
 }
@@ -247,6 +239,18 @@ void Character::setCharName(const string &charName) {
 
 void Character::setMyEquipment(const Equipment &myEquipment) {
     Character::myEquipment = myEquipment;
+}
+
+Inventory Character::getMyInventory() const {
+    return myInventory;
+}
+
+void Character::setMyInventory(Inventory myInventory) {
+    Character::myInventory = myInventory;
+}
+
+bool Character::pickUpItem(Item* theItem){
+    myInventory.addItem(theItem, 1);
 }
 
 int Character::getLvl() {

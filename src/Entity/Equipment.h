@@ -15,7 +15,7 @@ class Equipment {
         Weapon* armor;
     public:
         Equipment();
-        void printEquipment();
+        void printEquipment() const;
 
         // Setters
         void setMainWeapon(Weapon* mainW);

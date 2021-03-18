@@ -4,9 +4,12 @@
 
 #include "itemListTotal.h"
 
-
+/*
+ * this is init the items used in the game.
+ */
 
 vector<Item*> getTotalListItem(){
+
     auto*  bamen = new Armor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
     auto*  leatherArmor= new Armor("Leather armor ","level 1 with 5% against the damage",100,1,100,0.05);
     auto*  ironArmor= new Armor("iron armor ","level 3 with 20% against the damage",1000,3,700,0.2);
@@ -43,7 +46,7 @@ vector<Item*> getTotalListItem(){
     auto* smallGold= new Gold ("Small Gold", "Big Gold",100);
 
 
-
+    // return vector<Item*>
 
     return {
             bamen,leatherArmor,ironArmor,clothArmor,
@@ -55,4 +58,6 @@ vector<Item*> getTotalListItem(){
             bigGold,avgGold,smallGold,
 
     };
+
+    /* after use this function, do not forget delete in the main() */
 }

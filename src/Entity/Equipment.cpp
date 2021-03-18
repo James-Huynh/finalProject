@@ -18,7 +18,7 @@ void Equipment::setArmor(Weapon *armor) {
 	this->armor = armor;
 }
 
-void Equipment::printEquipment() {
+void Equipment::printEquipment() const {
 	if (mainWeapon == nullptr && secWeapon == nullptr && armor == nullptr) {
 		cout << "You have no equipment. Buona fortuna..." << endl;
 	} else {

@@ -56,11 +56,3 @@ void Item::setType(const string &type) {
 }
 
 
-
-//int Item::getSpaceNeed() const {
-//    return spaceNeed;
-//}
-//
-//void Item::setSpaceNeed(int spaceNeed) {
-//    Item::spaceNeed = spaceNeed;
-//}

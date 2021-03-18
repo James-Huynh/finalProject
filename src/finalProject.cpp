@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <vector>
+#include <iomanip>
 #include "Visual/initGraph.h"
 #include "Visual/initLevels.h"
 #include "Visual/Room.h"
@@ -44,6 +45,7 @@ void testEquipment() {
     kingSam.equipSecWeapon(myShield);
 
     kingSam.printEquipment();
+    kingSam.printCharacter();
     cout << endl;
 }
 
@@ -78,14 +80,13 @@ void testCombat() {
 		cout << "HP of Sam: " << queenSam.getHp() << endl << endl;
 	}
 
-
 }
+
 
 void entityMain() {
     testRoles();
     cout << endl;
     testCharacter();
-    cout << endl;
     testEquipment();
     cout << endl;
     testCombat();
@@ -126,7 +127,8 @@ void gameLoad() {
     int level_j;
     Merchandise m("711", "this is for test");
     Character c("tom");
-    vector<Item *> totalListItem = getTotalListItem();
+    int level_j;
+
     FileOperation::loadGame("myFile2.txt", c, m, level_j);
     c.getMyEquipment().printEquipment();
     c.getMyInventory().showPotions();
@@ -140,6 +142,7 @@ void gameLoad() {
 
 }
 
+
 int main() {
 
     //For random values
@@ -147,31 +150,31 @@ int main() {
     //Initialize the roles
     Role::initializeRoles();
 
-	//Sam's part
+    //Sam's part
 
-	//mainGameplay();
+    //mainGameplay();
 
-	//END of Sam's part
-
-
-
-	//James' part
-
-	//entityMain();
-
-	//END of James' part
+    //END of Sam's part
 
 
 
-	//Qin' part
+    //James' part
+//    entityMain();
 
-	//END of Qin's part
+    //END of James' part
 
 
-	/*
-	for (auto & i : itemListTotal){
+
+    //Qin' part
+
+    gameSaveAndLoad();
+    //END of Qin's part
+
+
+    /*
+    for (auto & i : itemListTotal){
         delete i;
     }
-	 */
-	return 0;
+     */
+    return 0;
 }
