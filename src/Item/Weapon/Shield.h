@@ -7,7 +7,7 @@
 
 #pragma once
 #include "Weapon.h"
-#include "../potion/Diamond.h"
+#include "../Potion/Diamond.h"
 
 
 class Shield : public Weapon {

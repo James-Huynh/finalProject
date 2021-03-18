@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include <vector>
-#include <iomanip>
 #include "Visual/initGraph.h"
 #include "Visual/initLevels.h"
 #include "Visual/Room.h"
@@ -20,7 +19,6 @@
 #include "Entity/Character.h"
 #include "Entity/Role.h"
 #include "Entity/Equipment.h"
-#include "File/FileOperation.h"
 
 //temporary
 #include "gameplay.h"
@@ -46,7 +44,6 @@ void testEquipment() {
     kingSam.equipSecWeapon(myShield);
 
     kingSam.printEquipment();
-    kingSam.printCharacter();
     cout << endl;
 }
 
@@ -62,33 +59,33 @@ void testRoles() {
 }
 
 void testCombat() {
-    Role::initializeRoles();
+	Role::initializeRoles();
 
-    Character kingJames("James", '1');
-    Character queenSam("Sam", '1');
+	Character kingJames("James", '1');
+	Character queenSam("Sam", '1');
 
-    Weapon *mySword = new Sword("wood sword", "level 1 with 5% pierce through armor", 100, 1, 100, 0.55);
-    Weapon *myArmor = new Armor("cloth armor ", "level 2 with 10% against the damage", 500, 2, 80,
-                                0.1);    // testing values
+	Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
+	Weapon* myArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,180,0.1);	// testing values
 
-    kingJames.equipMainWeapon(mySword);
-    queenSam.equipArmor(myArmor);
+	kingJames.equipMainWeapon(mySword);
+	queenSam.equipArmor(myArmor);
 
-    // This is physical abuse
-    cout << "Initial HP of Sam: " << queenSam.getHp() << endl;
-    for (int i = 0; i < 10; ++i) {
-        cout << "Round: " << i + 1 << endl;
-        kingJames.basicAttack(&queenSam);
-        cout << "HP of Sam: " << queenSam.getHp() << endl << endl;
-    }
+	// This is physical abuse
+	cout << "Initial HP of Sam: " << queenSam.getHp() << endl;
+	for (int i = 0; i < 10; ++i) {
+		cout << "Round: " << i+1 << endl;
+		kingJames.basicAttack(&queenSam);
+		cout << "HP of Sam: " << queenSam.getHp() << endl << endl;
+	}
+
 
 }
-
 
 void entityMain() {
     testRoles();
     cout << endl;
     testCharacter();
+    cout << endl;
     testEquipment();
     cout << endl;
     testCombat();
@@ -150,32 +147,31 @@ int main() {
     //Initialize the roles
     Role::initializeRoles();
 
-    //Sam's part
+	//Sam's part
 
-    //mainGameplay();
+	//mainGameplay();
 
-    //END of Sam's part
-
-
-
-    //James' part
-//    entityMain();
-
-    //END of James' part
+	//END of Sam's part
 
 
 
-    //Qin' part
+	//James' part
 
-    gameSave();
-//    gameLoad();
-    //END of Qin's part
+	//entityMain();
+
+	//END of James' part
 
 
-    /*
-    for (auto & i : itemListTotal){
+
+	//Qin' part
+
+	//END of Qin's part
+
+
+	/*
+	for (auto & i : itemListTotal){
         delete i;
     }
-     */
-    return 0;
+	 */
+	return 0;
 }

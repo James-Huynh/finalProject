@@ -15,7 +15,6 @@ Sword::Sword(const string &name, const string &description, int buyPrice, int le
 
 void Sword::printInfo() {
     Weapon::printInfo();
-    cout <<endl;
 }
 
 double Sword::getHitProbability() const {

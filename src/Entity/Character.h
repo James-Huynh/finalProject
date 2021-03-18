@@ -2,6 +2,7 @@
 
 #include <string>
 #include <algorithm>
+#include <cmath>
 
 #include "Equipment.h"
 #include "Inventory.h"
@@ -11,69 +12,69 @@
 // #include "Item.h"
 
 class Character : public Role {
-private:
-    double hp, maxHp, xp;
-    bool alive;
-    string charName;
-    Inventory myInventory;
-    Equipment myEquipment;
-
-    double computeDamageDealt(
-            Weapon *currWeapon);        // helper function that computes the total gross damage depending on what is used
-    double computeDamageReceived(double dmgIn);
-
-
-public:
-    Character(string name = "TestName", char roleId = '1');
-
-
-    double basicAttack(Character *opponent);        // Basic attack uses the main Weapon, returns the final damage done
-    double takeDamage(
-            double attackerDamage);        // Reduces the life of the character according the attacker and its defense, returns the final damage taken
-
-    void printCharacter();
-
-    void printEquipment();
-
-    void equipMainWeapon(Weapon *mainWeap);
-
-    void equipSecWeapon(Weapon *secWeap);
-
-    void equipArmor(Weapon *armor);
+    private:
+        double hp, currMaxHp, currAtt, currDef, lvlDivision;
+        int level, xp;
+        bool alive;
+        string charName;
+        Inventory myInventory;
+        Equipment myEquipment;
+        int money;
+        double computeDamageDealt();					// helper function that computes the total attacking damage
+        double computeDamageReceived(double dmgIn); 	// helper function that computes the final damage receives
+        double computeTotalAttack();
+        double computeTotalDefense();
+        double takeDamage(double attackerDamage);		// Reduces the life of the character according the attacker and its defense, returns the final damage taken
 
 
-    // bool pickUpItem(Item* theItem);
 
-    // Accessors and mutators
-    void setHp(double hp);
+    public:
+        Character(string name = "TestName", char roleId = '1');
 
-    void setMaxHp(double maxHp);
+        double basicAttack(Character* opponent);		// Basic attack uses the main weapon, returns the final damage done
 
-    void setXp(double xp);
+        void printCharacter();
+        void printEquipment();
 
-    void setAlive(bool alive);
+        void equipMainWeapon(Weapon* mainWeap);
+        void equipSecWeapon(Weapon* secWeap);
+        void equipArmor(Weapon* armor);
 
-    const string &getCharName() const;
+        bool pickUpItem(Item* theItem);
+        void addHealth(double plusHealth);
+        void drinkPotion();
 
-    void setCharName(const string &charName);
+        void addXp(double xpValue);
+        void updateLevel();			// Check if there was a level up, and adjust the character's attributes accordingly
 
-    void setMyEquipment(const Equipment &myEquipment);
+        // Accessors and mutators
+        void setHp(double hp);
+        void setMaxHp(double maxHp);
+        void setXp(double xp);
+		void setAlive(bool alive);
+		void setCharName(const string &charName);
+		void setMyEquipment(const Equipment &myEquipment);
+		void setHealth(double value);
+		void setMyInventory(const Inventory &myInventory);
 
-    void setHealth(double value);
+		bool isAlive();
 
-    double getHp();
+		const string& getCharName() const;
 
-    bool isAlive();
+		double getHp();
 
-    void setMyInventory(const Inventory &myInventory);
+		double getMaxHp();
 
-    double getMaxHp();
+		Equipment& getMyEquipment();
+		Inventory getMyInventory();
 
-    Equipment &getMyEquipment();
+		double getXp();
 
-    Inventory getMyInventory();
+		int getMoney();
 
-    double getXp();
+		void addMoney(int addedMoney);
+		void removeMoney(int minusMoney);
 
-    string &getCharName();
+		int getLvl();
+
 };

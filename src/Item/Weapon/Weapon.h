@@ -7,7 +7,7 @@
 
 
 #include "../Item.h"
-#include "../potion/Diamond.h"
+#include "../Potion/Diamond.h"
 #include <vector>
 #include <cstdlib>
 #include <iostream>

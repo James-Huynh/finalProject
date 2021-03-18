@@ -14,6 +14,7 @@ class Inventory {
 private:
     int maxPlace=10; // init value
     string name;
+    //int is quantity
     map<Item *, int> myItemMap;
 public:
     Inventory(const string &name = "None");
@@ -32,7 +33,9 @@ public:
 
     void setName(const string &name);
 
-    void showPotions();
+    int showPotions();
+
+    double drinkPotion(int potionNb);
 
     void showWeapons();
 

@@ -7,7 +7,7 @@
 
 
 #include "Weapon.h"
-#include "../potion/Diamond.h"
+#include "../Potion/Diamond.h"
 
 
 

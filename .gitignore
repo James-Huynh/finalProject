@@ -1,10 +1,15 @@
+.cproject
+
 Debug/
+
+.cproject
 
 .project
 .classpath
 .settings
 *.project
-*.classpath *.settings
+*.classpath
+*.settings
 /.project
 /.classpath
 /.settings
@@ -16,8 +21,8 @@ Debug/
 *.settings/ 
 
 
+
 .cproject/
-.cproject
 /.cproject
 *.cproject/
 

@@ -8,7 +8,7 @@
 
 
 #include "Town.h"
-#include "../item/Item.h"
+#include "../Item/Item.h"
 #include <vector>
 #include <cstdlib>
 #include <ctime>

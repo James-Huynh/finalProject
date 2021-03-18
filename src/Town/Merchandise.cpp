@@ -7,13 +7,13 @@
 #include <vector>
 
 Merchandise::Merchandise(const string &name, const string &description,const vector<Item*>&itemTotalMap ) : Town(name, description) {
+
     for(Item* item: itemTotalMap){
         int quantity=getRandomNumByLevel(item);
         if(quantity>0){
             saleList.emplace(item,quantity);
         }
     }
-
 }
 
 
@@ -25,16 +25,28 @@ const map<Item *, int> &Merchandise::getSaleList() const {
 
 
 void Merchandise::printInfo() {
+
+    map<Item *, int>::iterator it;
+    int i = 0;
+    cout << "\t";
+    cout << setw(7) << left << "Index";
+
     cout << setw(22) << left   <<  "Name" ;
     cout << setw(73) << left   << "Description" ;
     cout << setw(13) << left   <<  "price" ;
     cout << setw(8) << left   <<  "quantity"<<endl;
 
-    for (const auto &it: saleList) {
-            cout << setw(22) << left   <<  it.first->getName() ;
-            cout << setw(73) << left   <<  it.first->getDescription() ;
-            cout << setw(13) << left   <<  it.first->getBuyPrice() ;
-            cout << setw(8) << left   <<  it.second <<endl;
+
+    for (it = saleList.begin(); it != saleList.end(); it++) {
+        if(it->second>0){
+        	i++;
+        	cout << "\t";
+        	cout << setw(7) << left << i;
+            cout << setw(22) << left   <<  it->first->getName() ;
+            cout << setw(73) << left   <<  it->first->getDescription() ;
+            cout << setw(13) << left   <<  it->first->getBuyPrice() ;
+            cout << setw(8) << left   <<  it->second <<endl;
+        }
     }
 }
 
@@ -68,12 +80,8 @@ void Merchandise::setSaleList(const map<Item *, int> &saleList) {
 
 
 Merchandise::Merchandise() {
-    for (const auto  pair: saleList){
-        delete pair.first;
-    }
+
 }
-
-
 
 
 
