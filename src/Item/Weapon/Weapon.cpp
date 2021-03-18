@@ -55,7 +55,7 @@ void Weapon::setDiamondPlace(const vector<Diamond *> &diamondPlace) {
 }
 
 void Weapon::embedDiamond(Diamond* diamond) {
-    if(diamondPlace.size()<level ){      // Weapon has enough place to embed diamond
+    if(diamondPlace.size() < static_cast<size_t>(level)){      // Weapon has enough place to embed diamond
         if(diamond->getLevel() <= this->getLevel()){
             diamondPlace.push_back(diamond);
         }else{

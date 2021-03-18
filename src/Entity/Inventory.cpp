@@ -33,6 +33,7 @@ double Inventory::drinkPotion(int potionNb){
 	        }
 		}
 	}
+	return -1;
 }
 
 
@@ -140,6 +141,7 @@ Item* Inventory::findItem(int index){
 			return pair.first;
 		}
 	}
+	return nullptr;
 }
 
 

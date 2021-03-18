@@ -60,8 +60,8 @@ double Character::computeDamageDealt() {
 	if(currWeapon != nullptr){
 		weaponDmg = static_cast<double>(currWeapon->getAttackValue());
 		if(weaponDmg == 0.0) {
-			cout << "\tYour opponent's armor deflected the hit !" << endl;
-			return 0;		// need to break because of a special condition when there's a deflection
+			cout << charName << " missed his attack" << endl;
+			return 0;
 		}
 	}
 
@@ -72,8 +72,21 @@ double Character::computeDamageDealt() {
 
 // basic calculation for now
 double Character::computeDamageReceived(double dmgIn) {
-	double finalDefense = computeTotalDefense();
-	double finalDmg = max(0.0, dmgIn - finalDefense);
+	Weapon* currArmor = myEquipment.getArmor();
+	double armorDef;
+	double finalDefense;
+	double finalDmg;
+
+	if(currArmor != nullptr){
+		armorDef = static_cast<double>(currArmor->getDefenceValue());
+		if(armorDef == -1) {
+			cout << charName << " deflected the attack" << endl;
+			return 0;
+		}
+	}
+
+	finalDefense = computeTotalDefense();
+	finalDmg = max(0.0, dmgIn - finalDefense);
 
 	return finalDmg;
 }
@@ -88,7 +101,7 @@ double Character::computeTotalAttack() {
 
 double Character::computeTotalDefense() {
 	Weapon* currArmor = myEquipment.getArmor();
-	double armorDefense = (currArmor == nullptr) ? 0.0 : static_cast<double>(currArmor->getDefenceValue());
+	double armorDefense = (currArmor == nullptr) ? 0.0 : static_cast<double>(currArmor->getProtectValue());
 	double finalDefense = armorDefense + currDef;
 
 	return finalDefense;
@@ -171,6 +184,7 @@ double Character::getXp() {
 
 bool Character::pickUpItem(Item* theItem){
 	myInventory.addItem(theItem, 1);
+	return true;
 }
 
 void Character::addHealth(double plusHealth){

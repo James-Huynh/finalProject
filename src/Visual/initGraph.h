@@ -187,5 +187,74 @@ Graphics chestRoomWithExit(){
 	return curr;
 }
 
+// James stuff
+Graphics mainMenu(){
+	Graphics curr("Main Menu", false, false, false);
+	string display = "\n\n\n";
+
+	display = display +
+	"\t\t\t\t                _______________________________________\n" +
+	"\t\t\t\t               |\\____________________________________ /|\n"
+	"\t\t\t\t               | |                                   | |\n" +
+	"\t\t\t\t               | |        ___		   ___       | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |   |____________|   |      | |\n" +
+	"\t\t\t\t               | |       |                    |      | |\n" +
+	"\t\t\t\t               | |       |    ____________    |      | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |   |            |   |      | |\n" +
+	"\t\t\t\t               | |       |___|            |___|      | |\n" +
+	"\t\t\t\t               | |                                   | |\n" +
+	"\t\t\t\t               | |                                   | |\n" +
+	"\t\t\t\t               | |   	      H O R I Z O N          | |\n" +
+	"\t\t\t\t               | |                                   | |\n" +
+	"\t\t\t\t               | |                                   | |\n" +
+	"\t\t\t\t               |/ ----------------------------------- \\|\n" +
+	"\t\t\t\t               |---------------------------------------|\n\n";
+
+	display = display +
+			  "\t\t\t\t                           Welcome to Horizon\n" +
+			  "\n" +
+			  "\t\t\t\tA Text-based Game Set In A World Where Myths, Stories And Legends Collide\n" +
+			  "\n" +
+			  "\n" +
+			  "\n" +
+			  "\t\t\t\t			     1. Start Game\n" +
+			  "\n" +
+			  "\t\t\t\t			     2. Quit Game\n";
+
+	curr.SetDisplay(display);
+	return curr;
+}
+
+Graphics deathVisuals(){
+	Graphics curr("Death Screen", false, false, false);
+	string display = "\n\n\n";
+
+	display = display +
+			  "\t\t\t\t				You Died" +
+			  "\n" +
+			  "\n" +
+			  "\t\t\t\t		    \"When Nothing Goes Right, Go Left\"" +
+			  "\n" +
+			  "\n" +
+			  "\n" +
+			  "\t\t\t\t			      1. Restart"
+			  "\n" +
+			  "\n" +
+			  "\t\t\t\t			      2. Quit Game";
+
+
+	curr.SetDisplay(display);
+	return curr;
+}
+
 
 #endif

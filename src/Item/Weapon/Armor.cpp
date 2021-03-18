@@ -31,7 +31,7 @@ int Armor::getDefenceValue(){
     int result=protectValue;
     if(getProbability()<dodgeProbability){    // if the random number is small, then the attack not hit the target;
 //        cout<<name<< " success to avoid the hit."<<endl;
-        return INT_MAX;
+        return -1;
     }
     for (Diamond* d : diamondPlace) {
         result+=d->getBasePoint();

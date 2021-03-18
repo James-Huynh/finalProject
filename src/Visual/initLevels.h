@@ -17,9 +17,9 @@ void createLevelOne(Levels& currLevel){
 	Graphics three = endRoom();
 
 	Character boss("Ragnar", '1');
-	Weapon* myArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,80,0.1);
+	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 80, 0.0);
 	boss.equipArmor(myArmor);
-	Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
+	Weapon* mySword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 100, 0.6);
 	boss.equipMainWeapon(mySword);
 
 	Room* roomOne = new Room{one, 1};
@@ -51,9 +51,9 @@ void createLevelTwo(Levels& currLevel){
 
 	Character boss("Alexander the great", '1');
 
-	Weapon* myArmor = new Armor("leather armor ","level 2 with 10% against the damage",500,2,85,0.1);
+	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 85, 0.0);
 	boss.equipArmor(myArmor);
-	Weapon* mySword = new Sword("iron sword","level 1 with 5% pierce through armor",100,1,105,0.55);
+	Weapon* mySword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 105, 0.6);
 	boss.equipMainWeapon(mySword);
 	boss.addXp(100);
 
