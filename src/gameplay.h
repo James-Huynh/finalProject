@@ -32,10 +32,16 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 	Inventory playerInventory = mainPlayer.getMyInventory();
 	int qteRemaining;
 
+	char sellCategory;
+	int sellOption;
+	char sellQte;
+	Item* itemToSell;
+
 
 	cout << "\tWhat would you like to do ?" << endl << endl;
 	cout << "\th - Heal yourself" << endl;
 	cout << "\tb - See what the merchands have to offer" << endl;
+	cout << "\ts - Sell items to the merchands" << endl;
 	cout << "\ti - See your inventory" << endl;
 	cout << "\tn - Go to the next level" << endl;
 
@@ -50,6 +56,7 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 			break;
 
 	case('b'):
+
 		cout << "\tHere is what is in store for this Town !" << endl << endl;
 		townMerchandise.printInfo();
 		cout << endl;
@@ -125,6 +132,74 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 		} else {
 			cout << "\tOk, no problem, good luck on your adventure !" << endl;
 		}
+		break;
+
+	case('s'):
+
+		//Show inventory
+		cout << "\tHere are your potions: " << endl << endl;
+		playerInventory.showPotions();
+		cout << endl;
+		cout << "\tHere are your weapons: " << endl << endl;
+		playerInventory.showWeapons();
+		cout << endl;
+		cout << "\tHere is your gold: " << endl << endl;
+		playerInventory.showMyMoney();
+		cout << endl;
+		cout << "\tAnd you have this amount of money: " << endl << endl;
+		cout << "\t" << mainPlayer.getMoney() << "$";
+		cout << endl << endl;
+
+		//What do you want to sell
+		//Potions, gold or weapons ?
+		cout << "In which category is the item you want to sell ?" << endl;
+		cout << "p- Potions" << endl;
+		cout << "w - Weapons" << endl;
+		cout << "g - Gold" << endl;
+
+		cin >> sellCategory;
+
+		while(sellCategory != 'p' && sellCategory != 'w' && sellCategory != 'g'){
+			cout << "\tNot a valid option, choose between p, w and g" << endl;
+			cin >> sellCategory;
+		}
+
+		//show the category and ask for the index number
+
+		if(sellCategory == 'p'){
+			cout << "\tHere are your potions: " << endl << endl;
+			playerInventory.showPotions();
+			cout << endl;
+		} else if(sellCategory == 'w'){
+			cout << "\tHere are your weapons: " << endl << endl;
+			playerInventory.showWeapons();
+			cout << endl;
+		} else if (sellCategory == 'g'){
+			cout << "\tHere is your gold: " << endl << endl;
+			playerInventory.showMyMoney();
+			cout << endl;
+		}
+
+		cout << "Write the number of the item you want to sell" << endl;
+
+		cin >> sellOption;
+
+		itemToSell = playerInventory.findItem(sellOption);
+
+
+		//Remove the item from the dude
+
+		playerInventory.removeItem(itemToSell, 1);
+
+		mainPlayer.setMyInventory(playerInventory);
+
+		//make his money go up from the pricedValue of the item
+
+		mainPlayer.addMoney(itemToSell->getBuyPrice());
+
+
+		//Maybe put it in the shop
+
 		break;
 
 	case('i'):

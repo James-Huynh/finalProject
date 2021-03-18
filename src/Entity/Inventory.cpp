@@ -52,7 +52,7 @@ void Inventory::showMyMoney() {
 	int i = 0;
     for (auto pair : myItemMap) {
     	i++;
-        if (pair.first->getType() == "Money") {
+        if (pair.first->getType() == "money") {
         	cout << "\t" << i << ": ";
             pair.first->printInfo();
             cout << ", quantity:" << pair.second + 1 << std::endl;
@@ -120,6 +120,26 @@ void Inventory::setMyItemMap(const map<Item *, int> &myItemMap) {
     Inventory::myItemMap = myItemMap;
 }
 
+void Inventory::removeItem(Item * item, int quantity){
+	for (auto pair : myItemMap) {
+		if (pair.first->getName() == item->getName()) {
+			myItemMap[item] = pair.second - quantity;
+			if(pair.second < 0){
+				myItemMap.erase(item);
+				break;
+			}
+		}
+	}
+}
 
+Item* Inventory::findItem(int index){
+	int i = 0;
+	for(auto pair : myItemMap){
+		i++;
+		if(i == index){
+			return pair.first;
+		}
+	}
+}
 
 

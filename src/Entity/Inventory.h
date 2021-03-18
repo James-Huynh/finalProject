@@ -43,5 +43,9 @@ public:
 
     void addItem(Item *item, int quantity);
 
+    void removeItem(Item * item, int quantity);
+
+    Item* findItem(int index);
+
     int getTotalItemQuantity();
 };
