@@ -18,7 +18,7 @@
 
 
 char inTown(Merchandise& townMerchandise, Character& mainPlayer){
-//Will probably need to receive the player to access his inventory
+	//Will probably need to receive the player to access his inventory
 	char option;
 	char buyOption;
 	size_t itemToBuy;
@@ -44,108 +44,108 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 	switch(option){
 	case('h'):
 
-			//Put the player's health to max health
-			mainPlayer.setHealth(mainPlayer.getMaxHp());
-			cout << "\tYour player's health is now at the max ! " << endl;
-			break;
+					//Put the player's health to max health
+					mainPlayer.setHealth(mainPlayer.getMaxHp());
+	cout << "\tYour player's health is now at the max ! " << endl;
+	break;
 
 	case('b'):
-		cout << "\tHere is what is in store for this Town !" << endl << endl;
-		townMerchandise.printInfo();
-		cout << endl;
-		cout << "\tWould you like to buy something ? (y/n)" << endl;
-		cin >> buyOption;
+				cout << "\tHere is what is in store for this Town !" << endl << endl;
+	townMerchandise.printInfo();
+	cout << endl;
+	cout << "\tWould you like to buy something ? (y/n)" << endl;
+	cin >> buyOption;
 
-		while(buyOption != 'y' && buyOption != 'n'){
-			cout << "\tNot a valid option, choose between y and n" << endl;
-			cin >> buyOption;
+	while(buyOption != 'y' && buyOption != 'n'){
+		cout << "\tNot a valid option, choose between y and n" << endl;
+		cin >> buyOption;
+	}
+
+	if(buyOption == 'y'){
+		//IMPLEMENT MECHANICS TO BUY AN ITEM WHICH SHOULD BE :
+		//Ask for the number of the item
+		cout << "Enter the index number of the item you would like to buy" << endl;
+		cin >> itemToBuy;
+
+		//Check that number is valid
+		while(itemToBuy > townMerchandise.getSaleList().size()){
+			cout << "\tNot a valid option, choose a number smaller than" << townMerchandise.getSaleList().size() << endl;
+			cin >> itemToBuy;
 		}
 
-		if(buyOption == 'y'){
-			//IMPLEMENT MECHANICS TO BUY AN ITEM WHICH SHOULD BE :
-			//Ask for the number of the item
-			cout << "Enter the index number of the item you would like to buy" << endl;
-			cin >> itemToBuy;
-
-			//Check that number is valid
-			while(itemToBuy > townMerchandise.getSaleList().size()){
-				cout << "\tNot a valid option, choose a number smaller than" << townMerchandise.getSaleList().size() << endl;
-				cin >> itemToBuy;
+		for (it = townSalesList.begin(); it != townSalesList.end(); it++){
+			if(it->second>0)
+				i++;
+			if(i == itemToBuy){
+				qteObject = it->second;
+				itemToBuyObject = it->first;
+				break;
 			}
+		}
 
+		//Ask for the quantity
+		cout << "How many of these would you like to buy ?" << endl;
+		cin >> quantityToBuy;
+
+		//Check that the quantity is valid
+		while(quantityToBuy > qteObject){
+			cout << "\tNot a valid option, choose a number smaller than " << qteObject << endl;
+			cin >> quantityToBuy;
+		}
+
+		qteRemaining = qteObject - quantityToBuy;
+
+		totalPrice = itemToBuyObject->getBuyPrice() * quantityToBuy;
+
+		//Check if player has enough money
+		if(mainPlayer.getMoney() > totalPrice){
+			//if yes, buy. (remove from shop, put in his inventory, remove the money from his inventory)
+			mainPlayer.removeMoney(totalPrice);
+			for(int j = 0; j < quantityToBuy; j++)
+				mainPlayer.pickUpItem(itemToBuyObject);
+
+			//BUG WITH THE MERCHAND
 			for (it = townSalesList.begin(); it != townSalesList.end(); it++){
 				if(it->second>0)
 					i++;
 				if(i == itemToBuy){
-					qteObject = it->second;
-					itemToBuyObject = it->first;
-					break;
+					if(qteRemaining == 0)
+						townSalesList.erase(itemToBuyObject);
+					else
+						it->second = it->second - quantityToBuy;
 				}
 			}
+			townMerchandise.setSaleList(townSalesList);
 
-			//Ask for the quantity
-			cout << "How many of these would you like to buy ?" << endl;
-			cin >> quantityToBuy;
-
-			//Check that the quantity is valid
-			while(quantityToBuy > qteObject){
-				cout << "\tNot a valid option, choose a number smaller than " << qteObject << endl;
-				cin >> quantityToBuy;
-			}
-
-			qteRemaining = qteObject - quantityToBuy;
-
-			totalPrice = itemToBuyObject->getBuyPrice() * quantityToBuy;
-
-			//Check if player has enough money
-			if(mainPlayer.getMoney() > totalPrice){
-				//if yes, buy. (remove from shop, put in his inventory, remove the money from his inventory)
-				mainPlayer.removeMoney(totalPrice);
-				for(int j = 0; j < quantityToBuy; j++)
-					mainPlayer.pickUpItem(itemToBuyObject);
-
-				//BUG WITH THE MERCHAND
-				for (it = townSalesList.begin(); it != townSalesList.end(); it++){
-					if(it->second>0)
-						i++;
-					if(i == itemToBuy){
-						if(qteRemaining == 0)
-							townSalesList.erase(itemToBuyObject);
-						else
-							it->second = it->second - quantityToBuy;
-					}
-				}
-				townMerchandise.setSaleList(townSalesList);
-
-			} else{
-				cout << "\tYou don't have enough money to buy item # " << itemToBuy << " " << quantityToBuy << " times" << endl;
-			}
-
-			//if not, say that he doesn't have enough money and ask if he wants to buy something else
-		} else {
-			cout << "\tOk, no problem, good luck on your adventure !" << endl;
+		} else{
+			cout << "\tYou don't have enough money to buy item # " << itemToBuy << " " << quantityToBuy << " times" << endl;
 		}
-		break;
+
+		//if not, say that he doesn't have enough money and ask if he wants to buy something else
+	} else {
+		cout << "\tOk, no problem, good luck on your adventure !" << endl;
+	}
+	break;
 
 	case('i'):
-		//Show the player's inventory
-		cout << "\tHere are your potions: " << endl << endl;
-		playerInventory.showPotions();
-		cout << endl;
-		cout << "\tHere are your weapons: " << endl << endl;
-		playerInventory.showWeapons();
-		cout << endl;
-		cout << "\tHere is your gold: " << endl << endl;
-		playerInventory.showMyMoney();
-		cout << endl;
-		cout << "\tAnd you have this amount of money: " << endl << endl;
-		cout << "\t" << mainPlayer.getMoney() << "$";
-		cout << endl << endl;
+				//Show the player's inventory
+				cout << "\tHere are your potions: " << endl << endl;
+	playerInventory.showPotions();
+	cout << endl;
+	cout << "\tHere are your weapons: " << endl << endl;
+	playerInventory.showWeapons();
+	cout << endl;
+	cout << "\tHere is your gold: " << endl << endl;
+	playerInventory.showMyMoney();
+	cout << endl;
+	cout << "\tAnd you have this amount of money: " << endl << endl;
+	cout << "\t" << mainPlayer.getMoney() << "$";
+	cout << endl << endl;
 
-		break;
+	break;
 
 	case('n'):
-		break;
+				break;
 
 	default:
 
@@ -214,6 +214,14 @@ char inFight(Character& enemy, Character& player, bool isBoss, Room currRoom, Gr
 	return option;
 }
 
+void restartGameplay(size_t& lvlIndex, Character& mainPlayer, string charName, char roleIndex, bool& firstTime) {
+	lvlIndex = -1;
+	firstTime = true;
+	Character newPlayer(charName, roleIndex);
+	mainPlayer = newPlayer;
+
+}
+
 void mainGameplay(){
 	//Creating the game
 	vector<Levels> wholeGame;
@@ -280,170 +288,171 @@ void mainGameplay(){
 
 	for(size_t i = 0; i < wholeGame.size(); i++){
 
-			currLevel = wholeGame.at(i);
+		currLevel = wholeGame.at(i);
+		currRoom = currLevel.getCurrRoom();
+		currDisplay = currRoom.getDesign();
+
+		system("clear");
+
+
+		do{
+
+			cout << endl << endl << "\t\t\t\t\tYou are in Room #" << currRoom.getRoomNumber() << endl;
+			//Print the first screen
+			currDisplay.PrintDisplay();
+
+			//Check if there are monsters
+			if(currDisplay.GetMonsters()){
+				cout << "\tThere is a monster in this room !!" << endl << endl;
+				//Get the monster in the room
+				currMonster = currRoom.getEnemy();
+
+				//check if the monster is the boss
+				isFightingBoss = currDisplay.GetBoss();
+
+				//If there are, fight them then continue
+
+				//IMPLEMENT FIGHT MECHANICS
+
+				cout << "\tThe monster in this room is:" << endl << endl;
+				currMonster.printCharacter();
+
+				//while(the enemy is alive)
+				while(currMonster.isAlive()){
+					//Prompt the player
+					// for drink a potion, fighting or running
+					//if (Boss), you can't run
+
+					cout << "\tYou have : " << setw(15) << mainPlayer.getHp() << " health points" << endl;
+					cout << "\tAnd the enemy has : " << setw(6) << currMonster.getHp() << " health points" << endl << endl;
+
+					inFight(currMonster, mainPlayer, isFightingBoss, currRoom, currDisplay);
+
+					//is the player alive
+
+					isPlayerAlive = mainPlayer.isAlive();
+					//if not cout dead balbalbla
+					if(!isPlayerAlive){
+						cout << "\tYou died !" << endl;
+						break;
+					}
+					//if yes loop again
+				}
+
+
+
+
+
+				//we won and it was the boss, say boss is dead in the level
+				if(isFightingBoss && isPlayerAlive){
+					currLevel.setBossStatus(false);
+					cout << "\tCongratulations ! The boss is dead ! Let's go to a town to celebrate ! (Press any key then enter to go to the town)" << endl;
+					cin >> useless;
+					break;
+				}
+				if(isPlayerAlive){
+					cout << "\tCongratulations ! You won against the monster !" << endl;
+				}
+			}
+			if(!isPlayerAlive)
+				break;
+			//Check if there is a chest
+			if(currDisplay.GetChest()){
+				//If there is a chest, ask the player if he wants to open it
+				cout << "\t There is a chest in this room ! Would you like to open it ? (y/n)" << endl;
+				cin >> optionChest;
+				cout << endl << endl;
+
+				if(optionChest == 'y' ||optionChest == 'Y'){
+
+					if(first){
+						first = false;
+
+						cout << "\tIn the box, you found: " << endl;
+						cout << "\t";
+						myFirstSword->printInfo();
+						cout << endl;
+						cout << "\t";
+						myFirstArmor->printInfo();
+						cout << endl << "\tAnd 2 small health potions of 25 hp each !" << endl << endl;
+
+						cout << "\tYour sword and cloth armor are now equipped !" << endl;
+
+						mainPlayer.equipMainWeapon(myFirstSword);
+						mainPlayer.equipArmor(myFirstArmor);
+
+						mainPlayer.pickUpItem(hpPotionStart);
+						mainPlayer.pickUpItem(hpPotionStart);
+
+						cout << endl;
+
+
+					} else {
+						//Generate the random item
+						cout << "\tIn the box, you found: " << endl;
+						cout << "\t";
+						randomItemChest = chestInRoom.openBox(itemListTotal);
+						cout << endl;
+						mainPlayer.pickUpItem(randomItemChest);
+
+						//Generate the random amount of money
+						randomGoldValue = rand() % 1000;
+						cout << "\tAnd " << randomGoldValue << " gold !" << endl << endl;
+						mainPlayer.addMoney(randomGoldValue);
+						cout << endl;
+					}
+
+					//Add those to the player inventory
+					//add randomItemChest
+					//randomGold
+
+					//Mark the chest as opened or something
+					wholeGame.at(i).setChestState(false);
+
+					//BUG TO FIX
+					//MARK THE CHEST AS OPEN SO THE PLAYER CAN'T CONTINUOUSLY OPEN IT
+					//BY GETTING IN AND OUT OF THE ROOM
+
+				}
+			}
+
+			//DOES THE PLAYER WANTS TO ACCESS HIS INVENTORY(NOW IT'LL JUST BE DRINK POTIONS) OR GO TO ANOTHER ROOM
+
+			//ask the user which direction he wants to go
+			cout << "\tWhich direction would you like to go ? ('F' (Forward), 'R' (Right), 'L' (Left), 'B' (backward))" << endl;
+
+			cin >> directionUser;
+			//Verify that the input is ok
+			while(directionUser != 'F' && directionUser != 'R' && directionUser != 'L' && directionUser != 'B' &&
+					directionUser != 'f' && directionUser != 'r' && directionUser != 'l' && directionUser != 'b'){
+				//If not, ask a good output
+				cout << "Invalid output, please choose (F, R, L or B)" << endl;
+				cin >> directionUser;
+			}
+			//If it is, verify that he can go to this room ( not *nullptr)
+			//Done in the nextRoom of Levels
+			//If he can, switch room
+			currLevel.nextRoom(directionUser);
+
+
+			//Reassign the current Room and Display to work with them
 			currRoom = currLevel.getCurrRoom();
 			currDisplay = currRoom.getDesign();
 
+			//Clear the real terminal screen
+			//For linux
 			system("clear");
+			//For windows
+			//system("CLS");
 
 
-			do{
+		}while(1);
+		//while(!currLevel.getBossStatus());
 
-				cout << endl << endl << "\t\t\t\t\tYou are in Room #" << currRoom.getRoomNumber() << endl;
-				//Print the first screen
-				currDisplay.PrintDisplay();
-
-				//Check if there are monsters
-				if(currDisplay.GetMonsters()){
-					cout << "\tThere is a monster in this room !!" << endl << endl;
-					//Get the monster in the room
-					currMonster = currRoom.getEnemy();
-
-					//check if the monster is the boss
-					isFightingBoss = currDisplay.GetBoss();
-
-					//If there are, fight them then continue
-
-					//IMPLEMENT FIGHT MECHANICS
-
-					cout << "\tThe monster in this room is:" << endl << endl;
-					currMonster.printCharacter();
-
-					//while(the enemy is alive)
-					while(currMonster.isAlive()){
-						//Prompt the player
-						// for drink a potion, fighting or running
-						//if (Boss), you can't run
-
-						cout << "\tYou have : " << setw(15) << mainPlayer.getHp() << " health points" << endl;
-						cout << "\tAnd the enemy has : " << setw(6) << currMonster.getHp() << " health points" << endl << endl;
-
-						inFight(currMonster, mainPlayer, isFightingBoss, currRoom, currDisplay);
-
-						//is the player alive
-
-						isPlayerAlive = mainPlayer.isAlive();
-						//if not cout dead balbalbla
-						if(!isPlayerAlive){
-							cout << "\tYou died !" << endl;
-							break;
-						}
-						//if yes loop again
-					}
-
-
-
-
-
-					//we won and it was the boss, say boss is dead in the level
-					if(isFightingBoss && isPlayerAlive){
-						currLevel.setBossStatus(false);
-						cout << "\tCongratulations ! The boss is dead ! Let's go to a town to celebrate ! (Press any key then enter to go to the town)" << endl;
-						cin >> useless;
-						break;
-					}
-					if(isPlayerAlive){
-						cout << "\tCongratulations ! You won against the monster !" << endl;
-					}
-				}
-				if(!isPlayerAlive)
-					break;
-				//Check if there is a chest
-				if(currDisplay.GetChest()){
-					//If there is a chest, ask the player if he wants to open it
-					cout << "\t There is a chest in this room ! Would you like to open it ? (y/n)" << endl;
-					cin >> optionChest;
-					cout << endl << endl;
-
-					if(optionChest == 'y' ||optionChest == 'Y'){
-
-						if(first){
-							first = false;
-
-							cout << "\tIn the box, you found: " << endl;
-							cout << "\t";
-							myFirstSword->printInfo();
-							cout << endl;
-							cout << "\t";
-							myFirstArmor->printInfo();
-							cout << endl << "\tAnd 2 small health potions of 25 hp each !" << endl << endl;
-
-							cout << "\tYour sword and cloth armor are now equipped !" << endl;
-
-							mainPlayer.equipMainWeapon(myFirstSword);
-							mainPlayer.equipArmor(myFirstArmor);
-
-							mainPlayer.pickUpItem(hpPotionStart);
-							mainPlayer.pickUpItem(hpPotionStart);
-
-							cout << endl;
-
-
-						} else {
-							//Generate the random item
-							cout << "\tIn the box, you found: " << endl;
-							cout << "\t";
-							randomItemChest = chestInRoom.openBox(itemListTotal);
-							cout << endl;
-							mainPlayer.pickUpItem(randomItemChest);
-
-							//Generate the random amount of money
-							randomGoldValue = rand() % 1000;
-							cout << "\tAnd " << randomGoldValue << " gold !" << endl << endl;
-							mainPlayer.addMoney(randomGoldValue);
-							cout << endl;
-						}
-
-						//Add those to the player inventory
-						//add randomItemChest
-						//randomGold
-
-						//Mark the chest as opened or something
-						wholeGame.at(i).setChestState(false);
-
-						//BUG TO FIX
-						//MARK THE CHEST AS OPEN SO THE PLAYER CAN'T CONTINUOUSLY OPEN IT
-						//BY GETTING IN AND OUT OF THE ROOM
-
-					}
-				}
-
-				//DOES THE PLAYER WANTS TO ACCESS HIS INVENTORY(NOW IT'LL JUST BE DRINK POTIONS) OR GO TO ANOTHER ROOM
-
-				//ask the user which direction he wants to go
-				cout << "\tWhich direction would you like to go ? ('F' (Forward), 'R' (Right), 'L' (Left), 'B' (backward))" << endl;
-
-				cin >> directionUser;
-				//Verify that the input is ok
-				while(directionUser != 'F' && directionUser != 'R' && directionUser != 'L' && directionUser != 'B' &&
-						directionUser != 'f' && directionUser != 'r' && directionUser != 'l' && directionUser != 'b'){
-					//If not, ask a good output
-					cout << "Invalid output, please choose (F, R, L or B)" << endl;
-					cin >> directionUser;
-				}
-				//If it is, verify that he can go to this room ( not *nullptr)
-				//Done in the nextRoom of Levels
-				//If he can, switch room
-				currLevel.nextRoom(directionUser);
-
-
-				//Reassign the current Room and Display to work with them
-				currRoom = currLevel.getCurrRoom();
-				currDisplay = currRoom.getDesign();
-
-				//Clear the real terminal screen
-				//For linux
-				system("clear");
-				//For windows
-				//system("CLS");
-
-
-			}while(1);
-			//while(!currLevel.getBossStatus());
-
-			if(!isPlayerAlive)
-				break;
-
+		if(!isPlayerAlive) {
+			// TODO: Need to check user input and display death screen
+			restartGameplay(i, mainPlayer, mainPlayer.getCharName(), charRole, first);
+		} else {
 			//When boss is defeated, we should go to the town.
 			system("clear");
 			townDisplay.PrintDisplay();
@@ -465,7 +474,14 @@ void mainGameplay(){
 				townOutput = inTown(townMerchandise, mainPlayer);
 			}while(townOutput != 'n');
 		}
+
+	}
 }
+
+// @James
+//void mainScreen(){
+//	initGraph.mainMenu();
+//}
 
 
 

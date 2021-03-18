@@ -33,6 +33,7 @@ double Inventory::drinkPotion(int potionNb){
 	        }
 		}
 	}
+	return -1;
 }
 
 

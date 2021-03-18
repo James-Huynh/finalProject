@@ -4,55 +4,53 @@
 
 #include "itemListTotal.h"
 
-
+//Weapon(const string &name, const string &description, int buyPrice, int level, int dmgValue, int protectValue, bool isAttack);
 
 vector<Item*> getTotalListItem(){
-    auto*  bamen = new Armor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
-    auto*  leatherArmor= new Armor("Leather armor ","level 1 with 5% against the damage",100,1,100,0.05);
-    auto*  ironArmor= new Armor("iron armor ","level 3 with 20% against the damage",1000,3,700,0.2);
-    auto*  clothArmor= new Armor("cloth armor ","level 2 with 10% against the damage",500,2,300,0.1);
+	auto*  clothArmor= new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 80, 0.0);
+	auto*  leatherArmor= new Armor("Leather Armor","Common leather armor with basic defense", 1000, 3, 500, 0.1);
+	auto*  ironArmor= new Armor("Iron Armor ","Sturdy Iron armor with decent protection and deflection", 2000, 5, 1000, 0.3);
+	auto*  achillesArmor = new Armor("Achilles' Armor", "Legendary armor created by Hephaestus and said to be impenetrable", 10000, 10, 5000, 0.5);
 
-    auto* leanSky= new Sword("against sky sword","level 4 with 95% pierce through armor",999999,4,100000,0.95);
-    auto* ironSword= new Sword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
-    auto* brassSword= new Sword("brass sword","level 3 with 40% pierce through armor",1000,3,1500,0.7);
-    auto* woodSword= new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
+	// Swords have balanced attributes
+	auto* woodSword= new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 100, 0.6);
+	auto* brassSword = new Sword("Brass Sword","Forged with care, popular with commoners", 1600, 3, 550, 0.7);
+	auto* ironSword = new Sword("Iron Sword","Decent sword with decent damage", 3200, 5, 1200, 0.8);
+	auto* excaliburSword = new Sword("Excalibur","Legendary sword forged on the Isle of Avalon and said to belong to the true king", 16000, 10, 6000, 1.0);
 
-    auto* thorAx= new Ax("Ax of Thor","level 4 with 80% pierce through protection",88888,4,6666,0.8);
-    auto* ironAx= new Ax("iron ax","level 2 with 20% pierce through armor",500,2,500,0.2);
-    auto* brassAx= new Ax("brass ax","level 3 with 40% pierce through armor",1000,3,1500,0.4);
-    auto* woodAx= new Ax("wood ax","level 1 with 5% pierce through armor",100,1,100,0.05);
+	// Axes have higher damage and less hit rate
+	auto* woodAxe = new Ax("Wood axe","How much wood would a woodchuck chuck?", 900, 1, 120, 0.5);
+	auto* brassAxe = new Ax("Brass axe","Weird axe, but it works and hurts", 1800, 3, 600, 0.6);
+	auto* ironAxe = new Ax("Iron axe","Decent axe popular among vikings and bandits", 3600, 5, 1400, 0.7);
+	auto* panguAxe = new Ax("Pangu's axe","Legendary axe used to separate heaven and earth", 18000, 10, 7000, 0.9);
 
+	// NOT used, special feature that allows to you to dodge and block again
+	auto* woodShield= new Shield("Wood shield","Basic wooden shield, cheap to make", 100, 1, 100, 0.1);
+	auto* ironShield = new Shield("Iron shield","Heavy and popular shield around the common realm", 500, 3, 500, 0.2);
+	auto* brassShield= new Shield("Brass shield","Fancy shield with decent protection", 1000, 5, 1000, 0.3);
 
+	auto* hpPotion1= new HP_Potion("Small health potion","Heals for 50 hp",100, 1, 50);
+	auto* hpPotion2= new HP_Potion("Medium health potion","Heals for 100 hp",200, 3, 100);
+	auto* hpPotion3= new HP_Potion("Big health potion","Heals for 500 hp",400, 5, 500);
 
-    auto* ironShield = new Shield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
-    auto* brassShield= new Shield("brass shield","level 3 with 40% pierce through armor",300,3,200,0.15);
-    auto* woodShield= new Shield("wood shield","level 1 with 5% pierce through armor",100,1,50,0.05);
+	// NOT used, special feature that allows you to apply runes and buff your equipment
+	auto* amethyst= new Diamond("Amethyst", "level 1, embed on defensive Weapon will increase 100 points of defence", 1000, 1, 100, 0.1);
+	auto* emerald= new Diamond ("Emerald", "level 2, embed on defensive Weapon will increase 100 points of defence", 5000, 3, 500, 0.2);
+	auto* ruby= new Diamond ("Ruby", "level 3, embed on defensive Weapon will increase 100 points of defence", 10000, 5, 1000, 0.3);
 
-
-    auto* hpPotion1= new HP_Potion("small hp","level 1 hp Potion",100,1,100);
-    auto* hpPotion2= new HP_Potion("normal hp","level 2 hp Potion",200,2,300);
-    auto* hpPotion3= new HP_Potion("big hp","level 3 hp Potion",400,3,500);
-
-    auto* amethyst= new Diamond("Amethyst", "level 1, embed on defensive Weapon will increase 100 points of defence", 300, 1, 100,0.05);
-    auto* emerald= new Diamond ("Emerald", "level 2, embed on defensive Weapon will increase 100 points of defence", 500, 2, 300,0.10);
-    auto* ruby= new Diamond ("Ruby", "level 3,embed on defensive Weapon will increase 100 points of defence", 1000, 3, 800,0.15);
-
-
-    auto* bigGold= new Gold ("Big Gold", "Big Gold",1000);
-    auto* avgGold= new Gold ("Gold", "Big Gold",500);
-    auto* smallGold= new Gold ("Small Gold", "Big Gold",100);
-
-
+	auto* bigGold= new Gold ("Big Gold", "Worth 1000",1000);
+	auto* avgGold= new Gold ("Medium Gold", "Worth 500",500);
+	auto* smallGold= new Gold ("Small Gold", "Worth 100",100);
 
 
-    return {
-            bamen,leatherArmor,ironArmor,clothArmor,
-            leanSky,ironSword,brassSword,woodSword,
-            thorAx,ironAx,brassAx,woodAx,
-            ironShield,brassShield,woodShield,
-            hpPotion1,hpPotion2,hpPotion3,
-            amethyst,emerald,ruby,
-            bigGold,avgGold,smallGold,
+	return {
+		achillesArmor,leatherArmor,ironArmor,clothArmor,
+		excaliburSword,ironSword,brassSword,woodSword,
+		panguAxe,ironAxe,brassAxe,woodAxe,
+		ironShield,brassShield,woodShield,
+		hpPotion1,hpPotion2,hpPotion3,
+		amethyst,emerald,ruby,
+		bigGold,avgGold,smallGold,
 
-    };
+	};
 }

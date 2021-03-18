@@ -38,9 +38,9 @@ void testEquipment() {
     kingSam.printEquipment();
     cout << endl;
 
-	Weapon* mySword = new Sword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
-	Weapon* myArmor = new Armor("iron armor ","level 3 with 20% against the damage",1000,3,700,0.2);
-	Weapon* myShield = new Shield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
+    Weapon* myArmor = new Armor("Achilles Armor", "Legendary armor created by Hephaestus and said to be impenetrable", 10000, 10, 5000, 0.5);
+	Weapon* mySword = new Sword("Excalibur","Legendary sword forged on the Isle of Avalon and said to belong to the true king", 16000, 10, 6000, 1.0);
+	Weapon* myShield = new Shield("Brass shield","Fancy shield with decent protection", 1000, 5, 1000, 0.3);
 
     kingSam.equipMainWeapon(mySword);
     kingSam.equipArmor(myArmor);
@@ -98,6 +98,17 @@ void testXp() {
     kingSam.printCharacter();
 }
 
+void testMainMenu() {
+	Graphics mainScreen = mainMenu();
+	mainScreen.PrintDisplay();
+}
+
+void testDeathScreen() {
+	Graphics deathScreen = deathVisuals();
+	deathScreen.PrintDisplay();
+}
+
+
 
 void entityMain() {
 //	cout << fixed << setprecision(0);
@@ -109,7 +120,11 @@ void entityMain() {
 //    cout << endl;
 //    testCombat();
 //    cout << endl;
-	testXp();
+//	testXp();
+//	cout << endl;
+	testMainMenu();
+	cout << endl;
+	testDeathScreen();
 	cout << endl;
 }
 //END of James' part
@@ -146,7 +161,7 @@ int main() {
 
 	//Sam's part
 
-	mainGameplay();
+//	mainGameplay();
 
 	//END of Sam's part
 
