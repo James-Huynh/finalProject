@@ -98,9 +98,9 @@ void entityMain() {
 
 /*-------------------qin----------------------*/
 
-void gameSaveAndLoad() {
+void gameSave() {
     vector<Item *> totalListItem = getTotalListItem();
-    Merchandise merchandise("hello world", "this is for test",totalListItem);
+    Merchandise merchandise("hello world", "this",totalListItem);
     Character kingSam("tom");
     int level_i = 1;
     Weapon *mySword = new Sword("iron sword", "level 2 with 20% pierce through armor", 500, 2, 500, 0.65);
@@ -117,13 +117,19 @@ void gameSaveAndLoad() {
     inventory.addItem(totalListItem.at(2), 1);
     inventory.addItem(totalListItem.at(3), 1);
     inventory.addItem(totalListItem.at(15), 1);
-    kingSam.setMyInventory(inventory);
 
-    FileOperation::saveGame(kingSam, level_i, merchandise);
+    kingSam.setMyInventory(inventory);
+    inventory.addItem(totalListItem.at(1), 100);
+    kingSam.getMyInventory().showWeapons();
+    kingSam.getMyInventory().showPotions();
+    kingSam.getMyInventory().showMyMoney();
+}
+void gameLoad() {
+    Character kingSam("tom");
+    int level_j;
     Merchandise m("711", "this is for test");
     Character c("tom");
-    int level_j;
-
+    vector<Item *> totalListItem = getTotalListItem();
     FileOperation::loadGame("myFile2.txt", c, m, level_j);
     c.getMyEquipment().printEquipment();
     c.getMyInventory().showPotions();
@@ -136,7 +142,6 @@ void gameSaveAndLoad() {
 
 
 }
-
 
 int main() {
 
@@ -162,7 +167,8 @@ int main() {
 
     //Qin' part
 
-    gameSaveAndLoad();
+    gameSave();
+//    gameLoad();
     //END of Qin's part
 
 

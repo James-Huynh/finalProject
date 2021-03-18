@@ -13,6 +13,7 @@ Merchandise::Merchandise(const string &name, const string &description,const vec
             saleList.emplace(item,quantity);
         }
     }
+
 }
 
 
@@ -39,18 +40,6 @@ void Merchandise::printInfo() {
 
 
 
-
-
-//void Merchandise::addItem(Item *Item, int quantity) {
-//    std::map<Item *, int>::iterator it;
-//    it = saleList.find(Item);
-//    if (it == saleList.end())
-//        saleList.emplace(Item, quantity);
-//    else {
-//        it->second = quantity;
-//    }
-//
-//}
 
 int Merchandise::getRandomNumByLevel(Item *item) {
     {
@@ -79,8 +68,12 @@ void Merchandise::setSaleList(const map<Item *, int> &saleList) {
 
 
 Merchandise::Merchandise() {
-
+    for (const auto  pair: saleList){
+        delete pair.first;
+    }
 }
+
+
 
 
 

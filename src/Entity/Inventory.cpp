@@ -5,7 +5,8 @@
 void Inventory::showPotions() {
     for (auto pair : myItemMap) {
         if (pair.first->getType() == "Potion") {
-            cout <<"You have "<< pair.second<< " "<< pair.first->getName() << ": "<<pair.first->getDescription() << endl;
+            cout << "You have " << pair.second << " " << pair.first->getName() << ": " << pair.first->getDescription()
+                 << endl;
         }
     }
 }
@@ -14,8 +15,8 @@ void Inventory::showPotions() {
 void Inventory::showWeapons() {
     for (auto pair : myItemMap) {
         if (pair.first->getType() == "Weapon") {
-            cout <<"You have "<< pair.second<< " "<< pair.first->getName() << ": "<<pair.first->getDescription() << endl;
-
+            cout << "You have " << pair.second << " " << pair.first->getName() << ": " << pair.first->getDescription()
+                 << endl;
         }
     }
 }
@@ -23,7 +24,7 @@ void Inventory::showWeapons() {
 void Inventory::showMyMoney() {
     for (auto pair : myItemMap) {
         if (pair.first->getType() == "money") {
-            cout <<"You have "<< pair.second<< " "<< " money." << endl;
+            cout << "You have " << pair.second << " " << " money." << endl;
 
         }
     }
@@ -90,6 +91,8 @@ const map<Item *, int> &Inventory::getMyItemMap() const {
 void Inventory::setMyItemMap(const map<Item *, int> &myItemMap) {
     Inventory::myItemMap = myItemMap;
 }
+
+
 
 
 

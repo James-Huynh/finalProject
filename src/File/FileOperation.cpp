@@ -37,7 +37,7 @@ void FileOperation::saveGame(const Character &character, int level_i, const Merc
     string filePath = "myFile2.txt";
     ofstream ofs;
 
-    ofs.open(filePath, ios::binary);
+    ofs.open(filePath, ios::out);
 
 
     ofs.write((const char *) &character, sizeof(Character));
@@ -53,7 +53,7 @@ void FileOperation::saveGame(const Character &character, int level_i, const Merc
 void
 FileOperation::loadGame(const string &filePath, const Character &character, Merchandise &merchandise, int &level_i) {
     ifstream ifs;
-    ifs.open(filePath, ios::binary);
+    ifs.open(filePath, ios::in);
 
     if (!ifs.is_open()) {
         cout << "failed to open File!";
@@ -62,6 +62,8 @@ FileOperation::loadGame(const string &filePath, const Character &character, Merc
         ifs.read((char *) &character, sizeof(Character));
         ifs.read((char *) &merchandise1, sizeof(Merchandise));
         ifs.read((char *) &level_i, sizeof(int));
+        cout << merchandise1.getName()<<endl;
+        cout << merchandise1.getDescription()<<endl;
         merchandise.setName(merchandise1.getName());
         merchandise.setDescription(merchandise1.getDescription());
         merchandise.setSaleList(merchandise1.getSaleList());
