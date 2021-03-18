@@ -8,17 +8,19 @@
 
 #include <iostream>
 #include <vector>
+#include <iomanip>
 #include "Visual/initGraph.h"
 #include "Visual/initLevels.h"
 #include "Visual/Room.h"
 #include "Visual/Levels.h"
-#include "item/Item.h"
-#include "town/Chest.h"
-#include "common/itemListTotal.h"
-#include "town/Merchandise.h"
+#include "Item/Item.h"
+#include "Town/Chest.h"
+#include "Common/itemListTotal.h"
+#include "Town/Merchandise.h"
 #include "Entity/Character.h"
 #include "Entity/Role.h"
 #include "Entity/Equipment.h"
+#include "File/FileOperation.h"
 
 //temporary
 #include "gameplay.h"
@@ -32,15 +34,12 @@ void testEquipment() {
     Role::initializeRoles();
     Character kingSam("Sam", '1');
 
-//    Sword mySword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
-//    Armor myArmor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
-//    Shield myShield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
     kingSam.printEquipment();
     cout << endl;
 
-	Weapon* mySword = new Sword("iron sword","level 2 with 20% pierce through armor",500,2,500,0.65);
-	Weapon* myArmor = new Armor("Bamen","level 4 with 80% against the damage",10000,4,5000,0.8);
-	Weapon* myShield = new Shield("iron shield","level 2 with 20% pierce through armor",500,2,500,0.10);
+    Weapon *mySword = new Sword("iron sword", "level 2 with 20% pierce through armor", 500, 2, 500, 0.65);
+    Weapon *myArmor = new Armor("iron armor", "level 3 with 20% against the damage", 1000, 3, 700, 0.2);
+    Weapon *myShield = new Shield("iron shield", "level 2 with 20% pierce through armor", 500, 2, 500, 0.10);
 
     kingSam.equipMainWeapon(mySword);
     kingSam.equipArmor(myArmor);
@@ -114,7 +113,7 @@ void gameSaveAndLoad() {
 
     Inventory inventory("default bag");
 
-    inventory.addItem(totalListItem.at(17), 1);
+    inventory.addItem(totalListItem.at(17), 5);
     inventory.addItem(totalListItem.at(2), 1);
     inventory.addItem(totalListItem.at(3), 1);
     inventory.addItem(totalListItem.at(15), 1);
