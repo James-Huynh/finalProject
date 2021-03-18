@@ -21,9 +21,6 @@
 #include "Entity/Role.h"
 #include "Entity/Equipment.h"
 #include "Common/GameSounds.h"
-
-
-//temporary
 #include "gameplay.h"
 
 

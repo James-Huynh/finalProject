@@ -9,6 +9,7 @@
 #define GAMEPLAY_H_
 #include <iostream>
 #include <vector>
+#include <cstdio>
 #include <iomanip>
 #include "Visual/initGraph.h"
 #include "Visual/initLevels.h"
@@ -16,8 +17,72 @@
 #include "Visual/Levels.h"
 #include "Item/Item.h"
 
+char normalMenu(Character& mainPlayer, Room currRoom, Graphics currDisplay){
 
-char inTown(Merchandise& townMerchandise, Character& mainPlayer){
+	char option;
+	int optionAW;
+	Inventory playerInventory = mainPlayer.getMyInventory();
+	Equipment playerEquipment = mainPlayer.getMyEquipment();
+	Weapon* mainWeapon = playerEquipment.getMainWeapon();
+	Weapon* mainArmor = playerEquipment.getArmor();
+	Weapon* newAW;
+
+
+	cout << "\tWhat would you like to do ?" << endl << endl;
+	cout << "\th - Drink a potion" << endl;
+	cout << "\tw - Change your main weapon" << endl;
+	cout << "\ta - Change your armor" << endl;
+	cout << "\tm - Move to another room" << endl;
+
+	cin >> option;
+
+	system("clear");
+
+	cout << endl << endl << "\t\t\t\t\tYou are in Room #" << currRoom.getRoomNumber() << endl;
+	//Print the first screen
+	currDisplay.PrintDisplay();
+
+	switch(option){
+	case('h'):
+		//Show the potions and ask which one he wants to use
+		mainPlayer.drinkPotion();
+		break;
+	case('w'):
+		//Show the weapons and ask which one he wants to use as his main weapon
+		cout << "Your main weapon is currently : " << endl;
+		mainWeapon->printInfo();
+		cout << endl << "These are the ones in your inventory. Which number would like to equip ?" << endl << endl;
+		playerInventory.showWeapons();
+		cin >> optionAW;
+
+		newAW = dynamic_cast<Weapon*>(playerInventory.findItem(optionAW));
+		mainPlayer.equipMainWeapon(newAW);
+
+		break;
+	case('a'):
+		//Show the armor and ask which one he wants to use as his main weapon
+		cout << "Your armor is currently : " << endl;
+		mainArmor->printInfo();
+		cout << "These are the ones in your inventory. Which number would like to equip ?" << endl << endl;
+		playerInventory.showWeapons();
+		cin >> optionAW;
+
+		newAW = dynamic_cast<Weapon*>(playerInventory.findItem(optionAW));
+		mainPlayer.equipArmor(newAW);
+
+		break;
+	case('m'):
+		break;
+	default:
+		cout << "Not a valid option." << endl;
+		break;
+	}
+
+	return option;
+}
+
+
+char inTown(Merchandise& townMerchandise, Character& mainPlayer, Graphics currDisplay){
 //Will probably need to receive the player to access his inventory
 	char option;
 	char buyOption;
@@ -36,6 +101,10 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 	int sellOption;
 	char sellQte;
 	Item* itemToSell;
+	Equipment playerEquipment = mainPlayer.getMyEquipment();
+	Weapon* mainWeapon = playerEquipment.getMainWeapon();
+	Weapon* mainArmor = playerEquipment.getArmor();
+
 
 
 	cout << "\tWhat would you like to do ?" << endl << endl;
@@ -45,7 +114,14 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 	cout << "\ti - See your inventory" << endl;
 	cout << "\tn - Go to the next level" << endl;
 
+
 	cin >> option;
+
+	system("clear");
+
+	cout << endl << endl << "\t\t\t\t\tYou are in the town" << endl;
+	//Print the first screen
+	currDisplay.PrintDisplay();
 
 	switch(option){
 	case('h'):
@@ -152,10 +228,10 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 
 		//What do you want to sell
 		//Potions, gold or weapons ?
-		cout << "In which category is the item you want to sell ?" << endl;
-		cout << "p- Potions" << endl;
-		cout << "w - Weapons" << endl;
-		cout << "g - Gold" << endl;
+		cout << "\tIn which category is the item you want to sell ?" << endl;
+		cout << "\tp - Potions" << endl;
+		cout << "\tw - Weapons" << endl;
+		cout << "\tg - Gold" << endl;
 
 		cin >> sellCategory;
 
@@ -180,12 +256,16 @@ char inTown(Merchandise& townMerchandise, Character& mainPlayer){
 			cout << endl;
 		}
 
-		cout << "Write the number of the item you want to sell" << endl;
+		cout << "\tWrite the number of the item you want to sell" << endl;
 
 		cin >> sellOption;
 
 		itemToSell = playerInventory.findItem(sellOption);
 
+		if(itemToSell->getName() == mainWeapon->getName())
+			mainPlayer.equipMainWeapon(nullptr);
+		else if(itemToSell->getName() == mainArmor->getName())
+			mainPlayer.equipArmor(nullptr);
 
 		//Remove the item from the dude
 
@@ -297,10 +377,10 @@ void mainGameplay(){
 	Levels currLevel;
 	Character currMonster;
 
-	//createLevelOne(level1);
+	createLevelOne(level1);
 	createLevelTwo(level2);
 
-	//wholeGame.push_back(level1);
+	wholeGame.push_back(level1);
 	wholeGame.push_back(level2);
 
 
@@ -321,6 +401,7 @@ void mainGameplay(){
 
 	//Variable for the game
 	char directionUser;
+	char normal;
 	char useless;
 	char optionChest;
 	bool isFightingBoss;
@@ -349,9 +430,13 @@ void mainGameplay(){
 	Character mainPlayer(playersName, charRole);
 
 
-	cout << "Greetings ! ";
+	cout << "\tGreetings ! " << endl;
 
 	mainPlayer.printCharacter();
+
+	cout << "Press any key and then enter to start playing the game" << endl;
+
+	cin >> useless;
 
 	for(size_t i = 0; i < wholeGame.size(); i++){
 
@@ -413,12 +498,16 @@ void mainGameplay(){
 					//we won and it was the boss, say boss is dead in the level
 					if(isFightingBoss && isPlayerAlive){
 						currLevel.setBossStatus(false);
-						cout << "\tCongratulations ! The boss is dead ! Let's go to a town to celebrate ! (Press any key then enter to go to the town)" << endl;
+						cout << "\tCongratulations ! The boss is dead ! Let's go to a town to celebrate ! (Press any key and then enter to go to the town)" << endl;
+						//Xp from killing a boss
+						mainPlayer.addXp(80);
 						cin >> useless;
 						break;
 					}
 					if(isPlayerAlive){
 						cout << "\tCongratulations ! You won against the monster !" << endl;
+						//Xp from killing a monster
+						mainPlayer.addXp(20);
 					}
 				}
 				if(!isPlayerAlive)
@@ -441,12 +530,16 @@ void mainGameplay(){
 							cout << endl;
 							cout << "\t";
 							myFirstArmor->printInfo();
-							cout << endl << "\tAnd 2 small health potions of 25 hp each !" << endl << endl;
+							cout << endl << "\t, 2 small health potions of 25 hp each and 250$!" << endl << endl;
 
-							cout << "\tYour sword and cloth armor are now equipped !" << endl;
+							mainPlayer.pickUpItem(myFirstArmor);
+							mainPlayer.pickUpItem(myFirstSword);
+							mainPlayer.addMoney(250);
 
 							mainPlayer.equipMainWeapon(myFirstSword);
 							mainPlayer.equipArmor(myFirstArmor);
+
+							cout << "\tYour sword and cloth armor are now equipped !" << endl;
 
 							mainPlayer.pickUpItem(hpPotionStart);
 							mainPlayer.pickUpItem(hpPotionStart);
@@ -484,6 +577,10 @@ void mainGameplay(){
 				}
 
 				//DOES THE PLAYER WANTS TO ACCESS HIS INVENTORY(NOW IT'LL JUST BE DRINK POTIONS) OR GO TO ANOTHER ROOM
+
+				do{
+					normal = normalMenu(mainPlayer, currRoom, currDisplay);
+				}while(normal != 'm');
 
 				//ask the user which direction he wants to go
 				cout << "\tWhich direction would you like to go ? ('F' (Forward), 'R' (Right), 'L' (Left), 'B' (backward))" << endl;
@@ -537,7 +634,7 @@ void mainGameplay(){
 
 			do{
 				//Call to inTown while output is not n
-				townOutput = inTown(townMerchandise, mainPlayer);
+				townOutput = inTown(townMerchandise, mainPlayer, townDisplay);
 			}while(townOutput != 'n');
 		}
 }

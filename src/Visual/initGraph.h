@@ -26,6 +26,29 @@ Graphics straightLine(){
 	return curr;
 }
 
+Graphics straightLineEnemy(){
+	Graphics curr("verticalLinewithEnemy", true);
+	string display = "\n\n\n";
+
+	display = display +
+			  "\t\t\t\t-----------------------------------\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |   X   |            |\n" +
+			  "\t\t\t\t|            | --|-- |            |\n" +
+			  "\t\t\t\t|            |   |   |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |   *   |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t-----------------------------------\n";
+
+	curr.SetDisplay(display);
+	return curr;
+}
+
 Graphics endRoom(){
 	Graphics curr("endRoom", true, true);
 	string display = "\n\n\n";

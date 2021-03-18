@@ -124,7 +124,7 @@ void Inventory::removeItem(Item * item, int quantity){
 	for (auto pair : myItemMap) {
 		if (pair.first->getName() == item->getName()) {
 			myItemMap[item] = pair.second - quantity;
-			if(pair.second < 0){
+			if(myItemMap[item] < 0){
 				myItemMap.erase(item);
 				break;
 			}
