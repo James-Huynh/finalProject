@@ -85,5 +85,13 @@ Merchandise::Merchandise() {
 
 }
 
-
+Merchandise &Merchandise::operator=(const Merchandise &other) {
+    if(!saleList.empty()){
+        saleList.clear();
+    }
+    for(auto pair : other.saleList){
+        saleList.emplace(pair.first,pair.second);
+    }
+    return *this;
+}
 

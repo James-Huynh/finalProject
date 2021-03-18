@@ -34,7 +34,7 @@ public:
 
     static int getRandomNumByLevel(Item* item);
 
-
+    Merchandise& operator=(const Merchandise& other);
 
 };
 

@@ -17,9 +17,13 @@ public:
 
     static void loadGame(Merchandise &merchandise, int &i);
 
-    static void saveGame(const Merchandise &merchandise);
+//    template<class T>
+//    static void saveGame(const T &t);
+//
+//    template<class T>
+//    static void loadGame(T &t);
 
-    static void loadGame(Merchandise &merchandise);
+    void saveChar(const Character &character);
 };
 
 
