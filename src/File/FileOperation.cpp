@@ -112,6 +112,7 @@ void FileOperation::loadChar(Character &character) {
 
 
     character.setCharName(charName);
+    character.setHp(hp);
     character.setMaxHp(currMaxHp);
     character.setCurrAtt(currAtt);
     character.setCurrDef(currDef);
