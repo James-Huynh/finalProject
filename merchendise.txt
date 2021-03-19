@@ -1,0 +1,14 @@
+uhhhh
+heuheuguegherg erugherugh 
+Wood Sword;8
+Brass Sword;2
+Wood axe;3
+Brass axe;4
+Wood shield;7
+Iron shield;1
+Small health potion;7
+Medium health potion;3
+Cloth Armor ;5
+Leather Armor;1
+Amethyst;4
+Emerald;1
