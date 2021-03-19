@@ -104,7 +104,43 @@ void createLevelTwo(Levels& currLevel){
 
 }
 
-//Level 3
+
+void createLevelThree(Levels& currLevel){
+
+	//Impossible maze to get out
+/*
+	Graphics first = LShapeTopLeft();
+	Graphics second = LShapeTopRight();
+	Graphics third = LShapeBottomRight();
+	Graphics fourth = LShapeBottomLeft();
+
+	Room* roomOne = new Room{first, 1};
+	Room* roomTwo = new Room{second, 2};
+	Room* roomThree = new Room{third, 3};
+	Room* roomFour = new Room{fourth, 3};
+
+	roomOne->setEastRoom(roomTwo);
+	roomOne->setSouthRoom(roomThree);
+
+	roomTwo->setWestRoom(roomOne);
+	roomTwo->setSouthRoom(roomFour);
+
+	roomFour->setNorthRoom(roomTwo);
+	roomFour->setEastRoom(roomThree);
+
+	roomThree->setWestRoom(roomFour);
+	roomThree->setNorthRoom(roomOne);
+
+	currLevel.addRoom(*roomOne);
+	currLevel.addRoom(*roomTwo);
+	currLevel.addRoom(*roomThree);
+	currLevel.addRoom(*roomFour);
+*/
+}
+
+
+
+//Level 4 ideas
 /*Character boss("Genghis Khan", '1');
 
 	Weapon* myArmor = new Armor("leather armor ","level 2 with 10% against the damage",500,2,90,0.1);
