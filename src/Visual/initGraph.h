@@ -228,10 +228,10 @@ Graphics mainMenu(){
 			  "\n" +
 			  "\n" +
 			  "\t\t\t\t			     1.   Start\n" +
-//			  "\n" +
-//			  "\t\t\t\t			     2.   Load\n" +
 			  "\n" +
-			  "\t\t\t\t			     2.   Quit\n";
+			  "\t\t\t\t			     2.   Load\n" +
+			  "\n" +
+			  "\t\t\t\t			     3.   Quit\n";
 
 	curr.SetDisplay(display);
 	return curr;
@@ -252,11 +252,11 @@ Graphics deathVisuals(){
 			  "\n" +
 			  "\t\t\t\t			      1. Restart"
 			  "\n" +
-//			  "\n" +
-//			  "\t\t\t\t			      2.  Load"
+			  "\n" +
+			  "\t\t\t\t			      2.  Load"
 			  "\n" +
 			  "\n" +
-			  "\t\t\t\t			      2.  Quit";
+			  "\t\t\t\t			      3.  Quit";
 
 
 	curr.SetDisplay(display);

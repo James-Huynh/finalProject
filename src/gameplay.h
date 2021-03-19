@@ -377,7 +377,7 @@ void restartGameplay(size_t& lvlIndex, Character& mainPlayer, string charName, c
 	mainPlayer = newPlayer;
 
 }
-/*
+
 void restartLoaded(size_t& lvlIndex, Character& mainPlayer) {
 
 	FileOperation::loadLevel(lvlIndex);
@@ -385,7 +385,7 @@ void restartLoaded(size_t& lvlIndex, Character& mainPlayer) {
 	FileOperation::loadChar(mainPlayer);
 
 }
-*/
+
 void mainGameplay(){
 	//Creating the game
 	vector<Levels> wholeGame;
@@ -406,7 +406,7 @@ void mainGameplay(){
 	Graphics currDisplay;
 
 	//First chest encountered
-	HP_Potion* hpPotionStart = new HP_Potion("small hp","level 1 hp potion",100,1,25);
+	HP_Potion* hpPotionStart = new HP_Potion("Mini health potion","Heals for 25 hp",75, 1, 25);
 	Weapon* myFirstSword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 100, 0.6);
 	Weapon* myFirstArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 80, 0.0);
 
@@ -427,6 +427,7 @@ void mainGameplay(){
 	bool first = true;
 	int playOrQuit;
 	int restartOrQuit;
+	size_t startValue;
 
 	//Everything to do with the Town
 	Graphics townDisplay = town();
@@ -440,6 +441,7 @@ void mainGameplay(){
 	//Initializing the character
 	string playersName;
 	char charRole = '1';
+	Character mainPlayer{};
 
 
 	system("clear");
@@ -447,36 +449,62 @@ void mainGameplay(){
 
 	cin >> playOrQuit;
 
-	while(playOrQuit != 1 && playOrQuit != 2){
+	while(playOrQuit != 1 && playOrQuit != 2 && playOrQuit != 3){
 		cout << "Not a valid option. Enter 1 or 2" << endl;
 		cin >> playOrQuit;
 	}
 
-	if(playOrQuit == 2)
+	if(playOrQuit == 1){
+		cout << "\tPlease enter a name for your Character: ";
+		cin >> playersName;
+		cout << "\tGreat, now what role would you like ? " << endl << endl;
+		//Print the roles
+		Role::printRoles();
+		cin >> charRole;
+		//Create character with role
+		Character tempPlayer(playersName, charRole);
+
+		mainPlayer = tempPlayer;
+
+		cout << "\tGreetings ! " << endl;
+
+		mainPlayer.printCharacter();
+
+		cout << "\tPress any key and then enter to start playing the game" << endl;
+
+		cin >> useless;
+
+		startValue = 0;
+	}
+
+	else if(playOrQuit == 2){
+
+		FileOperation::loadLevel(startValue);
+
+		FileOperation::loadChar(mainPlayer);
+
+		cout << "\tGreetings ! " << endl;
+
+		mainPlayer.printCharacter();
+
+		cout << "\tYou are at level:" << startValue + 1 << endl;
+
+		cout << "\tPress any key and then enter to start playing the game" << endl;
+
+		cin >> useless;
+	}
+
+	else if(playOrQuit == 3)
 		exit(EXIT_SUCCESS);
+
+
 
 	system("clear");
 
 
-	cout << "\tPlease enter a name for your Character: ";
-	cin >> playersName;
-	cout << "\tGreat, now what role would you like ? " << endl << endl;
-	//Print the roles
-	Role::printRoles();
-	cin >> charRole;
-	//Create character with role
-	Character mainPlayer(playersName, charRole);
 
 
-	cout << "\tGreetings ! " << endl;
-
-	mainPlayer.printCharacter();
-
-	cout << "\tPress any key and then enter to start playing the game" << endl;
-
-	cin >> useless;
-
-	for(size_t i = 0; i < wholeGame.size(); i++){
+	for(size_t i = startValue; i < wholeGame.size(); i++){
 
 		currLevel = wholeGame.at(i);
 		currRoom = currLevel.getCurrRoom();
@@ -484,18 +512,18 @@ void mainGameplay(){
 		isPlayerAlive = mainPlayer.isAlive();
 
 		//Save the character, his inventory, equipment and the level he is on.
-/*
+
 		FileOperation::saveChar(mainPlayer);
 		FileOperation::saveEqu(mainPlayer);
 		FileOperation::saveInven(mainPlayer);
 		FileOperation::saveLevel(i);
-*/
+
 		system("clear");
 
 
 		do{
 
-			cout << endl << endl << "\t\t\t\t\tYou are in Room #" << currRoom.getRoomNumber() << endl;
+			cout << endl << endl << "\t\t\t\t\tLevel " << i + 1 << " - Room " << currRoom.getRoomNumber() << endl;
 			//Print the first screen
 			currDisplay.PrintDisplay();
 
@@ -669,13 +697,13 @@ void mainGameplay(){
 			if(restartOrQuit == 1)
 				restartGameplay(i, mainPlayer, playersName, charRole, first);
 			//Quit Game
-/*			if(restartOrQuit == 2){
+			if(restartOrQuit == 2){
 				if(i == 0)
 					restartGameplay(i, mainPlayer, playersName, charRole, first);
 				else
 					restartLoaded(i, mainPlayer);
 			}
-*/			if(restartOrQuit == 2)
+			if(restartOrQuit == 3)
 				break;
 		} else {
 			//When boss is defeated, we should go to the town.

@@ -1,5 +1,5 @@
-None
+
 10
-small hp;1
+Mini health potion;1
 Wood Sword;0
 Cloth Armor ;0
