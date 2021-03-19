@@ -26,7 +26,8 @@ Graphics straightLine(){
 	return curr;
 }
 
-Graphics LShapeRight(){
+
+Graphics LShapeTopRight(){
 	Graphics curr("LShapeRight", false);
 	string display = "\n\n\n";
 
@@ -35,13 +36,36 @@ Graphics LShapeRight(){
 			  "\t\t\t\t|            |--------------------|\n" +
 			  "\t\t\t\t|            |                    |\n" +
 			  "\t\t\t\t|            |                    |\n" +
-			  "\t\t\t\t|            |                    |\n" +
+			  "\t\t\t\t|            |   *                |\n" +
 			  "\t\t\t\t|            |       |------------|\n" +
 			  "\t\t\t\t|            |       |            |\n" +
 			  "\t\t\t\t|            |       |            |\n" +
 			  "\t\t\t\t|            |       |            |\n" +
 			  "\t\t\t\t|            |       |            |\n" +
-			  "\t\t\t\t|            |   *   |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t-----------------------------------\n";
+
+	curr.SetDisplay(display);
+	return curr;
+}
+
+Graphics LShapeTopLeft(){
+	Graphics curr("LShapeRight", false);
+	string display = "\n\n\n";
+
+	display = display +
+			  "\t\t\t\t-----------------------------------\n" +
+			  "\t\t\t\t|--------------------|            |\n" +
+			  "\t\t\t\t|                    |            |\n" +
+			  "\t\t\t\t|                    |            |\n" +
+			  "\t\t\t\t|                *   |            |\n" +
+			  "\t\t\t\t|------------|       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
 			  "\t\t\t\t|            |       |            |\n" +
 			  "\t\t\t\t-----------------------------------\n";
 
