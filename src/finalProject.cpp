@@ -232,7 +232,7 @@ int main() {
 
 	//Sam's part
 
-//	mainGameplay();
+	mainGameplay();
 
 	//END of Sam's part
 
@@ -248,7 +248,7 @@ int main() {
 	//Qin' part
 
 
-    loadAndSaveTest();
+    //loadAndSaveTest();
 	//END of Qin's part
 
 
