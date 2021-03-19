@@ -229,9 +229,9 @@ Graphics mainMenu(){
 			  "\n" +
 			  "\t\t\t\t			     1.   Start\n" +
 			  "\n" +
-			  "\t\t\t\t			     1.   Load\n" +
+			  "\t\t\t\t			     2.   Load\n" +
 			  "\n" +
-			  "\t\t\t\t			     2.   Quit\n";
+			  "\t\t\t\t			     3.   Quit\n";
 
 	curr.SetDisplay(display);
 	return curr;
