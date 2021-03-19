@@ -16,7 +16,7 @@ void createLevelOne(Levels& currLevel){
 	Graphics two = chestRoomWithExit();
 	Graphics three = endRoom();
 
-	Character boss("Ragnar", '1');
+	Character boss("Ragnar", '3');
 	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 80, 0.0);
 	boss.equipArmor(myArmor);
 	Weapon* mySword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 100, 0.6);
@@ -49,7 +49,7 @@ void createLevelTwo(Levels& currLevel){
 	Graphics rightY = straightLine();
 	Graphics rightYY = chestRoom();
 
-	Character boss("Alexander the great", '1');
+	Character boss("Alexander the great", '2');
 
 	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 85, 0.0);
 	boss.equipArmor(myArmor);
@@ -57,12 +57,18 @@ void createLevelTwo(Levels& currLevel){
 	boss.equipMainWeapon(mySword);
 	boss.addXp(100);
 
+	Character commonMonster("Ghost", '3');
+	Weapon* mySecondArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 75, 0.0);
+	commonMonster.equipArmor(mySecondArmor);
+	Weapon* mySecondSword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 95, 0.6);
+	commonMonster.equipMainWeapon(mySecondSword);
+
 	Room* roomOne = new Room{firstScreen, 1};
 	Room* roomTwo = new Room{secondScreen, 2};
 	Room* roomThree = new Room{leftY, 3};
 	Room* roomFour = new Room{leftYY, 4, boss};
 	Room* roomFive = new Room{rightY, 5};
-	Room* roomFivePoint = new Room{rightYBack, 7};
+	Room* roomFivePoint = new Room{rightYBack, 7, commonMonster};
 	Room* roomSix = new Room{rightYY, 6};
 
 	roomOne->setNorthRoom(*roomTwo);
@@ -76,7 +82,7 @@ void createLevelTwo(Levels& currLevel){
 
 	roomFour->setSouthRoom(*roomThree);
 
-	roomFive->setNorthRoom(*roomFivePoint);
+	roomFive->setNorthRoom(*roomSix);
 	roomFive->setSouthRoom(*roomTwo);
 
 	roomSix->setSouthRoom(*roomFive);

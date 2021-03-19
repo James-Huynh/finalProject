@@ -369,6 +369,7 @@ char inFight(Character& enemy, Character& player, bool isBoss, Room currRoom, Gr
 }
 
 void restartGameplay(size_t& lvlIndex, Character& mainPlayer, string charName, char roleIndex, bool& firstTime) {
+
 	lvlIndex = -1;
 	firstTime = true;
 	Character newPlayer(charName, roleIndex);
@@ -471,6 +472,7 @@ void mainGameplay(){
 		currLevel = wholeGame.at(i);
 		currRoom = currLevel.getCurrRoom();
 		currDisplay = currRoom.getDesign();
+		isPlayerAlive = mainPlayer.isAlive();
 
 		system("clear");
 
@@ -649,7 +651,7 @@ void mainGameplay(){
 			}
 
 			if(restartOrQuit == 1)
-				restartGameplay(i, mainPlayer, mainPlayer.getCharName(), charRole, first);
+				restartGameplay(i, mainPlayer, playersName, charRole, first);
 			//Quit Game
 			if(restartOrQuit == 2)
 				break;
