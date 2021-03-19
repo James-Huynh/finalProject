@@ -135,8 +135,13 @@ void Character::updateLevel() {
 
 	// Check if your level has changed
 	if (oldLevel != newLvl) {
+		cout << endl;
 		cout << "\tCongratulations ! You just leveled up." << endl;
 		cout << "\tYou are now level " << newLvl << endl;
+		cout << "\tHere are your new stats !" << endl << endl;
+		printCharacter();
+		hp = currMaxHp;
+		cout << endl;
 	}
 }
 

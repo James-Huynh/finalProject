@@ -21,8 +21,8 @@ double Inventory::drinkPotion(int potionNb){
 	double basePtsPotions;
 
 	for (auto &pair : myItemMap) {
+		i++;
 		if (pair.first->getType() == "Potion"){
-			i++;
 	        if (i == potionNb) {
 	        	tempPotion = dynamic_cast<Potion*> (pair.first);
 	        	basePtsPotions = tempPotion->getBasePoint();
