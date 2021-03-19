@@ -30,16 +30,18 @@ Armor::Armor(const string &name, const string &description, int buyPrice, int le
 int Armor::getDefenceValue(){
     int result=protectValue;
     if(getProbability()<dodgeProbability){    // if the random number is small, then the attack not hit the target;
-        return INT_MAX;
+//        cout<<name<< " success to avoid the hit."<<endl;
+        return -1;
     }
     for (Diamond* d : diamondPlace) {
         result+=d->getBasePoint();
     }
+//    cout<<name<< " support "<< result<<" points protection against hit."<<endl;
     return result;
 }
 
 
 
-int Armor::getAttackValue() {   // defensive weapon has no attack value;
+int Armor::getAttackValue() {
     return 0;
 }

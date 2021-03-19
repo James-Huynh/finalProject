@@ -20,24 +20,24 @@ void Equipment::setArmor(Weapon *armor) {
 
 void Equipment::printEquipment() const {
 	if (mainWeapon == nullptr && secWeapon == nullptr && armor == nullptr) {
-		cout << "You have no equipment. Buona fortuna..." << endl;
+		cout << "\tYou have no equipment. Buona fortuna..." << endl;
 	} else {
 		if (mainWeapon != nullptr) {
-			cout << "Main Weapon: " << mainWeapon->getDescription() << endl;
+			cout << "\tMain Weapon: " << mainWeapon->getName() << " - " << mainWeapon->getDescription() << endl;
 		} else {
-			cout << "Main Weapon: None" << endl;
+			cout << "\tMain Weapon: None" << endl;
 		}
 
 		if (secWeapon != nullptr) {
-			cout << "Secondary Weapon: " << secWeapon->getDescription() << endl;
+			cout << "\tSecondary Weapon: " << secWeapon->getName() << " - " << secWeapon->getDescription() << endl;
 		} else {
-			cout << "Secondary Weapon: None" << endl;
+			cout << "\tSecondary Weapon: None" << endl;
 		}
 
 		if (armor != nullptr) {
-			cout << "Armor: " << armor->getDescription() << endl;
+			cout << "\tArmor: " << armor->getName() << " - " << armor->getDescription() << endl;
 		} else {
-			cout << "Armor: None" << endl;
+			cout << "\tArmor: None" << endl;
 		}
 	}
 

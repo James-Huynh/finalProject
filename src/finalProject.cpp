@@ -20,8 +20,7 @@
 #include "Entity/Character.h"
 #include "Entity/Role.h"
 #include "Entity/Equipment.h"
-
-//temporary
+#include "Common/GameSounds.h"
 #include "gameplay.h"
 
 
@@ -36,9 +35,9 @@ void testEquipment() {
     kingSam.printEquipment();
     cout << endl;
 
-    Weapon *mySword = new Sword("iron sword", "level 2 with 20% pierce through armor", 500, 2, 500, 0.65);
-    Weapon *myArmor = new Armor("iron armor", "level 3 with 20% against the damage", 1000, 3, 700, 0.2);
-    Weapon *myShield = new Shield("iron shield", "level 2 with 20% pierce through armor", 500, 2, 500, 0.10);
+    Weapon* myArmor = new Armor("Achilles Armor", "Legendary armor created by Hephaestus and said to be impenetrable", 10000, 10, 5000, 0.5);
+	Weapon* mySword = new Sword("Excalibur","Legendary sword forged on the Isle of Avalon and said to belong to the true king", 16000, 10, 6000, 1.0);
+	Weapon* myShield = new Shield("Brass shield","Fancy shield with decent protection", 1000, 5, 1000, 0.3);
 
     kingSam.equipMainWeapon(mySword);
     kingSam.equipArmor(myArmor);
@@ -67,7 +66,7 @@ void testCombat() {
 	Character queenSam("Sam", '1');
 
 	Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
-	Weapon* myArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,180,0.1);	// testing values
+	Weapon* myArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,80,0.1);	// testing values
 
 	kingJames.equipMainWeapon(mySword);
 	queenSam.equipArmor(myArmor);
@@ -82,99 +81,105 @@ void testCombat() {
 
 }
 
+void testSound() {
+	GameSounds::playTestSound();
+}
+
+void testXp() {
+    Character kingSam("Sam", '1');
+    cout << "\tInitial Character" << endl;
+    kingSam.printCharacter();
+    cout << endl;
+    cout << "\tAfter a fight Character" << endl;
+    kingSam.addXp(-1);
+    kingSam.printCharacter();
+}
+
+void testMainMenu() {
+	Graphics mainScreen = mainMenu();
+	mainScreen.PrintDisplay();
+}
+
+void testDeathScreen() {
+	Graphics deathScreen = deathVisuals();
+	deathScreen.PrintDisplay();
+}
+
+
 
 void entityMain() {
-    testRoles();
-    cout << endl;
-    testCharacter();
-    testEquipment();
-    cout << endl;
-    testCombat();
+//	cout << fixed << setprecision(0);
+//    testRoles();
+//    cout << endl;
+//    testCharacter();
+//    cout << endl;
+//    testEquipment();
+//    cout << endl;
+//    testCombat();
+//    cout << endl;
+//	testXp();
+//	cout << endl;
+	testMainMenu();
+	cout << endl;
+	testDeathScreen();
+	cout << endl;
 }
 //END of James' part
 
 
-/*-------------------qin----------------------*/
+/*------------------------ qin--------------------------*/
+void qinMain(){
+    Merchandise merchandise("Depanneur711", "weapons and potions for sale");
+    map<Item *, int> saleList;
 
-void gameSave() {
-    vector<Item *> totalListItem = getTotalListItem();
-    Merchandise merchandise("hello world", "this",totalListItem);
-    Character kingSam("tom");
-    int level_i = 1;
-    Weapon *mySword = new Sword("iron sword", "level 2 with 20% pierce through armor", 500, 2, 500, 0.65);
-    Weapon *myArmor = new Armor("iron armor", "level 3 with 20% against the damage", 1000, 3, 700, 0.2);
-    Weapon *myShield = new Shield("iron shield", "level 2 with 20% pierce through armor", 500, 2, 500, 0.10);
+    vector<Item *> itemListTotal = getTotalListItem();
 
-    kingSam.equipMainWeapon(mySword);
-    kingSam.equipArmor(myArmor);
-    kingSam.equipSecWeapon(myShield);
 
-    Inventory inventory("default bag");
+    Inventory inventory("default Bag");
+    for(int i =0 ; i <20 ; i+=3)
+        inventory.addItem(itemListTotal.at(i),1);
 
-    inventory.addItem(totalListItem.at(17), 5);
-    inventory.addItem(totalListItem.at(2), 1);
-    inventory.addItem(totalListItem.at(3), 1);
-    inventory.addItem(totalListItem.at(15), 1);
+    inventory.addItem(itemListTotal.at(18),3);
 
-    kingSam.setMyInventory(inventory);
-    inventory.addItem(totalListItem.at(1), 100);
-    kingSam.getMyInventory().showWeapons();
-    kingSam.getMyInventory().showPotions();
-    kingSam.getMyInventory().showMyMoney();
+
+    inventory.showPotions();
+    inventory.showMyMoney();
+    inventory.showWeapons();
 }
-void gameLoad() {
-    Character kingSam("tom");
-    int level_j;
-    Merchandise m("711", "this is for test");
-    Character c("tom");
-    int level_j;
-
-    FileOperation::loadGame("myFile2.txt", c, m, level_j);
-    c.getMyEquipment().printEquipment();
-    c.getMyInventory().showPotions();
-    c.getMyInventory().showWeapons();
-
-    cout << level_j<<endl;
-
-    m.printInfo();
-
-
-
-}
+/*------------------------finish--------------------------*/
 
 
 int main() {
 
-    //For random values
-    srand(time(NULL));
-    //Initialize the roles
-    Role::initializeRoles();
+	//For random values
+	srand (time(NULL));
+	//Initialize the roles
+	Role::initializeRoles();
 
-    //Sam's part
+	//Sam's part
 
-    //mainGameplay();
+	mainGameplay();
 
-    //END of Sam's part
-
-
-
-    //James' part
-//    entityMain();
-
-    //END of James' part
+	//END of Sam's part
 
 
 
-    //Qin' part
+	//James' part
+	//entityMain();
 
-    gameSaveAndLoad();
-    //END of Qin's part
+	//END of James' part
 
 
-    /*
-    for (auto & i : itemListTotal){
+
+	//Qin' part
+
+	//END of Qin's part
+
+
+	/*
+	for (auto & i : itemListTotal){
         delete i;
     }
-     */
-    return 0;
+	 */
+	return 0;
 }
