@@ -26,4 +26,6 @@ class Equipment {
 		Weapon* getArmor();
 		Weapon* getMainWeapon();
 		Weapon* getSecWeapon();
+
+		string toSave() const;
 };

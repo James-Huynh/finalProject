@@ -3,7 +3,9 @@
 //
 
 #include <fstream>
+#include <sstream>
 #include "FileOperation.h"
+#include "../Common/itemListTotal.h"
 
 void FileOperation::saveGame(const Character &character, int level_i) {
 
@@ -89,12 +91,127 @@ void FileOperation::saveGame( const Merchandise &merchandise, int level_i) {
 
 
 void FileOperation::saveChar( const Character &character) {
-    string filePath = "merchandiseOnly.txt";
+    string filePath = "char.txt";
     ofstream ofs;
 
-    ofs.open(filePath,  ios::out | ios::binary);
-    ofs>>character.getCharName()>>character.
+    ofs.open(filePath,  ios::out);
+
+    string charBasic=character.toSave();
+    ofs <<charBasic;
 
     ofs.close();
+}
+
+void FileOperation::saveEqu( const Character &character) {
+    string filePath = "equp.txt";
+    ofstream ofs;
+
+    ofs.open(filePath,  ios::out);
+
+    ofs <<character.getMyEquipment().toSave();
+
+
+    ofs.close();
+}
+
+void FileOperation::saveInven(Character character) {
+    string filePath = "inve.txt";
+    ofstream ofs;
+    ofs.open(filePath,  ios::out);
+    ofs <<character.getMyInventory().toSave();
+    ofs.close();
+}
+
+
+
+Item* FileOperation::getItemByName(const string& name){
+    vector<Item *> totalListItem = getTotalListItem();
+    for (Item* item: totalListItem){
+        if(item->getName()==name){
+            return item;
+        }
+    }
+}
+
+
+
+void FileOperation::loadChar(Character &character) {
+    string filePath1 = "char.txt";
+    string filePath2 = "equp.txt";
+    string filePath3 = "inve.txt";
+
+    std::ifstream input( filePath1 );
+    std::ifstream input2( filePath2 );
+    std::ifstream input3( filePath3 );
+    double hp, currMaxHp, currAtt, currDef, lvlDivision;  //double
+    int level, xp;//int
+    bool alive;//bool
+    string charName;
+
+    int money;
+    char roleIndex;
+    string  mainWeapon;
+    string secWeapon;
+    string armor;
+
+    string invenName;
+    int maxPlace;
+    map<Item*,int> itemMap;
+
+
+
+
+    input>>charName;
+    input>>roleIndex;
+    Character temp(charName,roleIndex);
+    character=temp;
+    input>>hp;
+    input>>currMaxHp;
+    input>>currAtt;
+    input>>currDef;
+    input>>lvlDivision;
+    input>>money;
+    input>>level;
+    input>>xp;
+    input>>alive;
+
+    getline(input2,mainWeapon);
+    getline(input2,secWeapon);
+    getline(input2,armor);
+
+
+    character.setCharName(charName);
+    character.setMaxHp(currMaxHp);
+    character.setCurrAtt(currAtt);
+    character.setCurrDef(currDef);
+    character.setLvlDivision(lvlDivision);
+    character.setMoney(money);
+    character.setLevel(level);
+    character.setXp(xp);
+    character.setAlive(alive);
+    if(mainWeapon!="nullptr")
+        character.equipMainWeapon(dynamic_cast<Weapon *>(getItemByName(mainWeapon)));
+    if(secWeapon!="nullptr")
+        character.equipSecWeapon(dynamic_cast<Weapon *>(getItemByName(secWeapon)));
+    if(armor!="nullptr")
+        character.equipArmor(dynamic_cast<Weapon *>(getItemByName(armor)));
+
+    getline(input3,invenName);
+    input3>>maxPlace;
+    getline(input3,invenName);
+    character.getMyInventory().setName(invenName);
+    character.getMyInventory().setMaxPlace(maxPlace);
+    string line;
+    int pos;
+    while(getline(input3, line)) {
+       pos=line.find(';');
+        Item* item= getItemByName(line.substr(0,pos));
+        character.getMyInventory().loadItem(item,stoi(line.substr(pos+1)));
+
+    }
+
+    input.close();
+    input2.close();
+    input3.close();
 }
 

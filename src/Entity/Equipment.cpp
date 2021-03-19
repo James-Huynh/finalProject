@@ -54,3 +54,12 @@ Weapon* Equipment::getMainWeapon() {
 Weapon* Equipment::getSecWeapon() {
 	return secWeapon;
 }
+
+string Equipment::toSave() const {
+    string temp;
+
+    temp+=(mainWeapon!= nullptr?mainWeapon->getName():"nullptr")+"\n";
+    temp+=(secWeapon!= nullptr?secWeapon->getName():"nullptr")+"\n";
+    temp+=(armor!= nullptr?armor->getName():"nullptr")+"\n";
+    return temp;
+}

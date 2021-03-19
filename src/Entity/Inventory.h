@@ -46,4 +46,7 @@ public:
     int getTotalItemQuantity();
 
 
+    string toSave() const;
+
+    void loadItem(Item *item, int quantity);
 };
