@@ -1,9 +1,9 @@
 #include "Character.h"
 
 
-Character::Character(string name, char roleId) : Role(roleId) {
-
+Character::Character(string name, char roleId, string description) : Role(roleId) {
 	charName = name;
+	charDescription = description;
 	xp = 0;
 	level = 1;
 	lvlDivision = 10.0;
@@ -18,6 +18,7 @@ Character::Character(string name, char roleId) : Role(roleId) {
 
 void Character::printCharacter() {
 	cout << "\tName: " << charName << endl;
+	cout << "\tDescription: " << charDescription << endl;
 	printMyRole();
 	cout << "\tTotal attack: " << computeTotalAttack() << endl;
 	cout << "\tTotal defense: " << computeTotalDefense() << endl;
