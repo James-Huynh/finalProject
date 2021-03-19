@@ -38,9 +38,9 @@ vector<Item*> getTotalListItem(){
 	auto* emerald= new Diamond ("Emerald", "level 2, embed on defensive Weapon will increase 100 points of defence", 5000, 3, 500, 0.2);
 	auto* ruby= new Diamond ("Ruby", "level 3, embed on defensive Weapon will increase 100 points of defence", 10000, 5, 1000, 0.3);
 
-	auto* bigGold= new Gold ("Big Gold", "Worth 1000",1000);
-	auto* avgGold= new Gold ("Medium Gold", "Worth 500",500);
-	auto* smallGold= new Gold ("Small Gold", "Worth 100",100);
+	auto* bigGold = new Gold ("Big Gold", "Worth 1000",1000);
+	auto* avgGold = new Gold ("Medium Gold", "Worth 500",500);
+	auto* smallGold = new Gold ("Small Gold", "Worth 100",100);
 
 
 	return {
