@@ -32,6 +32,8 @@ vector<Item*> getTotalListItem(){
 	auto* ironShield = new Shield("Iron shield","Heavy and popular shield around the common realm", 500, 3, 500, 0.2);
 	auto* brassShield= new Shield("Brass shield","Fancy shield with decent protection", 1000, 5, 1000, 0.3);
 
+
+	auto* hpPotion4= new HP_Potion("Mini health potion","Heals for 25 hp",75, 1, 25);
 	auto* hpPotion1= new HP_Potion("Small health potion","Heals for 50 hp",100, 1, 50);
 	auto* hpPotion2= new HP_Potion("Medium health potion","Heals for 100 hp",200, 3, 100);
 	auto* hpPotion3= new HP_Potion("Big health potion","Heals for 500 hp",400, 5, 500);
@@ -41,9 +43,9 @@ vector<Item*> getTotalListItem(){
 	auto* emerald= new Diamond ("Emerald", "level 2, embed on defensive Weapon will increase 100 points of defence", 5000, 3, 500, 0.2);
 	auto* ruby= new Diamond ("Ruby", "level 3, embed on defensive Weapon will increase 100 points of defence", 10000, 5, 1000, 0.3);
 
-	auto* bigGold= new Gold ("Big Gold", "Worth 1000",1000);
-	auto* avgGold= new Gold ("Medium Gold", "Worth 500",500);
-	auto* smallGold= new Gold ("Small Gold", "Worth 100",100);
+	auto* bigGold = new Gold ("Big Gold", "Worth 1000",1000);
+	auto* avgGold = new Gold ("Medium Gold", "Worth 500",500);
+	auto* smallGold = new Gold ("Small Gold", "Worth 100",100);
 
 
 	return {
@@ -51,7 +53,7 @@ vector<Item*> getTotalListItem(){
 		excaliburSword,ironSword,brassSword,woodSword,
 		panguAxe,ironAxe,brassAxe,woodAxe,
 		ironShield,brassShield,woodShield,
-		hpPotion1,hpPotion2,hpPotion3,
+		hpPotion1,hpPotion2,hpPotion3,hpPotion4,
 		amethyst,emerald,ruby,
 		bigGold,avgGold,smallGold,
 

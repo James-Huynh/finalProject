@@ -34,7 +34,7 @@ void FileOperation::saveEqu( const Character &character) {
 
 /* save inventory*/
 void FileOperation::saveInven(Character character) {
-    string filePath = "inve.txt";
+    string filePath = "../src/Saves/inve.txt";
     ofstream ofs;
     ofs.open(filePath,  ios::out);
     ofs <<character.getMyInventory().toSave();  // get string of all attributes of inventory
@@ -120,6 +120,7 @@ void FileOperation::loadChar(Character &character) {
     character.setMoney(money);
     character.setLevel(level);
     character.setXp(xp);
+    character.setHp(hp);
     character.setAlive(alive);
     if(mainWeapon!="nullptr")
         character.equipMainWeapon(dynamic_cast<Weapon *>(getItemByName(mainWeapon)));

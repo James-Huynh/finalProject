@@ -277,7 +277,8 @@ Graphics mainMenu(){
 	"\t\t\t\t               | |                                   | |\n" +
 	"\t\t\t\t               | |                                   | |\n" +
 	"\t\t\t\t               |/ ----------------------------------- \\|\n" +
-	"\t\t\t\t               |---------------------------------------|\n\n";
+	"\t\t\t\t               |---------------------------------------|\n\n" +
+	"\n\n";
 
 	display = display +
 			  "\t\t\t\t                           Welcome to Horizon\n" +
@@ -286,9 +287,11 @@ Graphics mainMenu(){
 			  "\n" +
 			  "\n" +
 			  "\n" +
-			  "\t\t\t\t			     1. Start Game\n" +
+			  "\t\t\t\t			     1.   Start\n" +
 			  "\n" +
-			  "\t\t\t\t			     2. Quit Game\n";
+			  "\t\t\t\t			     2.   Load\n" +
+			  "\n" +
+			  "\t\t\t\t			     3.   Quit\n";
 
 	curr.SetDisplay(display);
 	return curr;
@@ -302,6 +305,7 @@ Graphics deathVisuals(){
 			  "\t\t\t\t				You Died" +
 			  "\n" +
 			  "\n" +
+			  "\n" +
 			  "\t\t\t\t		    \"When Nothing Goes Right, Go Left\"" +
 			  "\n" +
 			  "\n" +
@@ -309,7 +313,10 @@ Graphics deathVisuals(){
 			  "\t\t\t\t			      1. Restart"
 			  "\n" +
 			  "\n" +
-			  "\t\t\t\t			      2. Quit Game";
+			  "\t\t\t\t			      2.  Load"
+			  "\n" +
+			  "\n" +
+			  "\t\t\t\t			      3.  Quit";
 
 
 	curr.SetDisplay(display);

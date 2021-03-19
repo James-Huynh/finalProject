@@ -51,8 +51,17 @@ void testEquipment() {
 
 void testCharacter() {
     Role::initializeRoles();
-    Character kingSam("Sam", '1');
+    Character kingSam("Sam", '1', "This is King Sam");
     kingSam.printCharacter();
+    cout << endl;
+    Character kingJames("James", '1');
+    kingJames.printCharacter();
+    cout << endl;
+	Character boss("Ragnar", '3',
+			"Ragnar Lodbrok was a legendary viking, hero and king. "
+			"Corrupted by dark forces, he remains a shell of his former self.");
+	boss.printCharacter();
+	cout << endl;
 }
 
 void testRoles() {
@@ -112,12 +121,12 @@ void entityMain() {
 //	cout << fixed << setprecision(0);
 //    testRoles();
 //    cout << endl;
-//    testCharacter();
-//    cout << endl;
+    testCharacter();
+    cout << endl;
 //    testEquipment();
 //    cout << endl;
-    testCombat();
-    cout << endl;
+//    testCombat();
+//    cout << endl;
 //	testXp();
 //	cout << endl;
 //	testMainMenu();
@@ -161,7 +170,7 @@ void loadAndSaveTest() {
     auto*  leatherArmor= new Armor("Leather Armor","Common leather armor with basic defense", 1000, 3, 500, 0.1);
 
     // Swords have balanced attributes
-    auto* woodSword= new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 100, 0.6);
+    auto* woodSword= new Sword("Wood Sword","Some weap on is better than no weapon", 800, 1, 100, 0.6);
     auto* brassSword = new Sword("Brass Sword","Forged with care, popular with commoners", 1600, 3, 550, 0.7);
 
     // Axes have higher damage and less hit rate
@@ -239,7 +248,7 @@ int main() {
 
 
 	//James' part
-	//entityMain();
+	entityMain();
 
 	//END of James' part
 
@@ -249,6 +258,7 @@ int main() {
 
 
     //loadAndSaveTest();
+
 	//END of Qin's part
 
 
