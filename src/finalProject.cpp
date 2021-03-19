@@ -62,21 +62,21 @@ void testRoles() {
 void testCombat() {
 	Role::initializeRoles();
 
-	Character kingJames("James", '1');
-	Character queenSam("Sam", '1');
+	// warrior and sentinel
+	Character kingJames("James", '3');
+	Character queenSam("Sam", '2');
 
-	Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
-	Weapon* myArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,80,0.1);	// testing values
-
+	Weapon* mySword = new Sword("Test Sword", "Some weapon is better than no weapon", 800, 1, 100, 0.5);
+	Weapon* myArmor = new Armor("Test Armor", "Some armor is better than no armor", 500, 1, 80, 0.5);
 	kingJames.equipMainWeapon(mySword);
 	queenSam.equipArmor(myArmor);
 
 	// This is physical abuse
 	cout << "Initial HP of Sam: " << queenSam.getHp() << endl;
-	for (int i = 0; i < 10; ++i) {
+	for (int i = 0; i < 20; ++i) {
 		cout << "Round: " << i+1 << endl;
 		kingJames.basicAttack(&queenSam);
-		cout << "HP of Sam: " << queenSam.getHp() << endl << endl;
+		cout << "\tHP of Sam: " << queenSam.getHp() << endl << endl;
 	}
 
 }
@@ -115,14 +115,14 @@ void entityMain() {
 //    cout << endl;
 //    testEquipment();
 //    cout << endl;
-//    testCombat();
-//    cout << endl;
+    testCombat();
+    cout << endl;
 //	testXp();
 //	cout << endl;
-	testMainMenu();
-	cout << endl;
-	testDeathScreen();
-	cout << endl;
+//	testMainMenu();
+//	cout << endl;
+//	testDeathScreen();
+//	cout << endl;
 }
 //END of James' part
 
