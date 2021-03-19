@@ -213,7 +213,7 @@ void loadAndSaveTest() {
 
     FileOperation::saveLevel(leve);
 
-    int new_leve;
+    size_t new_leve;
     FileOperation::loadLevel(new_leve);
     cout << new_leve<<endl;
 
