@@ -5,6 +5,9 @@
 #include "itemListTotal.h"
 
 //Weapon(const string &name, const string &description, int buyPrice, int level, int dmgValue, int protectValue, bool isAttack);
+/*
+ * this is init the items used in the game.
+ */
 
 vector<Item*> getTotalListItem(){
 	auto*  clothArmor= new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 80, 0.0);

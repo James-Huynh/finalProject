@@ -30,11 +30,13 @@ public:
 
 //    void addItem(Item* Item, int quantity);
 
-    void printInfo();
+    void printInfo() override;
 
     static int getRandomNumByLevel(Item* item);
 
+    Merchandise& operator=(const Merchandise& other);
 
+    string toSave();
 };
 
 

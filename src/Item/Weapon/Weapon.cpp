@@ -43,7 +43,7 @@ void Weapon::setIsAttack(bool isAttack) {
 Weapon::Weapon(const string &name, const string &description, int buyPrice, int level, int dmgValue, int protectValue,
                bool isAttack) : Item(name, description, buyPrice, level), dmgValue(dmgValue),
                                 protectValue(protectValue), isAttack(isAttack) {
-    this->sellValue=buyPrice/2;
+    this->sellValue=buyPrice/2;                                 // sell the weapon would get back 1/2 of its buyPrice;
 }
 
 const vector<Diamond *> &Weapon::getDiamondPlace() const {
@@ -66,7 +66,7 @@ void Weapon::embedDiamond(Diamond* diamond) {
     }
 }
 
-double Weapon::getProbability(){
+double Weapon::getProbability(){    // get average probability for the weapon to calculate dmg/defense value
 //    srand (time(NULL));
     double result=0;
     for(int i=0;i<3 ;i++){

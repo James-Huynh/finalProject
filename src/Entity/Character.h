@@ -53,28 +53,60 @@ class Character : public Role {
         void setXp(double xp);
 		void setAlive(bool alive);
 		void setCharName(const string &charName);
-		void setMyEquipment(const Equipment &myEquipment);
+
 		void setHealth(double value);
-		void setMyInventory(const Inventory &myInventory);
 
-		bool isAlive();
+     Inventory &getMyInventory() ;
 
-		const string& getCharName() const;
+    void setMyInventory(const Inventory &myInventory);
 
-		double getHp();
+    const Equipment &getMyEquipment() const;
 
-		double getMaxHp();
+    void setMyEquipment(const Equipment &myEquipment);
 
-		Equipment& getMyEquipment();
-		Inventory getMyInventory();
+    double getHp() const;
 
-		double getXp();
 
-		int getMoney();
 
-		void addMoney(int addedMoney);
+    double getCurrMaxHp() const;
+
+    void setCurrMaxHp(double currMaxHp);
+
+    double getCurrAtt() const;
+
+    void setCurrAtt(double currAtt);
+
+    double getCurrDef() const;
+
+    void setCurrDef(double currDef);
+
+    double getLvlDivision() const;
+
+    void setLvlDivision(double lvlDivision);
+
+    int getLevel() const;
+
+    void setLevel(int level);
+
+    int getXp() const;
+
+    void setXp1(int xp);
+
+    bool isAlive() const;
+
+    int getMoney() const;
+
+    void setMoney(int money);
+
+    const string& getCharName() const;
+
+    void addMoney(int addedMoney);
 		void removeMoney(int minusMoney);
 
 		int getLvl();
 
+    string toSave()const;
+
+
+    double getMaxHp();
 };

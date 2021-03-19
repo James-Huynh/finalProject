@@ -15,7 +15,7 @@ class Equipment {
         Weapon* armor;
     public:
         Equipment();
-        void printEquipment();
+        void printEquipment() const;
 
         // Setters
         void setMainWeapon(Weapon* mainW);
@@ -26,4 +26,6 @@ class Equipment {
 		Weapon* getArmor();
 		Weapon* getMainWeapon();
 		Weapon* getSecWeapon();
+
+		string toSave() const;
 };

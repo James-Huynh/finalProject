@@ -11,7 +11,7 @@ int Chest::getRandomIndex(const vector<Item*>& itemList) {
 
 
 
-Item *Chest::openBox(const vector<Item*>& itemList) {
+Item *Chest::openBox(const vector<Item*>& itemList) {    // openBox to get random bonus item
     if (!itemList.empty()) {
         Item *item = itemList.at(getRandomIndex(itemList));
         item->printInfo();

@@ -21,9 +21,7 @@
 #include "Entity/Role.h"
 #include "Entity/Equipment.h"
 #include "Common/GameSounds.h"
-
-
-//temporary
+#include "File/FileOperation.h"
 #include "gameplay.h"
 
 
@@ -84,9 +82,9 @@ void testCombat() {
 
 }
 
-void testSound() {
-	GameSounds::playTestSound();
-}
+//void testSound() {
+//	GameSounds::playTestSound();
+//}
 
 void testXp() {
     Character kingSam("Sam", '1');
@@ -149,6 +147,79 @@ void qinMain(){
     inventory.showMyMoney();
     inventory.showWeapons();
 }
+
+void loadAndSaveTest() {
+
+    //For random values
+    srand(time(NULL));
+
+    vector<Item *> totalListItem = getTotalListItem();
+    Role::initializeRoles();
+
+    Character kingJames("James", '1');
+    auto*  clothArmor= new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 80, 0.0);
+    auto*  leatherArmor= new Armor("Leather Armor","Common leather armor with basic defense", 1000, 3, 500, 0.1);
+
+    // Swords have balanced attributes
+    auto* woodSword= new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 100, 0.6);
+    auto* brassSword = new Sword("Brass Sword","Forged with care, popular with commoners", 1600, 3, 550, 0.7);
+
+    // Axes have higher damage and less hit rate
+    auto* woodAxe = new Ax("Wood axe","How much wood would a woodchuck chuck?", 900, 1, 120, 0.5);
+    auto* brassAxe = new Ax("Brass axe","Weird axe, but it works and hurts", 1800, 3, 600, 0.6);
+
+    // NOT used, special feature that allows to you to dodge and block again
+    auto* woodShield= new Shield("Wood shield","Basic wooden shield, cheap to make", 100, 1, 100, 0.1);
+
+    auto* hpPotion1= new HP_Potion("Small health potion","Heals for 50 hp",100, 1, 50);
+
+    // NOT used, special feature that allows you to apply runes and buff your equipment
+    auto* amethyst= new Diamond("Amethyst", "level 1, embed on defensive Weapon will increase 100 points of defence", 1000, 1, 100, 0.1);
+
+    auto* bigGold= new Gold ("Big Gold", "Worth 1000",1000);
+
+
+
+    kingJames.equipMainWeapon(brassAxe);
+    kingJames.equipArmor(leatherArmor);
+    kingJames.pickUpItem(hpPotion1);
+    kingJames.pickUpItem(amethyst);
+    kingJames.pickUpItem(clothArmor);
+    kingJames.getMyInventory().showPotions();
+    kingJames.getMyInventory().showWeapons();
+    Character tt("tt", '2');
+
+    FileOperation::saveChar(kingJames);
+    FileOperation::saveEqu(kingJames);
+    FileOperation::saveInven(kingJames);
+    FileOperation::loadChar(tt);
+
+    tt.getMyInventory().showPotions();
+    tt.getMyInventory().showWeapons();
+
+
+    Merchandise merchandise("uhhhh","heuheuguegherg erugherugh ",totalListItem );
+
+    FileOperation::saveMerchandise(merchandise);
+
+    Merchandise mm("tttttt","heu5555555555555555" );
+
+    FileOperation::loadMerchandise(mm);
+
+    mm.printInfo();
+    merchandise.printInfo();
+
+    int leve=99;
+
+    FileOperation::saveLevel(leve);
+
+    int new_leve;
+    FileOperation::loadLevel(new_leve);
+    cout << new_leve<<endl;
+
+
+}
+
 /*------------------------finish--------------------------*/
 
 
@@ -168,7 +239,7 @@ int main() {
 
 
 	//James' part
-	entityMain();
+	//entityMain();
 
 	//END of James' part
 
@@ -176,6 +247,8 @@ int main() {
 
 	//Qin' part
 
+
+    loadAndSaveTest();
 	//END of Qin's part
 
 

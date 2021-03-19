@@ -16,10 +16,10 @@ void createLevelOne(Levels& currLevel){
 	Graphics two = chestRoomWithExit();
 	Graphics three = endRoom();
 
-	Character boss("Ragnar", '1');
-	Weapon* myArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,80,0.1);
+	Character boss("Ragnar", '3');
+	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 80, 0.0);
 	boss.equipArmor(myArmor);
-	Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
+	Weapon* mySword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 100, 0.6);
 	boss.equipMainWeapon(mySword);
 
 	Room* roomOne = new Room{one, 1};
@@ -44,26 +44,36 @@ void createLevelTwo(Levels& currLevel){
 	Graphics firstScreen = straightLine();
 	Graphics secondScreen = twoWayY();
 	Graphics leftY = straightLine();
+	Graphics rightYBack = straightLineEnemy();
 	Graphics leftYY  = endRoom();
 	Graphics rightY = straightLine();
 	Graphics rightYY = chestRoom();
 
-	Character boss("Ragnar", '1');
+	Character boss("Alexander the great", '2');
 
-	Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
-
+	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 85, 0.0);
+	boss.equipArmor(myArmor);
+	Weapon* mySword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 105, 0.6);
 	boss.equipMainWeapon(mySword);
+	boss.addXp(100);
+
+	Character commonMonster("Ghost", '3');
+	Weapon* mySecondArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 75, 0.0);
+	commonMonster.equipArmor(mySecondArmor);
+	Weapon* mySecondSword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 95, 0.6);
+	commonMonster.equipMainWeapon(mySecondSword);
 
 	Room* roomOne = new Room{firstScreen, 1};
 	Room* roomTwo = new Room{secondScreen, 2};
 	Room* roomThree = new Room{leftY, 3};
 	Room* roomFour = new Room{leftYY, 4, boss};
 	Room* roomFive = new Room{rightY, 5};
+	Room* roomFivePoint = new Room{rightYBack, 7, commonMonster};
 	Room* roomSix = new Room{rightYY, 6};
 
 	roomOne->setNorthRoom(*roomTwo);
 
-	roomTwo->setEastRoom(*roomFive);
+	roomTwo->setEastRoom(*roomFivePoint);
 	roomTwo->setWestRoom(*roomThree);
 	roomTwo->setSouthRoom(*roomOne);
 
@@ -77,22 +87,26 @@ void createLevelTwo(Levels& currLevel){
 
 	roomSix->setSouthRoom(*roomFive);
 
+	roomFivePoint->setSouthRoom(*roomTwo);
+	roomFivePoint->setNorthRoom(*roomSix);
+
 	currLevel.addRoom(*roomOne);
 	currLevel.addRoom(*roomTwo);
 	currLevel.addRoom(*roomThree);
 	currLevel.addRoom(*roomFour);
 	currLevel.addRoom(*roomFive);
 	currLevel.addRoom(*roomSix);
+	currLevel.addRoom(*roomFivePoint);
 
 }
 
 //Level 3
-/*Weapon* mySword = new Sword("wood sword","level 1 with 5% pierce through armor",100,1,100,0.55);
-	Weapon* myArmor = new Armor("cloth armor ","level 2 with 10% against the damage",500,2,180,0.1);
-	// testing values
-	kingJames.equipMainWeapon(mySword);
-	queenSam.equipArmor(myArmor);
-	*/
+/*Character boss("Genghis Khan", '1');
+
+	Weapon* myArmor = new Armor("leather armor ","level 2 with 10% against the damage",500,2,90,0.1);
+	boss.equipArmor(myArmor);
+	Weapon* mySword = new Sword("iron sword","level 1 with 5% pierce through armor",100,1,110,0.55);
+	boss.equipMainWeapon(mySword);*/
 
 
 

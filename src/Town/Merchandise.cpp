@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <vector>
 
+// create merchandise with saleList
 Merchandise::Merchandise(const string &name, const string &description,const vector<Item*>&itemTotalMap ) : Town(name, description) {
 
     for(Item* item: itemTotalMap){
@@ -21,7 +22,6 @@ Merchandise::Merchandise(const string &name, const string &description,const vec
 const map<Item *, int> &Merchandise::getSaleList() const {
     return saleList;
 }
-
 
 
 void Merchandise::printInfo() {
@@ -50,16 +50,8 @@ void Merchandise::printInfo() {
     }
 }
 
-//void Merchandise::addItem(Item *Item, int quantity) {
-//    std::map<Item *, int>::iterator it;
-//    it = saleList.find(Item);
-//    if (it == saleList.end())
-//        saleList.emplace(Item, quantity);
-//    else {
-//        it->second = quantity;
-//    }
-//
-//}
+
+// base on the level of item, the quantity of the item is randomly generated
 
 int Merchandise::getRandomNumByLevel(Item *item) {
     {
@@ -79,6 +71,8 @@ int Merchandise::getRandomNumByLevel(Item *item) {
     }
 }
 
+
+// need setter to init saleList after new Merchandise
 Merchandise::Merchandise(const string &name, const string &description) : Town(name, description) {}
 
 void Merchandise::setSaleList(const map<Item *, int> &saleList) {
@@ -86,10 +80,29 @@ void Merchandise::setSaleList(const map<Item *, int> &saleList) {
 }
 
 
-
+// default
 Merchandise::Merchandise() {
 
 }
 
+Merchandise &Merchandise::operator=(const Merchandise &other) {
+    if(!saleList.empty()){
+        saleList.clear();
+    }
+    for(auto pair : other.saleList){
+        saleList.emplace(pair.first,pair.second);
+    }
+    return *this;
+}
 
+string Merchandise::toSave() {
+    string temp;
+    temp += name + "\n";
+    temp +=description + "\n";
+    for (auto &pair : saleList) {
+        temp += pair.first->getName() + ";" + to_string(pair.second) + "\n";
+    }
+
+    return temp;
+}
 

@@ -3,6 +3,19 @@ map<string, vector<int>> Role::listRoles;		// very important to allow for static
 
 Role::Role(): Role(1) {}
 
+string Role::getRoleIndex() const{
+    if (roleName == "Warrior") {
+        return "3";
+    } else if (roleName == "Assassin") {
+        return "1";
+    } else if (roleName == "Sentinel") {
+        return "2";
+    }else{
+        return "0";
+    }
+}
+
+
 Role::Role(char roleIndex) {
 	baseMaxHp = 100;
     switch(roleIndex) {
@@ -31,9 +44,10 @@ Role::Role(char roleIndex) {
 }
 
 void Role::initializeRoles() {
-    Role::listRoles.emplace(pair<string, vector<int>>("Warrior", {100, 100}));
+
     Role::listRoles.emplace(pair<string, vector<int>>("Assassin", {110, 90}));
     Role::listRoles.emplace(pair<string, vector<int>>("Sentinel", {90, 110}));
+    Role::listRoles.emplace(pair<string, vector<int>>("Warrior", {100, 100}));
 }
 
 void Role::printRoles() {

@@ -141,9 +141,13 @@ void Character::updateLevel() {
 
 	// Check if your level has changed
 	if (oldLevel != newLvl) {
+		cout << endl;
 		cout << "\tCongratulations ! You just leveled up." << endl;
 		cout << "\tYou are now level " << newLvl << endl;
+		cout << "\tHere are your new stats !" << endl << endl;
 		printCharacter();
+		hp = currMaxHp;
+		cout << endl;
 	}
 }
 
@@ -160,34 +164,16 @@ void Character::setHealth(double value) {
 	hp = value;
 }
 
-double Character::getHp() {
-	return hp;
-}
 
-double Character::getMaxHp() {
-	return currMaxHp;
-}
 
-bool Character::isAlive() {
-	return alive;
-}
 
 void Character::equipArmor(Weapon *armor) {
 	myEquipment.setArmor(armor);
 }
 
 
-Equipment& Character::getMyEquipment() {
-	return myEquipment;
-}
 
-Inventory Character::getMyInventory() {
-	return myInventory;
-}
 
-double Character::getXp() {
-	return xp;
-}
 
 bool Character::pickUpItem(Item* theItem){
 	myInventory.addItem(theItem, 1);
@@ -226,9 +212,7 @@ void Character::drinkPotion(){
 	cout << "\tYou drank a potion, you now have : " << hp << " HP" << endl << endl;
 }
 
-int Character::getMoney(){
-	return money;
-}
+
 
 void Character::addMoney(int addedMoney){
 	money += addedMoney;
@@ -236,10 +220,6 @@ void Character::addMoney(int addedMoney){
 
 void Character::removeMoney(int minusMoney){
 	money -= minusMoney;
-}
-
-void Character::setMyInventory(const Inventory &myInventory) {
-    Character::myInventory = myInventory;
 }
 
 void Character::setHp(double hp) {
@@ -266,10 +246,123 @@ void Character::setCharName(const string &charName) {
     Character::charName = charName;
 }
 
-void Character::setMyEquipment(const Equipment &myEquipment) {
-    Character::myEquipment = myEquipment;
-}
+
 
 int Character::getLvl() {
 	return level;
 }
+
+
+
+double Character::getHp() const {
+    return hp;
+}
+
+double Character::getCurrMaxHp() const {
+    return currMaxHp;
+}
+
+void Character::setCurrMaxHp(double currMaxHp) {
+    Character::currMaxHp = currMaxHp;
+}
+
+double Character::getCurrAtt() const {
+    return currAtt;
+}
+
+void Character::setCurrAtt(double currAtt) {
+    Character::currAtt = currAtt;
+}
+
+double Character::getCurrDef() const {
+    return currDef;
+}
+
+void Character::setCurrDef(double currDef) {
+    Character::currDef = currDef;
+}
+
+double Character::getLvlDivision() const {
+    return lvlDivision;
+}
+
+void Character::setLvlDivision(double lvlDivision) {
+    Character::lvlDivision = lvlDivision;
+}
+
+int Character::getLevel() const {
+    return level;
+}
+
+void Character::setLevel(int level) {
+    Character::level = level;
+}
+
+int Character::getXp() const {
+    return xp;
+}
+
+void Character::setXp1(int xp) {
+    Character::xp = xp;
+}
+
+bool Character::isAlive() const {
+    return alive;
+}
+
+int Character::getMoney() const {
+    return money;
+}
+
+void Character::setMoney(int money) {
+    Character::money = money;
+}
+
+string Character::toSave() const{
+    string temp;
+    temp=charName+"\n"+getRoleIndex()+"\n";
+    temp+=to_string(hp)+"\n";
+    temp+=to_string(currMaxHp)+"\n";
+    temp+=to_string(currAtt)+"\n";
+    temp+=to_string(currDef)+"\n";
+    temp+=to_string(lvlDivision)+"\n";
+    temp+=to_string(money)+"\n";
+    temp+=to_string(level)+"\n";
+    temp+=to_string(xp)+"\n";
+    temp+=to_string(alive)+"\n";
+
+
+
+    return temp;
+
+}
+
+ Inventory &Character::getMyInventory()  {
+    return myInventory;
+}
+
+void Character::setMyInventory(const Inventory &myInventory) {
+    Character::myInventory = myInventory;
+}
+
+const Equipment &Character::getMyEquipment() const {
+    return myEquipment;
+}
+
+void Character::setMyEquipment(const Equipment &myEquipment) {
+    Character::myEquipment = myEquipment;
+}
+
+double Character::getMaxHp() {
+    return currMaxHp;
+}
+
+
+
+
+
+
+
+
+
+

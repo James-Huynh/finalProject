@@ -27,8 +27,7 @@ void Ax::setHitProbability(double hitProbability) {
 int Ax::getAttackValue(){
 
     int result=dmgValue;
-    if(getProbability()<hitProbability){    // if the random number is small, then the attack not hit the target;
-//        cout<<"fail to hit on the target."<<endl;
+    if(getProbability()<hitProbability){    // if the random number is small, then the attack not hit the target;ndl;
         return 0;
     }
     for (Diamond* d : diamondPlace) {

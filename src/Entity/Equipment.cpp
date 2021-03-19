@@ -18,7 +18,7 @@ void Equipment::setArmor(Weapon *armor) {
 	this->armor = armor;
 }
 
-void Equipment::printEquipment() {
+void Equipment::printEquipment() const {
 	if (mainWeapon == nullptr && secWeapon == nullptr && armor == nullptr) {
 		cout << "\tYou have no equipment. Buona fortuna..." << endl;
 	} else {
@@ -53,4 +53,13 @@ Weapon* Equipment::getMainWeapon() {
 
 Weapon* Equipment::getSecWeapon() {
 	return secWeapon;
+}
+
+string Equipment::toSave() const {
+    string temp;
+
+    temp+=(mainWeapon!= nullptr?mainWeapon->getName():"nullptr")+"\n";
+    temp+=(secWeapon!= nullptr?secWeapon->getName():"nullptr")+"\n";
+    temp+=(armor!= nullptr?armor->getName():"nullptr")+"\n";
+    return temp;
 }
