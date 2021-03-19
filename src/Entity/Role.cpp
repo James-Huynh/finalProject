@@ -58,11 +58,11 @@ void Role::printMyRole() {
 
 string Role::getRoleIndex() const{
     if (roleName == "Warrior") {
-        return "1";
+        return "3";
     } else if (roleName == "Assassin") {
         return "2";
     } else if (roleName == "Sentinel") {
-        return "3";
+        return "1";
     }else{
         return "0";
     }
