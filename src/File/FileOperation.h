@@ -19,18 +19,9 @@
 class FileOperation {
 
 public:
-   static void saveGame(const Character &character, int level_i);
-   static void loadGame(Character&c, int &i);
 
-    static void saveGame(const Merchandise &merchandise, int level_i);
 
-    static void loadGame(Merchandise &merchandise, int &i);
 
-//    template<class T>
-//    static void saveGame(const T &t);
-//
-//    template<class T>
-//    static void loadGame(T &t);
 
     static void saveChar(const Character &character);
 
@@ -49,9 +40,9 @@ public:
 
     static void loadMerchandise(Merchandise &merchandise);
 
-    static void saveLevel(int level);
+    static void saveLevel(size_t level);
 
-    static void loadLevel(int &level);
+    static void loadLevel(size_t &level);
 
 
 };
