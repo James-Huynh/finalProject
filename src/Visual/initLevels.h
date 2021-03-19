@@ -16,7 +16,9 @@ void createLevelOne(Levels& currLevel){
 	Graphics two = chestRoomWithExit();
 	Graphics three = endRoom();
 
-	Character boss("Ragnar", '3');
+	Character boss("Ragnar", '3',
+			"Ragnar Lodbrok was a legendary viking, hero and king. "
+			"Corrupted by dark forces, he remains a shell of his former self.");
 	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 80, 0.0);
 	boss.equipArmor(myArmor);
 	Weapon* mySword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 100, 0.6);
@@ -49,7 +51,10 @@ void createLevelTwo(Levels& currLevel){
 	Graphics rightY = straightLine();
 	Graphics rightYY = chestRoom();
 
-	Character boss("Alexander the great", '2');
+	Character boss("Alexander the great", '2',
+			"Tutored by Aristotle, Alexander has garnered invaluable experience during his many military campaigns across Greece. "
+			"Unfortunately, he was seduced by the dark side of the force. "
+			"His arrogance was his ultimate downfall.");
 
 	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 85, 0.0);
 	boss.equipArmor(myArmor);
@@ -57,7 +62,7 @@ void createLevelTwo(Levels& currLevel){
 	boss.equipMainWeapon(mySword);
 	boss.addXp(100);
 
-	Character commonMonster("Ghost", '3');
+	Character commonMonster("Ghost", '3', "A lost soul forever doomed to roam the void.");
 	Weapon* mySecondArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 75, 0.0);
 	commonMonster.equipArmor(mySecondArmor);
 	Weapon* mySecondSword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 95, 0.6);
