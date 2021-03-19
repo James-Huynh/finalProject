@@ -26,6 +26,31 @@ Graphics straightLine(){
 	return curr;
 }
 
+Graphics LShapeRight(){
+	Graphics curr("LShapeRight", false);
+	string display = "\n\n\n";
+
+	display = display +
+			  "\t\t\t\t-----------------------------------\n" +
+			  "\t\t\t\t|            |--------------------|\n" +
+			  "\t\t\t\t|            |                    |\n" +
+			  "\t\t\t\t|            |                    |\n" +
+			  "\t\t\t\t|            |                    |\n" +
+			  "\t\t\t\t|            |       |------------|\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |   *   |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t-----------------------------------\n";
+
+	curr.SetDisplay(display);
+	return curr;
+}
+
+
+
 Graphics straightLineEnemy(){
 	Graphics curr("verticalLinewithEnemy", true);
 	string display = "\n\n\n";
