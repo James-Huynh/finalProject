@@ -19,7 +19,7 @@ void createLevelOne(Levels& currLevel){
 	Character boss("Ragnar", '1');
 	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 80, 0.0);
 	boss.equipArmor(myArmor);
-	Weapon* mySword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 100, 0.6);
+	Weapon* mySword = new Sword("Wood Sword","Some weapon is better than no weapon", 800, 1, 200, 0.6);
 	boss.equipMainWeapon(mySword);
 
 	Room* roomOne = new Room{one, 1};
