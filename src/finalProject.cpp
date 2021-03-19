@@ -112,8 +112,8 @@ void testDeathScreen() {
 
 void entityMain() {
 //	cout << fixed << setprecision(0);
-//    testRoles();
-//    cout << endl;
+    testRoles();
+    cout << endl;
 //    testCharacter();
 //    cout << endl;
 //    testEquipment();
@@ -122,10 +122,10 @@ void entityMain() {
 //    cout << endl;
 //	testXp();
 //	cout << endl;
-	testMainMenu();
-	cout << endl;
-	testDeathScreen();
-	cout << endl;
+//	testMainMenu();
+//	cout << endl;
+//	testDeathScreen();
+//	cout << endl;
 }
 //END of James' part
 

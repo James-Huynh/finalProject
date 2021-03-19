@@ -60,7 +60,7 @@ double Character::computeDamageDealt() {
 	if(currWeapon != nullptr){
 		weaponDmg = static_cast<double>(currWeapon->getAttackValue());
 		if(weaponDmg == 0.0) {
-			cout << charName << " missed his attack" << endl;
+			cout << "\t" << charName << " missed his attack" << endl;
 			return 0;
 		}
 	}
@@ -137,6 +137,7 @@ void Character::updateLevel() {
 	if (oldLevel != newLvl) {
 		cout << "\tCongratulations ! You just leveled up." << endl;
 		cout << "\tYou are now level " << newLvl << endl;
+		printCharacter();
 	}
 }
 

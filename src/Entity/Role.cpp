@@ -6,19 +6,19 @@ Role::Role(): Role(1) {}
 Role::Role(char roleIndex) {
 	baseMaxHp = 100;
     switch(roleIndex) {
-        case '1': {
+        case '3': {
             roleName = "Warrior";
             baseAtt = listRoles["Warrior"].at(0);
             baseDef = listRoles["Warrior"].at(1);
         } break;
 
-        case '2': {
+        case '1': {
             roleName = "Assassin";
              baseAtt = listRoles["Assassin"].at(0);
              baseDef = listRoles["Assassin"].at(1);
         } break;
 
-        case '3': {
+        case '2': {
             roleName = "Sentinel";
              baseAtt = listRoles["Sentinel"].at(0);
              baseDef = listRoles["Sentinel"].at(1);
