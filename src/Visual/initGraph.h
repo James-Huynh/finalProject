@@ -26,27 +26,51 @@ Graphics straightLine(){
 	return curr;
 }
 
-Graphics LShapeRight(){
-	Graphics curr("LShapeRight", false);
-	string display = "\n\n\n";
 
-	display = display +
-			  "\t\t\t\t-----------------------------------\n" +
-			  "\t\t\t\t|            |--------------------|\n" +
-			  "\t\t\t\t|            |                    |\n" +
-			  "\t\t\t\t|   This     |                    |\n" +
-			  "\t\t\t\t|    is      |                    |\n" +
-			  "\t\t\t\t|   the      |       |------------|\n" +
-			  "\t\t\t\t| beginning  |       |            |\n" +
-			  "\t\t\t\t|    of      |       |            |\n" +
-			  "\t\t\t\t|   the      |       |            |\n" +
-			  "\t\t\t\t|  level     |       |            |\n" +
-			  "\t\t\t\t|            |   *   |            |\n" +
-			  "\t\t\t\t|            |       |            |\n" +
-			  "\t\t\t\t-----------------------------------\n";
+Graphics LShapeBL(){
+    Graphics curr("LShapeBottomLeft", false);
+    string display = "\n\n\n";
 
-	curr.SetDisplay(display);
-	return curr;
+    display = display +
+              "\t\t\t\t-----------------------------------\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |        ------------|\n" +
+              "\t\t\t\t|            |                    |\n" +
+              "\t\t\t\t|            |   *                |\n" +
+              "\t\t\t\t|            |--------------------|\n" +
+              "\t\t\t\t----------------------------------\n";
+
+    curr.SetDisplay(display);
+    return curr;
+}
+
+Graphics LShapeBR(){
+    Graphics curr("LShapeBottomRight", false);
+    string display = "\n\n\n";
+
+    display = display +
+              "\t\t\t\t-----------------------------------\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|------------        |            |\n" +
+              "\t\t\t\t|                    |            |\n" +
+              "\t\t\t\t|                *   |            |\n" +
+              "\t\t\t\t|--------------------|            |\n" +
+              "\t\t\t\t----------------------------------\n";
+
+    curr.SetDisplay(display);
+    return curr;
 }
 
 

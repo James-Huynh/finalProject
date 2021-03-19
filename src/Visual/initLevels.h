@@ -111,8 +111,8 @@ void createLevelThree(Levels& currLevel){
 /*
 	Graphics first = LShapeTopLeft();
 	Graphics second = LShapeTopRight();
-	Graphics third = LShapeBottomRight();
-	Graphics fourth = LShapeBottomLeft();
+	Graphics third = LShapeBR();
+	Graphics fourth = LShapeBL();
 
 	Room* roomOne = new Room{first, 1};
 	Room* roomTwo = new Room{second, 2};
