@@ -31,8 +31,14 @@ void Character::printEquipment() {
 double Character::basicAttack(Character *opponent) {
 	cout << "\t" << charName << " uses basic attack on " << opponent->getCharName() << endl;
 
+	double finalDmg;
 	double maxDmg = computeDamageDealt();
-	double finalDmg = opponent->takeDamage(maxDmg);
+
+	if (maxDmg != 0) {
+		finalDmg = opponent->takeDamage(maxDmg);
+	} else {
+		finalDmg = 0;
+	}
 
 	cout << "\t" << opponent->getCharName() << " lost " << finalDmg << " HP" << endl;
 
@@ -60,7 +66,7 @@ double Character::computeDamageDealt() {
 	if(currWeapon != nullptr){
 		weaponDmg = static_cast<double>(currWeapon->getAttackValue());
 		if(weaponDmg == 0.0) {
-			cout << "\t" << charName << " missed his attack" << endl;
+			cout << "\t" << charName << " missed his strike !" << endl;
 			return 0;
 		}
 	}
@@ -80,7 +86,7 @@ double Character::computeDamageReceived(double dmgIn) {
 	if(currArmor != nullptr){
 		armorDef = static_cast<double>(currArmor->getDefenceValue());
 		if(armorDef == -1) {
-			cout << charName << " deflected the attack" << endl;
+			cout << "\t" << charName << "'s armor deflected the attack !" << endl;
 			return 0;
 		}
 	}
@@ -115,7 +121,7 @@ void Character::addXp(double xpValue) {
 			xp += xpValue;
 			updateLevel();
 		}
-	} catch (exception &e) {		// TO DO PRINT ERROR
+	} catch (exception &e) {
 		cout << "\tXP error: " << e.what() << endl;
 	}
 
