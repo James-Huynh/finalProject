@@ -49,9 +49,9 @@ public:
 
     static void loadMerchandise(Merchandise &merchandise);
 
-    static void saveLevel(int level);
+    static void saveLevel(size_t level);
 
-    static void loadLevel(int &level);
+    static void loadLevel(size_t &level);
 
 
 };

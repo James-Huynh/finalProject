@@ -242,7 +242,7 @@ void FileOperation::loadMerchandise(Merchandise &merchandise) {
 
 }
 
-void FileOperation::saveLevel(int level) {
+void FileOperation::saveLevel(size_t level) {
     string filePath = "level.txt";
     ofstream ofs;
     ofs.open(filePath,  ios::out);
@@ -251,7 +251,7 @@ void FileOperation::saveLevel(int level) {
 
 }
 
-void FileOperation::loadLevel(int &level) {
+void FileOperation::loadLevel(size_t &level) {
     string filePath = "level.txt";
 
     std::ifstream input( filePath );

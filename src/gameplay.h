@@ -16,6 +16,7 @@
 #include "Visual/Room.h"
 #include "Visual/Levels.h"
 #include "Item/Item.h"
+#include "File/FileOperation.h"
 
 char normalMenu(Character& mainPlayer, Room currRoom, Graphics currDisplay){
 
@@ -377,6 +378,13 @@ void restartGameplay(size_t& lvlIndex, Character& mainPlayer, string charName, c
 
 }
 
+void restartLoaded(size_t& lvlIndex, Character& mainPlayer) {
+
+	FileOperation::loadLevel(lvlIndex);
+	FileOperation::loadChar(mainPlayer);
+
+}
+
 void mainGameplay(){
 	//Creating the game
 	vector<Levels> wholeGame;
@@ -473,6 +481,13 @@ void mainGameplay(){
 		currRoom = currLevel.getCurrRoom();
 		currDisplay = currRoom.getDesign();
 		isPlayerAlive = mainPlayer.isAlive();
+
+		//Save the character, his inventory, equipment and the level he is on.
+
+		FileOperation::saveChar(mainPlayer);
+		FileOperation::saveEqu(mainPlayer);
+		FileOperation::saveInven(mainPlayer);
+		FileOperation::saveLevel(i);
 
 		system("clear");
 
@@ -653,7 +668,13 @@ void mainGameplay(){
 			if(restartOrQuit == 1)
 				restartGameplay(i, mainPlayer, playersName, charRole, first);
 			//Quit Game
-			if(restartOrQuit == 2)
+			if(restartOrQuit == 2){
+				if(i == 0)
+					restartGameplay(i, mainPlayer, playersName, charRole, first);
+				else
+					restartLoaded(i, mainPlayer);
+			}
+			if(restartOrQuit == 3)
 				break;
 		} else {
 			//When boss is defeated, we should go to the town.
