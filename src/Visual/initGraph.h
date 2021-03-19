@@ -3,6 +3,66 @@
 #include "Graphics.h"
 #include "../Entity/Character.h"
 
+
+Graphics LShapeBL(){
+    Graphics curr("LShapeBottomLeft", false);
+    string display = "\n\n\n";
+
+    display = display +
+              "\t\t\t\t-----------------------------------\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |        ------------|\n" +
+              "\t\t\t\t|            |                    |\n" +
+              "\t\t\t\t|            |   *                |\n" +
+              "\t\t\t\t|            |--------------------|\n" +
+              "\t\t\t\t----------------------------------\n";
+
+    curr.SetDisplay(display);
+    return curr;
+}
+
+Graphics LShapeBR(){
+    Graphics curr("LShapeBottomRight", false);
+    string display = "\n\n\n";
+
+    display = display +
+              "\t\t\t\t-----------------------------------\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|            |       |            |\n" +
+              "\t\t\t\t|------------        |            |\n" +
+              "\t\t\t\t|                    |            |\n" +
+              "\t\t\t\t|                *   |            |\n" +
+              "\t\t\t\t|--------------------|            |\n" +
+              "\t\t\t\t----------------------------------\n";
+
+    curr.SetDisplay(display);
+    return curr;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Graphics straightLine(){
 	Graphics curr("verticalLine", false);
 	string display = "\n\n\n";
