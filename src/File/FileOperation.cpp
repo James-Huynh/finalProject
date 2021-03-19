@@ -93,24 +93,17 @@ void FileOperation::saveGame( const Merchandise &merchandise, int level_i) {
 void FileOperation::saveChar( const Character &character) {
     string filePath = "char.txt";
     ofstream ofs;
-
     ofs.open(filePath,  ios::out);
-
-    string charBasic=character.toSave();
+    string charBasic=character.toSave();    // get string of all attributes of char
     ofs <<charBasic;
-
     ofs.close();
 }
 
 void FileOperation::saveEqu( const Character &character) {
     string filePath = "equp.txt";
     ofstream ofs;
-
     ofs.open(filePath,  ios::out);
-
-    ofs <<character.getMyEquipment().toSave();
-
-
+    ofs <<character.getMyEquipment().toSave(); // get string of all attributes of equp
     ofs.close();
 }
 
@@ -118,7 +111,15 @@ void FileOperation::saveInven(Character character) {
     string filePath = "inve.txt";
     ofstream ofs;
     ofs.open(filePath,  ios::out);
-    ofs <<character.getMyInventory().toSave();
+    ofs <<character.getMyInventory().toSave();  // get string of all attributes of inventory
+    ofs.close();
+}
+
+void FileOperation::saveMerchandise(Merchandise merchandise) {
+    string filePath = "merchendise.txt";
+    ofstream ofs;
+    ofs.open(filePath,  ios::out);
+    ofs <<merchandise.toSave();  // get string of all attributes of inventory
     ofs.close();
 }
 
@@ -215,3 +216,46 @@ void FileOperation::loadChar(Character &character) {
     input3.close();
 }
 
+void FileOperation::loadMerchandise(Merchandise &merchandise) {
+    string filePath = "merchendise.txt";
+
+
+    std::ifstream input( filePath );
+      string name;
+    string description;
+    map<Item*,int> itemMap;
+    input>>name;
+    merchandise.setName(name);
+    getline(input,description);
+    getline(input,name);
+    merchandise.setDescription(description);
+
+    string line;
+    int pos;
+    while(getline(input, line)) {
+        pos=line.find(';');
+        Item* item= getItemByName(line.substr(0,pos));
+        itemMap.emplace(item,stoi(line.substr(pos+1)));
+    }
+    merchandise.setSaleList(itemMap);
+    input.close();
+
+}
+
+void FileOperation::saveLevel(int level) {
+    string filePath = "level.txt";
+    ofstream ofs;
+    ofs.open(filePath,  ios::out);
+    ofs <<level;
+    ofs.close();
+
+}
+
+void FileOperation::loadLevel(int &level) {
+    string filePath = "level.txt";
+
+    std::ifstream input( filePath );
+    input>>level;
+
+    input.close();
+}

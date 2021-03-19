@@ -154,6 +154,8 @@ void Character::setHealth(double value) {
 }
 
 
+
+
 void Character::equipArmor(Weapon *armor) {
 	myEquipment.setArmor(armor);
 }
@@ -223,10 +225,6 @@ void Character::setXp(double xp) {
 
 void Character::setAlive(bool alive) {
     Character::alive = alive;
-}
-
-void Character::setXp2(int xp) {
-    Character::xp = xp;
 }
 
 const string &Character::getCharName() const {
@@ -342,6 +340,10 @@ const Equipment &Character::getMyEquipment() const {
 
 void Character::setMyEquipment(const Equipment &myEquipment) {
     Character::myEquipment = myEquipment;
+}
+
+double Character::getMaxHp() {
+    return currMaxHp;
 }
 
 

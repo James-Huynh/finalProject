@@ -36,6 +36,7 @@ public:
 
     Merchandise& operator=(const Merchandise& other);
 
+    string toSave();
 };
 
 

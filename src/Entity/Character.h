@@ -107,5 +107,6 @@ class Character : public Role {
 
     string toSave()const;
 
-    void setXp2(int xp);
+
+    double getMaxHp();
 };

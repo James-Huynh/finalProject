@@ -44,6 +44,16 @@ public:
     static void saveEqu(const Character &character);
 
     static void saveInven(Character character);
+
+    static void saveMerchandise(Merchandise merchandise);
+
+    static void loadMerchandise(Merchandise &merchandise);
+
+    static void saveLevel(int level);
+
+    static void loadLevel(int &level);
+
+
 };
 
 

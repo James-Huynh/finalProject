@@ -95,3 +95,14 @@ Merchandise &Merchandise::operator=(const Merchandise &other) {
     return *this;
 }
 
+string Merchandise::toSave() {
+    string temp;
+    temp += name + "\n";
+    temp +=description + "\n";
+    for (auto &pair : saleList) {
+        temp += pair.first->getName() + ";" + to_string(pair.second) + "\n";
+    }
+
+    return temp;
+}
+
