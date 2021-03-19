@@ -391,14 +391,17 @@ void mainGameplay(){
 	vector<Levels> wholeGame;
 	Levels level1;
 	Levels level2;
+	Levels level3;
 	Levels currLevel;
 	Character currMonster;
 
 	createLevelOne(level1);
 	createLevelTwo(level2);
+	createLevelThree(level3);
 
 	wholeGame.push_back(level1);
 	wholeGame.push_back(level2);
+	wholeGame.push_back(level3);
 
 
 	//current Room and display of the level

@@ -26,7 +26,6 @@ Graphics straightLine(){
 	return curr;
 }
 
-
 Graphics LShapeBL(){
     Graphics curr("LShapeBottomLeft", false);
     string display = "\n\n\n";
@@ -48,6 +47,53 @@ Graphics LShapeBL(){
 
     curr.SetDisplay(display);
     return curr;
+}
+
+Graphics LShapeTopRight(){
+	Graphics curr("LShapeTopRight", false);
+	string display = "\n\n\n";
+
+	display = display +
+			  "\t\t\t\t-----------------------------------\n" +
+			  "\t\t\t\t|            |--------------------|\n" +
+			  "\t\t\t\t|            |                    |\n" +
+			  "\t\t\t\t|            |                    |\n" +
+			  "\t\t\t\t|            |   *                |\n" +
+			  "\t\t\t\t|            |       |------------|\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t-----------------------------------\n";
+
+	curr.SetDisplay(display);
+	return curr;
+}
+
+Graphics LShapeTopLeft(){
+	Graphics curr("LShapeTopLeft", false);
+	string display = "\n\n\n";
+
+	display = display +
+			  "\t\t\t\t-----------------------------------\n" +
+			  "\t\t\t\t|--------------------|            |\n" +
+			  "\t\t\t\t|                    |            |\n" +
+			  "\t\t\t\t|                    |            |\n" +
+			  "\t\t\t\t|                *   |            |\n" +
+			  "\t\t\t\t|------------|       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t|            |       |            |\n" +
+			  "\t\t\t\t-----------------------------------\n";
+
+	curr.SetDisplay(display);
+		return curr;
+
 }
 
 Graphics LShapeBR(){

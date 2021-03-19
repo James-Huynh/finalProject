@@ -156,7 +156,7 @@ void qinMain(){
     inventory.showMyMoney();
     inventory.showWeapons();
 }
-
+/*
 void loadAndSaveTest() {
 
     //For random values
@@ -228,7 +228,7 @@ void loadAndSaveTest() {
 
 
 }
-
+*/
 /*------------------------finish--------------------------*/
 
 
@@ -248,7 +248,7 @@ int main() {
 
 
 	//James' part
-	entityMain();
+	//entityMain();
 
 	//END of James' part
 

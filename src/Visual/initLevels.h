@@ -108,34 +108,34 @@ void createLevelTwo(Levels& currLevel){
 void createLevelThree(Levels& currLevel){
 
 	//Impossible maze to get out
-/*
-	Graphics first = LShapeTopLeft();
-	Graphics second = LShapeTopRight();
+
+	Graphics first = LShapeTopRight();
+	Graphics second = LShapeTopLeft();
 	Graphics third = LShapeBR();
 	Graphics fourth = LShapeBL();
 
 	Room* roomOne = new Room{first, 1};
 	Room* roomTwo = new Room{second, 2};
 	Room* roomThree = new Room{third, 3};
-	Room* roomFour = new Room{fourth, 3};
+	Room* roomFour = new Room{fourth, 4};
 
-	roomOne->setEastRoom(roomTwo);
-	roomOne->setSouthRoom(roomThree);
+	roomOne->setEastRoom(*roomTwo);
+	roomOne->setSouthRoom(*roomThree);
 
-	roomTwo->setWestRoom(roomOne);
-	roomTwo->setSouthRoom(roomFour);
+	roomTwo->setWestRoom(*roomOne);
+	roomTwo->setSouthRoom(*roomFour);
 
-	roomFour->setNorthRoom(roomTwo);
-	roomFour->setEastRoom(roomThree);
+	roomFour->setNorthRoom(*roomTwo);
+	roomFour->setEastRoom(*roomThree);
 
-	roomThree->setWestRoom(roomFour);
-	roomThree->setNorthRoom(roomOne);
+	roomThree->setWestRoom(*roomFour);
+	roomThree->setNorthRoom(*roomOne);
 
 	currLevel.addRoom(*roomOne);
 	currLevel.addRoom(*roomTwo);
 	currLevel.addRoom(*roomThree);
 	currLevel.addRoom(*roomFour);
-*/
+
 }
 
 
