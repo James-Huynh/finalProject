@@ -15,7 +15,7 @@
 /* save character attributes excluding equipment and inventory*/
 
 void FileOperation::saveChar( const Character &character) {
-    string filePath = "../src/saves/char.txt";
+    string filePath = "../src/Saves/char.txt";
     ofstream ofs;
     ofs.open(filePath,  ios::out);
     string charBasic=character.toSave();    // get string of all attributes of char
@@ -25,7 +25,7 @@ void FileOperation::saveChar( const Character &character) {
 
 /* save equipment*/
 void FileOperation::saveEqu( const Character &character) {
-    string filePath = "../src/saves/equp.txt";
+    string filePath = "../src/Saves/equp.txt";
     ofstream ofs;
     ofs.open(filePath,  ios::out);
     ofs <<character.getMyEquipment().toSave(); // get string of all attributes of equp
@@ -34,7 +34,7 @@ void FileOperation::saveEqu( const Character &character) {
 
 /* save inventory*/
 void FileOperation::saveInven(Character character) {
-    string filePath = "../src/saves/inve.txt";
+    string filePath = "../src/Saves/inve.txt";
     ofstream ofs;
     ofs.open(filePath,  ios::out);
     ofs <<character.getMyInventory().toSave();  // get string of all attributes of inventory
@@ -43,7 +43,7 @@ void FileOperation::saveInven(Character character) {
 
 /* save merchandise*/
 void FileOperation::saveMerchandise(Merchandise merchandise) {
-    string filePath = "../src/saves/merchendise.txt";
+    string filePath = "../src/Saves/merchendise.txt";
     ofstream ofs;
     ofs.open(filePath,  ios::out);
     ofs <<merchandise.toSave();  // get string of all attributes of inventory
@@ -67,9 +67,9 @@ Item* FileOperation::getItemByName(const string& name){
  * */
 
 void FileOperation::loadChar(Character &character) {
-    string filePath1 = "../src/saves/char.txt";
-    string filePath2 = "../src/saves/equp.txt";
-    string filePath3 = "../src/saves/inve.txt";
+    string filePath1 = "../src/Saves/char.txt";
+    string filePath2 = "../src/Saves/equp.txt";
+    string filePath3 = "../src/Saves/inve.txt";
 
     std::ifstream input( filePath1 );
     std::ifstream input2( filePath2 );
@@ -150,7 +150,7 @@ void FileOperation::loadChar(Character &character) {
 
 
 void FileOperation::loadMerchandise(Merchandise &merchandise) {
-    string filePath = "../src/saves/merchendise.txt";
+    string filePath = "../src/Saves/merchendise.txt";
 
     std::ifstream input( filePath );
       string name;
@@ -175,7 +175,7 @@ void FileOperation::loadMerchandise(Merchandise &merchandise) {
 }
 
 void FileOperation::saveLevel(size_t level) {
-    string filePath = "../src/saves/level.txt";
+    string filePath = "../src/Saves/level.txt";
     ofstream ofs;
     ofs.open(filePath,  ios::out);
     ofs <<level;
@@ -184,7 +184,7 @@ void FileOperation::saveLevel(size_t level) {
 }
 
 void FileOperation::loadLevel(size_t &level) {
-    string filePath = "../src/saves/level.txt";
+    string filePath = "../src/Saves/level.txt";
 
     std::ifstream input( filePath );
     input>>level;
