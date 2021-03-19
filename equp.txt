@@ -1,3 +1,3 @@
-Brass axe
 nullptr
-Leather Armor
+nullptr
+nullptr

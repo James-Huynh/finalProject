@@ -1,5 +1,2 @@
 None
 10
-Cloth Armor ;0
-Small health potion;0
-Amethyst;0
