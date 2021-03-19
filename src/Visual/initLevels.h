@@ -51,10 +51,9 @@ void createLevelTwo(Levels& currLevel){
 	Graphics rightY = straightLine();
 	Graphics rightYY = chestRoom();
 
-	Character boss("Alexander the great", '2',
-			"Tutored by Aristotle, Alexander has garnered invaluable experience during his many military campaigns across Greece. "
-			"Unfortunately, he was seduced by the dark side of the force. "
-			"His arrogance was his ultimate downfall.");
+	Character boss("Alexander The Great", '2',
+			"Tutored by Aristotle himself, Alexander has garnered invaluable experience during his many military campaigns across Greece. "
+			"Unfortunately, he was seduced by the dark side of the force. ");
 
 	Weapon* myArmor = new Armor("Cloth Armor ","Some armor is better than no armor", 500, 1, 85, 0.0);
 	boss.equipArmor(myArmor);
