@@ -381,6 +381,7 @@ void restartGameplay(size_t& lvlIndex, Character& mainPlayer, string charName, c
 void restartLoaded(size_t& lvlIndex, Character& mainPlayer) {
 
 	FileOperation::loadLevel(lvlIndex);
+	lvlIndex = lvlIndex - 1;
 	FileOperation::loadChar(mainPlayer);
 
 }
@@ -660,8 +661,8 @@ void mainGameplay(){
 
 			cin >> restartOrQuit;
 
-			while(restartOrQuit != 1 && restartOrQuit != 2){
-				cout << "Not a valid option. Enter 1 or 2" << endl;
+			while(restartOrQuit != 1 && restartOrQuit != 2 && restartOrQuit != 3){
+				cout << "Not a valid option. Enter 1, 2 or 3" << endl;
 				cin >> restartOrQuit;
 			}
 

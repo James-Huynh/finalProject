@@ -116,12 +116,12 @@ void entityMain() {
 //    cout << endl;
 //    testEquipment();
 //    cout << endl;
-    testCombat();
-    cout << endl;
+//    testCombat();
+//    cout << endl;
 //	testXp();
 //	cout << endl;
-//	testMainMenu();
-//	cout << endl;
+	testMainMenu();
+	cout << endl;
 //	testDeathScreen();
 //	cout << endl;
 }
@@ -239,7 +239,7 @@ int main() {
 
 
 	//James' part
-	//entityMain();
+	entityMain();
 
 	//END of James' part
 
@@ -249,6 +249,7 @@ int main() {
 
 
     //loadAndSaveTest();
+
 	//END of Qin's part
 
 
