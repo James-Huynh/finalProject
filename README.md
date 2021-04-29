@@ -1,4 +1,4 @@
-# finalProject
+# mthree - finalProject
 ## Authors: Huynh, James; Lamontagne, Samuel; Shao, Qin
 Src: Source code  
 Google Doc: home to our main plannification and timeline  
